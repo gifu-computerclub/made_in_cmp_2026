@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://ds3utitjvc4jj"]
 
+[ext_resource type="Script" uid="uid://djrhg2g7dxo2y" path="res://titlemenu/scripts/title.gd" id="1_egcdg"]
+[ext_resource type="Texture2D" uid="uid://d123ltw3bggwo" path="res://titlemenu/assets/シャッター.webp" id="1_vgw37"]
+
 [node name="Title" type="Control" unique_id=1941805507]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +10,50 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_egcdg")
+
+[node name="BackGrand" type="ColorRect" parent="." unique_id=255043271]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shutter" type="TextureRect" parent="." unique_id=537028313]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_vgw37")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=54718931]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 456.0
+offset_right = 945.0
+offset_bottom = 541.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[wave freq=2 amp=50]Aボタンを押してスタート"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TitleLabel" type="RichTextLabel" parent="." unique_id=1542957562]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 210.0
+offset_top = 116.0
+offset_right = 951.0
+offset_bottom = 383.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/normal_font_size = 100
+text = "メイド・イン・コン部"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

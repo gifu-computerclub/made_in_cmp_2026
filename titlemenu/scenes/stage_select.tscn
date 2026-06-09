@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b8wtu1aqe712"]
+
+[ext_resource type="Texture2D" uid="uid://n4mhpyidai7w" path="res://titlemenu/assets/高専.JPG" id="1_fucs2"]
+
+[node name="StageSelect" type="Control" unique_id=158380058]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=537847237]
+modulate = Color(1, 0.84313726, 0.2784314, 1)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_fucs2")
+expand_mode = 1
