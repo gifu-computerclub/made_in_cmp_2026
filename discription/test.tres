@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Discription" format=3 uid="uid://bbvm7rn6deq8"]
+
+[ext_resource type="Script" uid="uid://bks4y6ivp0iyg" path="res://titlemenu/scripts/discription_resorce.gd" id="1_s38cj"]
+[ext_resource type="PackedScene" uid="uid://b8wtu1aqe712" path="res://titlemenu/scenes/stage_select.tscn" id="1_wa4w1"]
+[ext_resource type="Texture2D" uid="uid://n4mhpyidai7w" path="res://titlemenu/assets/高専.JPG" id="3_3fj5i"]
+
+[resource]
+script = ExtResource("1_s38cj")
+game_name = "つけろ!!!!"
+game_scene = ExtResource("1_wa4w1")
+thambnail = ExtResource("3_3fj5i")
+oparation_instruction = "aaa"
+game_instruction = "bbb"
+metadata/_custom_type_script = "uid://bks4y6ivp0iyg"

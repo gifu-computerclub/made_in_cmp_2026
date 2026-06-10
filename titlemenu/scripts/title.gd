@@ -4,7 +4,7 @@ extends Control
 @onready var title_label: RichTextLabel = %TitleLabel
 
 func _ready() -> void:
-	#AudioManager.play_BGM("res://titlemenu/assets/audio/kosenwaribiki_game1.ogg",0.0,0.0,1.0,true,false)
+	AudioManager.play_BGM()
 	pass
 
 

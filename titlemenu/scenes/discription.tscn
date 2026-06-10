@@ -1,0 +1,221 @@
+[gd_scene format=3 uid="uid://dsiavbg85pjw0"]
+
+[ext_resource type="Texture2D" uid="uid://cujcsadl3wyhp" path="res://titlemenu/assets/校舎の写真.png" id="1_1rxkd"]
+[ext_resource type="Script" uid="uid://ccbcg86pw07r2" path="res://titlemenu/scripts/discription.gd" id="1_vmsco"]
+[ext_resource type="Texture2D" uid="uid://biu8apgs1ju3k" path="res://titlemenu/assets/ui2-a.png" id="2_77hxr"]
+[ext_resource type="Resource" uid="uid://bbvm7rn6deq8" path="res://discription/test.tres" id="2_le4sa"]
+[ext_resource type="Texture2D" uid="uid://du20wrdd5rfch" path="res://titlemenu/assets/ui1-b.png" id="3_vmsco"]
+[ext_resource type="Texture2D" uid="uid://dd0a48jbog6d1" path="res://titlemenu/assets/ui3-b.png" id="4_0s4kk"]
+[ext_resource type="Texture2D" uid="uid://b4rcb4xcogfdx" path="res://titlemenu/assets/ui3-a.png" id="5_le4sa"]
+[ext_resource type="Texture2D" uid="uid://d123ltw3bggwo" path="res://titlemenu/assets/シャッター.webp" id="6_6tr5e"]
+[ext_resource type="Texture2D" uid="uid://y3eyafl3madd" path="res://titlemenu/assets/corsor.png" id="8_0s4kk"]
+
+[node name="Discription" type="Control" unique_id=934782581]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vmsco")
+discription = ExtResource("2_le4sa")
+
+[node name="BackGround" type="TextureRect" parent="." unique_id=893647513]
+modulate = Color(1, 0.8743333, 0.42000002, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -598.5
+offset_top = -444.5
+offset_right = 598.5
+offset_bottom = 444.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1rxkd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="FlavortextBackground" type="NinePatchRect" parent="." unique_id=625991300]
+custom_minimum_size = Vector2(1052, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
+texture = ExtResource("2_77hxr")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="FlavortextBackground" unique_id=631507729]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="NameBack" type="NinePatchRect" parent="FlavortextBackground/MarginContainer" unique_id=398091412]
+custom_minimum_size = Vector2(500, 75)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("3_vmsco")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="FlavortextBackground/MarginContainer/NameBack" unique_id=831356247]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GameName" type="Label" parent="FlavortextBackground/MarginContainer/NameBack/MarginContainer" unique_id=390631057]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "ゲーム名!!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeBack" type="NinePatchRect" parent="FlavortextBackground/MarginContainer" unique_id=1770940736]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("4_0s4kk")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="FlavortextBackground/MarginContainer/TimeBack" unique_id=928358093]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimeLabel" type="Label" parent="FlavortextBackground/MarginContainer/TimeBack/MarginContainer" unique_id=1680061651]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DiscriptionBackground" type="NinePatchRect" parent="." unique_id=434369859]
+self_modulate = Color(1, 1, 1, 0.73333335)
+custom_minimum_size = Vector2(750, 500)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -375.0
+offset_top = -541.0
+offset_right = 375.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_le4sa")
+region_rect = Rect2(0, 0, 24, 24)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="DiscriptionBackground" unique_id=1722036737]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DiscriptionBackground/MarginContainer" unique_id=1258920153]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DiscriptionBackground/MarginContainer/HBoxContainer" unique_id=1419630265]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Thambnail" type="TextureRect" parent="DiscriptionBackground/MarginContainer/HBoxContainer/VBoxContainer" unique_id=890683640]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("6_6tr5e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HSeparator" type="HSeparator" parent="DiscriptionBackground/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1397451718]
+layout_mode = 2
+
+[node name="OparationInstruction" type="Label" parent="DiscriptionBackground/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1485426252]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "操作方法をここに!!"
+
+[node name="VSeparator" type="VSeparator" parent="DiscriptionBackground/MarginContainer/HBoxContainer" unique_id=1604179208]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="GameInstruction" type="Label" parent="DiscriptionBackground/MarginContainer/HBoxContainer" unique_id=206757194]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+text = "ゲーム説明をここに!!!"
+
+[node name="Start" type="Button" parent="." unique_id=1667670121]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -186.0
+offset_top = -54.0
+offset_right = 14.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 35
+text = "はじめる!"
+
+[node name="Cursor" type="TextureRect" parent="." unique_id=709827797]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 912.0
+offset_top = 604.0
+offset_right = 952.0
+offset_bottom = 644.0
+texture = ExtResource("8_0s4kk")
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

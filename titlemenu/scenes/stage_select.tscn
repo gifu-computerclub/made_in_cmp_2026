@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b8wtu1aqe712"]
 
 [ext_resource type="Texture2D" uid="uid://n4mhpyidai7w" path="res://titlemenu/assets/高専.JPG" id="1_fucs2"]
+[ext_resource type="Script" uid="uid://c2u6ivxuw4d4m" path="res://titlemenu/scripts/stage_select.gd" id="1_lgx24"]
 
 [node name="StageSelect" type="Control" unique_id=158380058]
 layout_mode = 3
@@ -9,11 +10,50 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lgx24")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=537847237]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2034312363]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer" unique_id=1241053245]
+layout_mode = 2
+
+[node name="BackGround" type="TextureRect" parent="." unique_id=537847237]
 modulate = Color(1, 0.84313726, 0.2784314, 1)
 layout_mode = 0
 offset_right = 1152.0
-offset_bottom = 648.0
+offset_bottom = 780.0
 texture = ExtResource("1_fucs2")
 expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="." unique_id=1243766498]
+custom_minimum_size = Vector2(1052, 150)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -526.0
+offset_top = -180.0
+offset_right = 526.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 50
+text = "ゲーム名(texturerectの名前)が
+表示されるよ"
+horizontal_alignment = 1
+vertical_alignment = 1
