@@ -218,4 +218,7 @@ offset_right = 952.0
 offset_bottom = 644.0
 texture = ExtResource("8_0s4kk")
 
+[node name="Timer" type="Timer" parent="." unique_id=1466740945]
+
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_start_pressed"]

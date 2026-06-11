@@ -2,6 +2,11 @@ extends TextureRect
 
 var discription:Discription
 
+
+func get_game_name() -> String:
+	if discription:
+		return discription.game_name
+	return ""
 func set_dis(d:Discription) -> void:
 	discription = d
 	texture = discription.thambnail

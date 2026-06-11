@@ -9,13 +9,20 @@ extends Control
 @onready var oparation_instruction: Label = %OparationInstruction
 @onready var game_instruction: Label = %GameInstruction
 @onready var game_name: Label = %GameName
+@onready var timer: Timer = $Timer
 
+var timer_time:float = 11.0
 func _ready() -> void:
+	timer.wait_time = timer_time
+	timer.start()
+	if GameManager.select_dis:
+		discription = GameManager.select_dis
 	cursor.global_position = start.global_position + Vector2(-40,0)
 	start.grab_focus()
 	set_dis()
 	AudioManager.play_BGM("res://titlemenu/assets/audio/Logic&Contradiction.ogg",0,0,1,true)
-
+func _process(delta: float) -> void:
+	time_label.text = str(int(round(timer.time_left)))
 
 func set_dis() -> void:
 	if not discription:
