@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dk5voab6hy0tw"]
+
+[ext_resource type="Script" uid="uid://3twc8eqkf28k" path="res://mini_game/rangea_game1/scene/test.gd" id="1_rucdw"]
+[ext_resource type="Texture2D" uid="uid://c55noqy6sj3t" path="res://icon.svg" id="2_gkj12"]
+[ext_resource type="PackedScene" uid="uid://cvw0d2clqdep0" path="res://template/start_overlay/start_overlay.tscn" id="3_gkj12"]
+
+[node name="Test" type="Node2D" unique_id=701194862]
+script = ExtResource("1_rucdw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=205286847]
+position = Vector2(318, 342)
+texture = ExtResource("2_gkj12")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1509794187]
+
+[node name="StartOverlay" parent="CanvasLayer" unique_id=1826917538 instance=ExtResource("3_gkj12")]
+title_name = "追いかけろ"
+test = true
