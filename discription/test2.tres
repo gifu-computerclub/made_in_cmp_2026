@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="Discription" format=3 uid="uid://c1kwauqp62k23"]
 
-[ext_resource type="Script" uid="uid://bks4y6ivp0iyg" path="res://titlemenu/scripts/discription_resorce.gd" id="1_63h4b"]
-[ext_resource type="PackedScene" uid="uid://ds3utitjvc4jj" path="res://titlemenu/scenes/title.tscn" id="1_75aho"]
-[ext_resource type="Texture2D" uid="uid://d123ltw3bggwo" path="res://titlemenu/assets/シャッター.webp" id="3_ohekd"]
+[ext_resource type="PackedScene" uid="uid://dk5voab6hy0tw" path="res://mini_game/rangea_game1/scene/test.tscn" id="1_75aho"]
+[ext_resource type="Script" uid="uid://bks4y6ivp0iyg" path="res://titlemenu/scripts/discription_resorce.gd" id="2_ohekd"]
+[ext_resource type="Texture2D" uid="uid://caiuukvnn4duf" path="res://mini_game/rangea_game1/assets/thamnale.png" id="3_ut1ty"]
 
 [resource]
-script = ExtResource("1_63h4b")
-game_name = "test2"
+script = ExtResource("2_ohekd")
+game_name = "つけろ2!!!!"
 game_scene = ExtResource("1_75aho")
-thambnail = ExtResource("3_ohekd")
+thambnail = ExtResource("3_ut1ty")
+oparation_instruction = "aaa"
+game_instruction = "bbb"
 metadata/_custom_type_script = "uid://bks4y6ivp0iyg"

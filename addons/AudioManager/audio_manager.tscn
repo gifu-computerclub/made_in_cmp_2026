@@ -41,6 +41,7 @@ _data = {
 }
 
 [node name="AudioManager" type="Node" unique_id=1021311154]
+process_mode = 3
 script = ExtResource("1_cgc01")
 
 [node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1518568291]

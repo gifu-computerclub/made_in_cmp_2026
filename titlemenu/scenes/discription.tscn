@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dsiavbg85pjw0"]
 
-[ext_resource type="Texture2D" uid="uid://cujcsadl3wyhp" path="res://titlemenu/assets/校舎の写真.png" id="1_1rxkd"]
 [ext_resource type="Script" uid="uid://ccbcg86pw07r2" path="res://titlemenu/scripts/discription.gd" id="1_vmsco"]
 [ext_resource type="Texture2D" uid="uid://biu8apgs1ju3k" path="res://titlemenu/assets/ui2-a.png" id="2_77hxr"]
 [ext_resource type="Resource" uid="uid://bbvm7rn6deq8" path="res://discription/test.tres" id="2_le4sa"]
+[ext_resource type="Texture2D" uid="uid://dasnid5lktvge" path="res://titlemenu/assets/kousha.png" id="3_le4sa"]
 [ext_resource type="Texture2D" uid="uid://du20wrdd5rfch" path="res://titlemenu/assets/ui1-b.png" id="3_vmsco"]
 [ext_resource type="Texture2D" uid="uid://dd0a48jbog6d1" path="res://titlemenu/assets/ui3-b.png" id="4_0s4kk"]
 [ext_resource type="Texture2D" uid="uid://b4rcb4xcogfdx" path="res://titlemenu/assets/ui3-a.png" id="5_le4sa"]
@@ -34,7 +34,7 @@ offset_right = 598.5
 offset_bottom = 444.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_1rxkd")
+texture = ExtResource("3_le4sa")
 expand_mode = 1
 stretch_mode = 4
 

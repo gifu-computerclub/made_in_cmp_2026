@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="Discription" format=3 uid="uid://b65b1ayb5v2ir"]
 
-[ext_resource type="Script" uid="uid://bks4y6ivp0iyg" path="res://titlemenu/scripts/discription_resorce.gd" id="1_3qbuw"]
-[ext_resource type="PackedScene" uid="uid://ds3utitjvc4jj" path="res://titlemenu/scenes/title.tscn" id="1_lrmdx"]
-[ext_resource type="Texture2D" uid="uid://cujcsadl3wyhp" path="res://titlemenu/assets/校舎の写真.png" id="3_6xgwj"]
+[ext_resource type="PackedScene" uid="uid://dk5voab6hy0tw" path="res://mini_game/rangea_game1/scene/test.tscn" id="1_lrmdx"]
+[ext_resource type="Script" uid="uid://bks4y6ivp0iyg" path="res://titlemenu/scripts/discription_resorce.gd" id="2_6xgwj"]
+[ext_resource type="Texture2D" uid="uid://caiuukvnn4duf" path="res://mini_game/rangea_game1/assets/thamnale.png" id="3_fyfve"]
 
 [resource]
-script = ExtResource("1_3qbuw")
-game_name = "test3"
+script = ExtResource("2_6xgwj")
+game_name = "追いかけろ!!!!"
 game_scene = ExtResource("1_lrmdx")
-thambnail = ExtResource("3_6xgwj")
+thambnail = ExtResource("3_fyfve")
+oparation_instruction = "aaa"
+game_instruction = "bbb"
 metadata/_custom_type_script = "uid://bks4y6ivp0iyg"

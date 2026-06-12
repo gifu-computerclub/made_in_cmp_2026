@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b8wtu1aqe712"]
 
-[ext_resource type="Texture2D" uid="uid://n4mhpyidai7w" path="res://titlemenu/assets/高専.JPG" id="1_fucs2"]
 [ext_resource type="Script" uid="uid://c2u6ivxuw4d4m" path="res://titlemenu/scripts/stage_select.gd" id="1_lgx24"]
+[ext_resource type="Texture2D" uid="uid://dpohdcnvgx2tf" path="res://titlemenu/assets/kousen.png" id="2_3osp7"]
 [ext_resource type="Texture2D" uid="uid://y3eyafl3madd" path="res://titlemenu/assets/corsor.png" id="3_3osp7"]
 
 [node name="StageSelect" type="Control" unique_id=158380058]
@@ -19,7 +19,7 @@ modulate = Color(1, 0.84313726, 0.2784314, 1)
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 780.0
-texture = ExtResource("1_fucs2")
+texture = ExtResource("2_3osp7")
 expand_mode = 1
 stretch_mode = 4
 
