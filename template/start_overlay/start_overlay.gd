@@ -78,9 +78,10 @@ func _set_viwe() -> void:
 		moved_label.position = after_position
 		moved_label.add_theme_font_size_override("font_size",after_size)
 		moved_label.add_theme_constant_override("outline_size",after_outline)
+		moved_label.size = Vector2(64*moved_label.text.length(),65)
 func _set_viwe_editor() -> void:
 	if Engine.is_editor_hint():
-		_set_viwe()
+		call_deferred("_set_viwe")
 
 func _test_view(value:bool) -> void:
 	if Engine.is_editor_hint():

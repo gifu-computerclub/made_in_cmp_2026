@@ -15,4 +15,8 @@ texture = ExtResource("2_gkj12")
 
 [node name="StartOverlay" parent="CanvasLayer" unique_id=1826917538 instance=ExtResource("3_gkj12")]
 title_name = "追いかけろ"
-test = true
+
+[node name="Timer" type="Timer" parent="." unique_id=348620795]
+wait_time = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -21,7 +21,7 @@ process_mode = 3
 script = ExtResource("1_22br8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1874527862]
-layer = 3
+layer = 5
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=684189878]
 material = SubResource("ShaderMaterial_0imdi")
