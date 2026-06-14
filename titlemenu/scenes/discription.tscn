@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://du20wrdd5rfch" path="res://titlemenu/assets/ui1-b.png" id="3_vmsco"]
 [ext_resource type="Texture2D" uid="uid://dd0a48jbog6d1" path="res://titlemenu/assets/ui3-b.png" id="4_0s4kk"]
 [ext_resource type="Texture2D" uid="uid://b4rcb4xcogfdx" path="res://titlemenu/assets/ui3-a.png" id="5_le4sa"]
-[ext_resource type="Texture2D" uid="uid://d123ltw3bggwo" path="res://titlemenu/assets/シャッター.webp" id="6_6tr5e"]
 [ext_resource type="Texture2D" uid="uid://y3eyafl3madd" path="res://titlemenu/assets/corsor.png" id="8_0s4kk"]
+[ext_resource type="Texture2D" uid="uid://caiuukvnn4duf" path="res://mini_game/rangea_game1/assets/thamnale.png" id="8_le4sa"]
 
 [node name="Discription" type="Control" unique_id=934782581]
 layout_mode = 3
@@ -63,7 +63,10 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="NameBack" type="NinePatchRect" parent="FlavortextBackground/MarginContainer" unique_id=398091412]
+[node name="HBoxContainer" type="HBoxContainer" parent="FlavortextBackground/MarginContainer" unique_id=1898688615]
+layout_mode = 2
+
+[node name="NameBack" type="NinePatchRect" parent="FlavortextBackground/MarginContainer/HBoxContainer" unique_id=398091412]
 custom_minimum_size = Vector2(500, 75)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -74,7 +77,7 @@ patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 
-[node name="MarginContainer" type="MarginContainer" parent="FlavortextBackground/MarginContainer/NameBack" unique_id=831356247]
+[node name="MarginContainer" type="MarginContainer" parent="FlavortextBackground/MarginContainer/HBoxContainer/NameBack" unique_id=831356247]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,7 +89,7 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="GameName" type="Label" parent="FlavortextBackground/MarginContainer/NameBack/MarginContainer" unique_id=390631057]
+[node name="GameName" type="Label" parent="FlavortextBackground/MarginContainer/HBoxContainer/NameBack/MarginContainer" unique_id=390631057]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
@@ -94,10 +97,17 @@ text = "ゲーム名!!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TimeBack" type="NinePatchRect" parent="FlavortextBackground/MarginContainer" unique_id=1770940736]
+[node name="Author" type="Label" parent="FlavortextBackground/MarginContainer/HBoxContainer" unique_id=341456345]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "作者:--"
+vertical_alignment = 1
+
+[node name="TimeBack" type="NinePatchRect" parent="FlavortextBackground/MarginContainer/HBoxContainer" unique_id=1770940736]
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 10
 size_flags_vertical = 8
 texture = ExtResource("4_0s4kk")
 patch_margin_left = 8
@@ -105,7 +115,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="FlavortextBackground/MarginContainer/TimeBack" unique_id=928358093]
+[node name="MarginContainer" type="MarginContainer" parent="FlavortextBackground/MarginContainer/HBoxContainer/TimeBack" unique_id=928358093]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -113,7 +123,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TimeLabel" type="Label" parent="FlavortextBackground/MarginContainer/TimeBack/MarginContainer" unique_id=1680061651]
+[node name="TimeLabel" type="Label" parent="FlavortextBackground/MarginContainer/HBoxContainer/TimeBack/MarginContainer" unique_id=1680061651]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
@@ -166,19 +176,22 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("6_6tr5e")
+texture = ExtResource("8_le4sa")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="HSeparator" type="HSeparator" parent="DiscriptionBackground/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1397451718]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="OparationInstruction" type="Label" parent="DiscriptionBackground/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1485426252]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(356, 265)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 text = "操作方法をここに!!"
+autowrap_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="DiscriptionBackground/MarginContainer/HBoxContainer" unique_id=1604179208]
 layout_mode = 2
@@ -186,11 +199,13 @@ theme_override_constants/separation = 10
 
 [node name="GameInstruction" type="Label" parent="DiscriptionBackground/MarginContainer/HBoxContainer" unique_id=206757194]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(356, 480)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 25
 text = "ゲーム説明をここに!!!"
+autowrap_mode = 2
 
 [node name="Start" type="Button" parent="." unique_id=1667670121]
 unique_name_in_owner = true

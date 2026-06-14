@@ -8,7 +8,9 @@
 script = ExtResource("2_ohekd")
 game_name = "追いかけろ2!!!!"
 game_scene = ExtResource("1_75aho")
+game_auther = "rangea200"
 thambnail = ExtResource("3_ut1ty")
-oparation_instruction = "aaa"
-game_instruction = "bbb"
+oparation_instruction = "操作のないゲームは果たしてゲームなのか?"
+game_instruction = "テスト用ゲーム。
+これをゲームと呼ぶのはゲームに対する冒涜である。"
 metadata/_custom_type_script = "uid://bks4y6ivp0iyg"

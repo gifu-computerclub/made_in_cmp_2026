@@ -10,6 +10,7 @@ extends Control
 @onready var game_instruction: Label = %GameInstruction
 @onready var game_name: Label = %GameName
 @onready var timer: Timer = $Timer
+@onready var author: Label = %Author
 
 var timer_time:float = 11.0
 func _ready() -> void:
@@ -28,6 +29,7 @@ func set_dis() -> void:
 	if not discription:
 		return
 	game_name.text = discription.game_name
+	author.text = "作者:%s" % (discription.game_auther if discription.game_auther != "" else "匿名")
 	thambnail.texture = discription.thambnail
 	oparation_instruction.text = discription.oparation_instruction
 	game_instruction.text = discription.game_instruction

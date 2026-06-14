@@ -5,6 +5,8 @@ extends Resource
 @export var game_name:String
 ## これが君のゲームのシーンだ!!
 @export var game_scene:PackedScene
+## このゲームは誰が作ったんだい?
+@export var game_auther:String
 ## サムネを追加!!
 @export var thambnail:Texture
 ## 操作方法をここに!!

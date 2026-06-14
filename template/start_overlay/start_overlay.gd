@@ -91,10 +91,10 @@ func _test_view(value:bool) -> void:
 func start_countdown()-> void:
 	visible = true
 	AudioManager.play_BGM("res://titlemenu/assets/audio/kosenwaribiki_game1.ogg",0,0,1,true)
-	await show_countdown("3",Color(0,1,0))
-	await show_countdown("2",Color(1,0.5,0))
-	await show_countdown("1",Color(1,0,0))
-	await show_countdown("スタート！",Color(1,0,0))
+	await _show_countdown("3",Color(0,1,0))
+	await _show_countdown("2",Color(1,0.5,0))
+	await _show_countdown("1",Color(1,0,0))
+	await _show_countdown("スタート！",Color(1,0,0))
 	
 	overlay.visible = false
 	if title_slide:
@@ -110,7 +110,7 @@ func _process(delta: float) -> void:
 	title_label.add_theme_font_size_override("font_size",tite_size)
 	title_label.add_theme_constant_override("outline_size",outline)
 
-func show_countdown(text: String,color: Color) -> void:
+func _show_countdown(text: String,color: Color) -> void:
 	countdown_label.text = text
 	countdown_label.add_theme_color_override("font_color",color)
 	countdown_label.scale = Vector2(0.5, 0.5)

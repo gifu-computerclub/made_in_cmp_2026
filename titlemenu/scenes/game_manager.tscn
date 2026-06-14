@@ -52,3 +52,61 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 64
 text = "GameOver!"
+
+[node name="GameClearOverlay" type="Control" parent="CanvasLayer" unique_id=683843992]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/GameClearOverlay" unique_id=1114727961]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4745098)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameClearOverlay" unique_id=2086973156]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/GameClearOverlay/VBoxContainer" unique_id=52896868]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 64
+text = "ゲームクリア！"
+
+[node name="Label2" type="Label" parent="CanvasLayer/GameClearOverlay/VBoxContainer" unique_id=797407290]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "クリア時間:--秒"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/GameClearOverlay/VBoxContainer" unique_id=177987866]
+layout_mode = 2
+theme_override_constants/margin_top = 70
+
+[node name="BackButton" type="Button" parent="CanvasLayer/GameClearOverlay/VBoxContainer/MarginContainer" unique_id=1248318435]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Aボタンで戻る"
+
+[connection signal="pressed" from="CanvasLayer/GameClearOverlay/VBoxContainer/MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
