@@ -15,5 +15,8 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	GameManager.game_over()
 	pass
+
+
+func _on_timer_ui_timeout() -> void:
+	GameManager.game_over()

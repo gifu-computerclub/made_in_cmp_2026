@@ -53,6 +53,7 @@ func _ready() -> void:
 		overlay.visible = true
 		title_label.visible = true
 		if use_paused:
+			await get_tree().process_frame
 			_paused()
 		if auto_start:
 			start_countdown()
