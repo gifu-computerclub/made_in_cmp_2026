@@ -43,9 +43,14 @@ extends Control
 @onready var overlay: Control = $Overlay
 @onready var title_label: Label = $TitleLabel
 @onready var moved_label: Label = $MovedLabel
+@onready var exp_label_1: Label = %ExpLabel1
+@onready var exp_label_2: Label = %ExpLabel2
+
 var tite_size:int = 64
 var outline:int = 20
 var main:Node
+static var long_start:bool = true
+
 func _ready() -> void:
 	_set_viwe()
 	if !Engine.is_editor_hint():
@@ -92,6 +97,9 @@ func _test_view(value:bool) -> void:
 func start_countdown()-> void:
 	visible = true
 	AudioManager.play_BGM("res://titlemenu/assets/audio/kosenwaribiki_game1.ogg",0,0,1,true)
+	if long_start:
+		_start_countdown_long()
+		return
 	await _show_countdown("3",Color(0,1,0))
 	await _show_countdown("2",Color(1,0.5,0))
 	await _show_countdown("1",Color(1,0,0))
@@ -111,13 +119,43 @@ func _process(delta: float) -> void:
 	title_label.add_theme_font_size_override("font_size",tite_size)
 	title_label.add_theme_constant_override("outline_size",outline)
 
-func _show_countdown(text: String,color: Color) -> void:
+func _show_countdown(text: String,color: Color,delay:float = 0.5,speed:float = 0.5) -> void:
 	countdown_label.text = text
 	countdown_label.add_theme_color_override("font_color",color)
 	countdown_label.scale = Vector2(0.5, 0.5)
 	
 	var tween:Tween = create_tween()
-	tween.tween_property(countdown_label, "scale", Vector2(1, 1), 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(countdown_label, "scale", Vector2(1, 1), speed).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	
 	await tween.finished
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(delay).timeout
+
+func _start_countdown_long() -> void:
+	title_label.position.x = 1155
+	exp_label_1.position.x = 1152
+	exp_label_2.position.x = 1152
+	exp_label_1.visible = true
+	exp_label_2.visible = true
+	countdown_label.scale = Vector2(0, 0)
+	var tween:Tween = create_tween().set_parallel()
+	tween.tween_property(exp_label_1,"position:x",576-exp_label_1.size.x/2,0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(exp_label_2,"position:x",576-exp_label_2.size.x/2,0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).set_delay(2.4)
+	tween.tween_property(exp_label_1,"position:x",0-exp_label_1.size.x,0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).set_delay(2.4)
+	tween.tween_property(title_label,"position:x",576-title_label.size.x/2,0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).set_delay(5.2)
+	tween.tween_property(exp_label_2,"position:x",0-exp_label_2.size.x,0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).set_delay(5.2)
+	await tween.finished
+	await get_tree().create_timer(2.73).timeout
+	await _show_countdown("3",Color(0,1,0),0.32,0.4)
+	await _show_countdown("2",Color(1,0.5,0),0.32,0.4)
+	await _show_countdown("1",Color(1,0,0),0.32,0.4)
+	await _show_countdown("スタート！",Color(1,0,0),0.32,0.4)
+	overlay.visible = false
+	if title_slide:
+		var tween2 = create_tween().set_parallel()
+		tween2.tween_property(title_label,"position",after_position,0.1).set_ease(Tween.EASE_OUT)
+		tween2.tween_property(self,"tite_size",after_size,0.1).set_ease(Tween.EASE_OUT)
+		tween2.tween_property(self,"outline",after_outline,0.1).set_ease(Tween.EASE_OUT)
+		await tween2.finished
+	else:
+		title_label.visible = false
+	get_tree().paused = false

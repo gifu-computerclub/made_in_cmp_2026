@@ -19,4 +19,6 @@ func _on_timer_timeout() -> void:
 
 
 func _on_timer_ui_timeout() -> void:
+	#GameManager.game_clear()
 	GameManager.game_over()
+	pass

@@ -16,9 +16,10 @@ texture = ExtResource("2_gkj12")
 
 [node name="TimerUi" parent="CanvasLayer" unique_id=1240003037 instance=ExtResource("4_wsvf6")]
 scale = Vector2(1.5, 1.5)
-wait_time = 10.0
+gradation = false
 
 [node name="StartOverlay" parent="CanvasLayer" unique_id=1826917538 instance=ExtResource("3_gkj12")]
+visible = false
 title_name = "追いかけろ"
 
 [node name="Timer" type="Timer" parent="." unique_id=348620795]

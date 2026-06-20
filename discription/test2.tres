@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("2_ohekd")
-game_name = "追いかけろ2!!!!"
+game_name = "追いかけろ4!!!!"
 game_scene = ExtResource("1_75aho")
 game_auther = "rangea200"
 thambnail = ExtResource("3_ut1ty")
