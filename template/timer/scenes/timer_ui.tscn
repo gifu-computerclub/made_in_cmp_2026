@@ -26,6 +26,7 @@ offset_left = 93.0
 offset_top = 61.0
 offset_right = 238.0
 offset_bottom = 82.0
+step = 0.01
 value = 100.0
 texture_under = ExtResource("1_iibul")
 texture_progress = ExtResource("2_o76oh")
@@ -37,6 +38,7 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_right = 101.0
 offset_bottom = 121.0
+step = 0.01
 value = 90.0
 fill_mode = 5
 texture_under = ExtResource("3_q02uk")
@@ -82,7 +84,7 @@ vertical_alignment = 1
 one_shot = true
 
 [node name="Update" type="Timer" parent="." unique_id=532767982]
-wait_time = 0.1
+wait_time = 0.05
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
 [connection signal="timeout" from="Update" to="." method="_on_update_timeout"]

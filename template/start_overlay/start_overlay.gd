@@ -144,7 +144,7 @@ func _start_countdown_long() -> void:
 	tween.tween_property(title_label,"position:x",576-title_label.size.x/2,0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).set_delay(5.2)
 	tween.tween_property(exp_label_2,"position:x",0-exp_label_2.size.x,0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).set_delay(5.2)
 	await tween.finished
-	await get_tree().create_timer(2.73).timeout
+	await get_tree().create_timer(2.65).timeout
 	await _show_countdown("3",Color(0,1,0),0.32,0.4)
 	await _show_countdown("2",Color(1,0.5,0),0.32,0.4)
 	await _show_countdown("1",Color(1,0,0),0.32,0.4)

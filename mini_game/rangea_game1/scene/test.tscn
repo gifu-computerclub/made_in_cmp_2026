@@ -5,6 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://cvw0d2clqdep0" path="res://template/start_overlay/start_overlay.tscn" id="3_gkj12"]
 [ext_resource type="PackedScene" uid="uid://cs800ln5kdmxv" path="res://template/timer/scenes/timer_ui.tscn" id="4_wsvf6"]
 
+[sub_resource type="Gradient" id="Gradient_wsvf6"]
+offsets = PackedFloat32Array(0.006289308, 0.21383648, 0.509434, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1)
+
 [node name="Test" type="Node2D" unique_id=701194862]
 script = ExtResource("1_rucdw")
 
@@ -16,7 +20,8 @@ texture = ExtResource("2_gkj12")
 
 [node name="TimerUi" parent="CanvasLayer" unique_id=1240003037 instance=ExtResource("4_wsvf6")]
 scale = Vector2(1.5, 1.5)
-gradation = false
+wait_time = 10.0
+custom_gradation = SubResource("Gradient_wsvf6")
 
 [node name="StartOverlay" parent="CanvasLayer" unique_id=1826917538 instance=ExtResource("3_gkj12")]
 visible = false

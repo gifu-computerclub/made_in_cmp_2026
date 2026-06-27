@@ -1,4 +1,5 @@
 @tool
+class_name TimerUi
 extends Control
 
 @export var wait_time:float = 20.0:
@@ -22,8 +23,12 @@ extends Control
 		start_color = value
 		call_deferred("_editor_changed")
 @export var end_color:Color = Color("ff0000ff")
-
-
+@export var use_custom_gradation:bool = false:
+	set(value):
+		use_custom_gradation = value
+		call_deferred("_editor_changed")
+		notify_property_list_changed()
+@export var custom_gradation:Gradient
 @onready var meter: TextureProgressBar = %Meter
 @onready var clock: TextureProgressBar = %Clock
 @onready var time_label: Label = %TimeLabel
@@ -36,12 +41,18 @@ func _validate_property(property: Dictionary) -> void:
 	if property.name == "meter_color":
 		if gradation:
 			property.usage = PROPERTY_USAGE_NO_EDITOR
+	if property.name == "custom_gradation":
+		if !use_custom_gradation:
+			property.usage = PROPERTY_USAGE_NO_EDITOR
 func _ready() -> void:
 	if !Engine.is_editor_hint():
 		game_timer.wait_time = wait_time
 		ratio_time = 100.0 / wait_time
 		if gradation:
-			meter.tint_progress = start_color
+			if use_custom_gradation:
+				meter.tint_progress = _get_gradation(100)
+			else:
+				meter.tint_progress = start_color
 		else:
 			meter.tint_progress = meter_color
 		time_label.text = str(int(wait_time))
@@ -61,7 +72,10 @@ func _on_update_timeout() -> void:
 	
 	#カラー
 	if gradation ==  true:
-		meter.tint_progress = _get_meter_color((remaining_time-1)*ratio_time)	
+		if use_custom_gradation:
+			meter.tint_progress = _get_gradation((remaining_time-1)*ratio_time)
+		else:
+			meter.tint_progress = _get_meter_color((remaining_time-1)*ratio_time)
 	elif gradation == false:
 		meter.tint_progress = meter_color
 	
@@ -85,7 +99,11 @@ func _get_meter_color(value: float) -> Color:
 	var s: float = lerp(end_color.s, start_color.s, value / 100.0)
 	var v: float = lerp(end_color.v, start_color.v, value / 100.0)
 	return Color.from_hsv(h, s, v)
-
+func _get_gradation(value:float) -> Color:
+	var t:float = inverse_lerp(0,100, value)
+	if custom_gradation == null:
+		custom_gradation = preload("res://template/timer/scenes/defalt_gradient.tres").duplicate()
+	return custom_gradation.sample(t)
 func start() -> void:
 	game_timer.start()
 	update.start()
