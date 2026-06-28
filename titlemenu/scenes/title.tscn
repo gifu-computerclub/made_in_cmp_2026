@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://djrhg2g7dxo2y" path="res://titlemenu/scripts/title.gd" id="1_egcdg"]
 [ext_resource type="Texture2D" uid="uid://d123ltw3bggwo" path="res://titlemenu/assets/シャッター.webp" id="1_vgw37"]
 
-[node name="Title" type="Control" unique_id=1941805507]
+[node name="Title" type="Control" unique_id=1941805507 groups=["title"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

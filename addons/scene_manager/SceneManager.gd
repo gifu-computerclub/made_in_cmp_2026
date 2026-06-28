@@ -38,7 +38,7 @@ var default_options := {
 
 var singleton_entities := {}
 var _previous_scene = null
-
+var is_fade_in:bool = false
 func _ready() -> void:
 	_set_singleton_entities()
 	scene_loaded.emit()
@@ -161,6 +161,7 @@ func fade_out(setted_options: Dictionary= {}) -> void:
 	options["on_fade_out"].call()
 
 func fade_in(setted_options: Dictionary = {}) -> void:
+	is_fade_in = true
 	var options = _get_final_options(setted_options)
 	_animation_player.speed_scale = options["speed"]
 	_shader_blend_rect.material.set_shader_parameter(
@@ -177,4 +178,5 @@ func fade_in(setted_options: Dictionary = {}) -> void:
 	await _animation_player.animation_finished
 	is_transitioning = false
 	transition_finished.emit()
+	is_fade_in = false
 	options["on_fade_in"].call()

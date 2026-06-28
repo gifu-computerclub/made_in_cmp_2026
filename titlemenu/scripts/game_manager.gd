@@ -3,11 +3,22 @@ extends Control
 @onready var game_over_label: Label = %GameOverLabel
 @onready var back_button: Button = %BackButton
 @onready var game_clear_overlay: Control = %GameClearOverlay
+@onready var debug_text: RichTextLabel = %DebugText
+@onready var debug_meter: TextureProgressBar = %DebugMeter
 
+@export var can_debug_mode:bool = true
 var select_dis:Discription
+var long_start:bool = true
+var debug_mode:bool
+var _hold_time := 1.0  # 長押し判定時間（秒）
+var _hold_timer := 0.0
+var _is_button_held := false
+var _toggled := false
+var _meter_value:float = 0
+func _process(delta: float) -> void:
+	_debug_toggle(delta)
 
-
-
+#region ゲーム操作
 func game_over() -> void:
 	get_tree().paused = true
 	game_over_overlay.visible = true
@@ -34,10 +45,10 @@ func game_clear() -> void:
 	tween.tween_property(game_clear_overlay,"modulate:a",1.0,1)
 	await tween.finished
 	back_button.grab_focus()
-	start_button_blink()
+	_start_button_blink()
 	
 
-func start_button_blink() -> void:
+func _start_button_blink() -> void:
 	var button_tween:Tween = create_tween().set_loops()
 	button_tween.tween_property(back_button,"modulate:a",0.3,0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	button_tween.tween_property(back_button,"modulate:a",1.0,0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
@@ -47,3 +58,27 @@ func _on_back_button_pressed() -> void:
 	await SceneManager.fade_complete
 	get_tree().paused = false
 	game_clear_overlay.visible = false
+#endregion
+
+#region デバックモード
+func _debug_toggle(delta:float) -> void:
+	var title:Node = get_tree().get_first_node_in_group("title")
+	debug_meter.value = _meter_value*100
+	if debug_mode:
+		debug_text.visible=true
+	else:
+		debug_text.visible=false
+	if Input.is_action_pressed("X")and can_debug_mode and title:  # 入力アクション名を設定
+		_hold_timer += delta
+		if _toggled == false:
+			_meter_value = min(_hold_timer / _hold_time, 1.0)
+		if _hold_timer >= _hold_time and not _toggled:
+			debug_mode = !debug_mode
+			_meter_value = 0.0
+			print("Debug toggled:", debug_mode)
+			_toggled = true  # 1回だけトグル
+	else:
+		_hold_timer = 0.0
+		_meter_value = 0.0
+		_toggled = false
+#endregion

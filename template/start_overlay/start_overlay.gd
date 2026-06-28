@@ -1,42 +1,52 @@
 @tool
 extends Control
 
+##　タイトルを表示
 @export var title_name:String = "タイトル":
 	set(value):
 		title_name = value
 		_set_viwe_editor()
+##　タイトルの色を変更
 @export var title_color:Color = Color(0,0,1):
 	set(value):
 		title_color = value
 		_set_viwe_editor()
+## オンでアウトラインが黒に
 @export var outline_color_black:bool = false:
 	set(value):
 		outline_color_black = value
 		_set_viwe_editor()
 @export_group("Title Slide")
+## カウントダウン終了時タイトルを移動
 @export_custom(PROPERTY_HINT_GROUP_ENABLE,"") var title_slide:bool = true:
 	set(value):
 		title_slide = value
 		_set_viwe_editor()
+## 移動後のポジション
 @export var after_position:Vector2 = Vector2(537,103):
 	set(value):
 		after_position = value
 		_set_viwe_editor()
+## 移動後の文字サイズ
 @export var after_size:int = 64:
 	set(value):
 		after_size = value
 		_set_viwe_editor()
+## 移動後のアウトラインサイズ
 @export var after_outline:int = 20:
 	set(value):
 		after_outline = value
 		_set_viwe_editor()
 
 @export_group("")
+##　移動後を映す
 @export var test:bool = false:
 	set(value):
 		test = value
 		_test_view(value)
+## _readyと同時にカウントダウン開始
 @export var auto_start:bool = true
+## カウントダウン中にGodotのPauseを使用
 @export var use_paused:bool = true
 
 @onready var countdown_label: Label = %CountdownLabel
@@ -49,7 +59,6 @@ extends Control
 var tite_size:int = 64
 var outline:int = 20
 var main:Node
-static var long_start:bool = true
 
 func _ready() -> void:
 	_set_viwe()
@@ -61,6 +70,8 @@ func _ready() -> void:
 			await get_tree().process_frame
 			_paused()
 		if auto_start:
+			if not SceneManager.is_fade_in:
+				SceneManager.fade_in()
 			start_countdown()
 			
 
@@ -96,10 +107,10 @@ func _test_view(value:bool) -> void:
 		moved_label.modulate.a = 1 if value else 0.5
 func start_countdown()-> void:
 	visible = true
-	AudioManager.play_BGM("res://titlemenu/assets/audio/kosenwaribiki_game1.ogg",0,0,1,true)
-	if long_start:
+	if GameManager.long_start:
 		_start_countdown_long()
 		return
+	AudioManager.play_BGM("res://titlemenu/assets/audio/kosenwaribiki_game1.ogg",0,0,1,true)
 	await _show_countdown("3",Color(0,1,0))
 	await _show_countdown("2",Color(1,0.5,0))
 	await _show_countdown("1",Color(1,0,0))
@@ -131,6 +142,7 @@ func _show_countdown(text: String,color: Color,delay:float = 0.5,speed:float = 0
 	await get_tree().create_timer(delay).timeout
 
 func _start_countdown_long() -> void:
+	AudioManager.play_BGM("res://titlemenu/assets/audio/kosenwaribiki_game1.ogg",0,0,1,true)
 	title_label.position.x = 1155
 	exp_label_1.position.x = 1152
 	exp_label_2.position.x = 1152

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://crhbjlcm6k71a" path="res://titlemenu/scripts/game_manager.gd" id="1_wdix3"]
 [ext_resource type="Texture2D" uid="uid://d123ltw3bggwo" path="res://titlemenu/assets/シャッター.webp" id="2_uv306"]
+[ext_resource type="Texture2D" uid="uid://cqo26ndipdv13" path="res://titlemenu/assets/circle_meter.png" id="3_8dctt"]
 
 [node name="GameManager" type="Control" unique_id=815761677]
 process_mode = 3
@@ -108,5 +109,58 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Aボタンで戻る"
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1374779719]
+layer = 7
+
+[node name="DebugMode" type="Control" parent="CanvasLayer2" unique_id=66489380]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DebugText" type="RichTextLabel" parent="CanvasLayer2/DebugMode" unique_id=1221156684]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -157.75
+offset_top = -56.0
+offset_right = 167.0
+offset_bottom = -1.078064
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[wave freq=2 amp=50]デバックモード起動中"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DebugMeter" type="TextureProgressBar" parent="CanvasLayer2/DebugMode" unique_id=1194074776]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -198.0
+offset_top = -47.0
+offset_right = -166.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+fill_mode = 4
+texture_progress = ExtResource("3_8dctt")
+tint_progress = Color(1, 0, 0, 1)
 
 [connection signal="pressed" from="CanvasLayer/GameClearOverlay/VBoxContainer/MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
