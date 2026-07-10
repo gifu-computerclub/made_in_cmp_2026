@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqo26ndipdv13"
-path="res://.godot/imported/circle_meter.png-2373c881f4124bdd3bf6553de03163a0.ctex"
+uid="uid://n4mhpyidai7w"
+path="res://.godot/imported/高専.JPG-92a4e57266dbe92a5337fba906374d65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://titlemenu/assets/circle_meter.png"
-dest_files=["res://.godot/imported/circle_meter.png-2373c881f4124bdd3bf6553de03163a0.ctex"]
+source_file="res://titlemenu/assets/texture/高専.JPG"
+dest_files=["res://.godot/imported/高専.JPG-92a4e57266dbe92a5337fba906374d65.ctex"]
 
 [params]
 

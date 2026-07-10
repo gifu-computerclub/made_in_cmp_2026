@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dasnid5lktvge"
-path="res://.godot/imported/kousha.png-77ba2393000c0f9654cf8a062878c479.ctex"
+uid="uid://dd0a48jbog6d1"
+path="res://.godot/imported/ui3-b.png-8e168c8d78fe0186622b506e3a6f6fcd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://titlemenu/assets/kousha.png"
-dest_files=["res://.godot/imported/kousha.png-77ba2393000c0f9654cf8a062878c479.ctex"]
+source_file="res://titlemenu/assets/texture/ui3-b.png"
+dest_files=["res://.godot/imported/ui3-b.png-8e168c8d78fe0186622b506e3a6f6fcd.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cujcsadl3wyhp"
-path="res://.godot/imported/校舎の写真.png-04a6e40ed699dcf8e0884185a718ecb0.ctex"
+uid="uid://tqbms11idths"
+path="res://.godot/imported/ui2-b.png-4c3c4ea63e69e0bec52e1c4ead93712b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://titlemenu/assets/校舎の写真.png"
-dest_files=["res://.godot/imported/校舎の写真.png-04a6e40ed699dcf8e0884185a718ecb0.ctex"]
+source_file="res://titlemenu/assets/texture/ui2-b.png"
+dest_files=["res://.godot/imported/ui2-b.png-4c3c4ea63e69e0bec52e1c4ead93712b.ctex"]
 
 [params]
 

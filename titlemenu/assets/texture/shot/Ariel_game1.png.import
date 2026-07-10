@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd0a48jbog6d1"
-path="res://.godot/imported/ui3-b.png-59242166a6632195888756bbca62a4f1.ctex"
+uid="uid://drw0phevxs5ng"
+path="res://.godot/imported/Ariel_game1.png-2d32f3db828e8f7608224e99ac642fb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://titlemenu/assets/ui3-b.png"
-dest_files=["res://.godot/imported/ui3-b.png-59242166a6632195888756bbca62a4f1.ctex"]
+source_file="res://titlemenu/assets/texture/shot/Ariel_game1.png"
+dest_files=["res://.godot/imported/Ariel_game1.png-2d32f3db828e8f7608224e99ac642fb4.ctex"]
 
 [params]
 

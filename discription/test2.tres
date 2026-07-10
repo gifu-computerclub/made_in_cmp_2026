@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://dk5voab6hy0tw" path="res://mini_game/rangea_game1/scene/test.tscn" id="1_75aho"]
 [ext_resource type="Script" uid="uid://bks4y6ivp0iyg" path="res://titlemenu/scripts/discription_resorce.gd" id="2_ohekd"]
-[ext_resource type="Texture2D" uid="uid://caiuukvnn4duf" path="res://mini_game/rangea_game1/assets/thamnale.png" id="3_ut1ty"]
+[ext_resource type="Texture2D" uid="uid://drw0phevxs5ng" path="res://titlemenu/assets/texture/shot/Ariel_game1.png" id="3_75aho"]
 
 [resource]
 script = ExtResource("2_ohekd")
-game_name = "追いかけろ4!!!!"
+game_name = "ゴールに入れろ!!!!"
 game_scene = ExtResource("1_75aho")
 game_auther = "rangea200"
-thambnail = ExtResource("3_ut1ty")
+thambnail = ExtResource("3_75aho")
 oparation_instruction = "操作のないゲームは果たしてゲームなのか?"
 game_instruction = "テスト用ゲーム。
 これをゲームと呼ぶのはゲームに対する冒涜である。"

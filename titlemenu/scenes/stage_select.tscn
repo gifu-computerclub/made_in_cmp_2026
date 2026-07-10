@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b8wtu1aqe712"]
 
 [ext_resource type="Script" uid="uid://c2u6ivxuw4d4m" path="res://titlemenu/scripts/stage_select.gd" id="1_lgx24"]
-[ext_resource type="Texture2D" uid="uid://dpohdcnvgx2tf" path="res://titlemenu/assets/kousen.png" id="2_3osp7"]
-[ext_resource type="Texture2D" uid="uid://y3eyafl3madd" path="res://titlemenu/assets/corsor.png" id="3_3osp7"]
+[ext_resource type="Texture2D" uid="uid://dpohdcnvgx2tf" path="res://titlemenu/assets/texture/kousen.png" id="2_3osp7"]
+[ext_resource type="Texture2D" uid="uid://y3eyafl3madd" path="res://titlemenu/assets/texture/corsor.png" id="3_3osp7"]
 
 [node name="StageSelect" type="Control" unique_id=158380058]
 layout_mode = 3

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d123ltw3bggwo"
-path="res://.godot/imported/シャッター.webp-e51a38b29d4b3a11b3e41a969b370bf0.ctex"
+uid="uid://cujcsadl3wyhp"
+path="res://.godot/imported/校舎の写真.png-579aac691ca5d78a3695dcda9ed56aaa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://titlemenu/assets/シャッター.webp"
-dest_files=["res://.godot/imported/シャッター.webp-e51a38b29d4b3a11b3e41a969b370bf0.ctex"]
+source_file="res://titlemenu/assets/texture/校舎の写真.png"
+dest_files=["res://.godot/imported/校舎の写真.png-579aac691ca5d78a3695dcda9ed56aaa.ctex"]
 
 [params]
 

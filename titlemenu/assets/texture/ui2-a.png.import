@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n4mhpyidai7w"
-path="res://.godot/imported/高専.JPG-a1679cda7cc2c8ca72f8a0bb93233a1e.ctex"
+uid="uid://biu8apgs1ju3k"
+path="res://.godot/imported/ui2-a.png-bb2ba53b587d8b4d4832561feab588db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://titlemenu/assets/高専.JPG"
-dest_files=["res://.godot/imported/高専.JPG-a1679cda7cc2c8ca72f8a0bb93233a1e.ctex"]
+source_file="res://titlemenu/assets/texture/ui2-a.png"
+dest_files=["res://.godot/imported/ui2-a.png-bb2ba53b587d8b4d4832561feab588db.ctex"]
 
 [params]
 

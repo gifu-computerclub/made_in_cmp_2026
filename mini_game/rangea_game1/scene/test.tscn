@@ -24,7 +24,8 @@ wait_time = 10.0
 custom_gradation = SubResource("Gradient_wsvf6")
 
 [node name="StartOverlay" parent="CanvasLayer" unique_id=1826917538 instance=ExtResource("3_gkj12")]
-title_name = "追いかけろ"
+visible = false
+title_name = "かぞえろ"
 
 [node name="Timer" type="Timer" parent="." unique_id=348620795]
 wait_time = 5.0

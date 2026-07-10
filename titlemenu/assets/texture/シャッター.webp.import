@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tqbms11idths"
-path="res://.godot/imported/ui2-b.png-545ad33a7cc884eb04710682c8e1a1fe.ctex"
+uid="uid://d123ltw3bggwo"
+path="res://.godot/imported/シャッター.webp-2d0f032dbee17e78b3eaf86604eaf482.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://titlemenu/assets/ui2-b.png"
-dest_files=["res://.godot/imported/ui2-b.png-545ad33a7cc884eb04710682c8e1a1fe.ctex"]
+source_file="res://titlemenu/assets/texture/シャッター.webp"
+dest_files=["res://.godot/imported/シャッター.webp-2d0f032dbee17e78b3eaf86604eaf482.ctex"]
 
 [params]
 
