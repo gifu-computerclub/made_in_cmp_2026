@@ -1,4 +1,4 @@
-class_name Discription
+class_name Description
 extends Resource
 
 ## ゲーム名を入力!!

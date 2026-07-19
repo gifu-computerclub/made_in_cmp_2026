@@ -13,9 +13,13 @@ extends Control
 
 @export var can_debug_mode:bool = true
 @export var meter_grad:Gradient
-var select_dis:Discription
-var long_start:bool = true
+@export var long_start:bool = true
+var select_dis:Description
 var debug_mode:bool
+var new_select_mode:bool = false
+var selected_game:Array[Description]
+var selected_value:int = 0
+var rest_helth:int = 0
 var _hold_time := 1.0  # 長押し判定時間（秒）
 var _title_hold_time := 3.0
 var _hold_timer := 0.0
@@ -73,7 +77,7 @@ func _debug_toggle(delta:float) -> void:
 	var title:Node = get_tree().get_first_node_in_group("title")
 	debug_meter.value = _meter_value*100
 	fps_label.text = "FPS:%d"%Engine.get_frames_per_second()
-	if Input.is_action_pressed("X")and can_debug_mode and title:  # 入力アクション名を設定
+	if Input.is_action_pressed("x")and can_debug_mode and title:  # 入力アクション名を設定
 		_hold_timer += delta
 		if _toggled == false:
 			_meter_value = min(_hold_timer / _hold_time, 1.0)
@@ -100,7 +104,7 @@ func _debug_mode_change() -> void:
 func _title_back_toggle(delta:float)-> void:
 	var title:Node = get_tree().get_first_node_in_group("title")
 	title_back_meter.value = _meter_value*100
-	if Input.is_action_pressed("X") and not title and debug_mode:  # 入力アクション名を設定
+	if Input.is_action_pressed("x") and not title and debug_mode:  # 入力アクション名を設定
 		_hold_timer += delta
 		if _toggled == false:
 			title_back.visible = true

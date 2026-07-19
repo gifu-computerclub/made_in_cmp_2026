@@ -11,10 +11,10 @@ extends Control
 
 var helths:Array[Helth]
 var rest_helth:int
-var games:Array[Discription]
-var selected_games:Array[Discription]
+var games:Array[Description]
+var selected_games:Array[Description]
 func _ready() -> void:
-	games = load_discription()
+	games = load_description()
 	_init_helth(2)
 	SceneManager.fade_in()
 	await SceneManager.transition_finished
@@ -22,6 +22,7 @@ func _ready() -> void:
 	lost_helth()
 	await _init_game_select()
 	star_game(0)
+	
 func _init_helth(rest_count:int = max_helth) -> void:
 	for i in range(max_helth):
 		var helth:Helth = helth_scene.instantiate()
@@ -37,10 +38,10 @@ func lost_helth() -> void:
 	rest_helth -= 1
 	helths[max_helth-rest_helth-1].lost_helth()
 
-func load_discription() -> Array[Discription]:
-	var result:Array[Discription] = []
+func load_description() -> Array[Description]:
+	var result:Array[Description] = []
 
-	var dir := DirAccess.open("res://discription")
+	var dir := DirAccess.open("res://description")
 	if dir == null:
 		return result
 
@@ -49,9 +50,9 @@ func load_discription() -> Array[Discription]:
 	var file_name := dir.get_next()
 	while file_name != "":
 		if !dir.current_is_dir() and file_name.ends_with(".tres"):
-			var res := load("res://discription/" + file_name)
+			var res := load("res://description/" + file_name)
 
-			if res is Discription:
+			if res is Description:
 				result.append(res)
 
 		file_name = dir.get_next()
@@ -69,14 +70,14 @@ func _init_game_select() -> void:
 			j.set_dis(games[randi_range(0,games.size()-1)])
 		await get_tree().create_timer(0.015).timeout
 	while game_tex:
-		var selected_game:Discription = games.pop_at(randi_range(0,games.size()-1))
+		var selected_game:Description = games.pop_at(randi_range(0,games.size()-1))
 		game_tex.pop_front().set_dis(selected_game)
 		selected_games.append(selected_game)
 		for i in range(20):
 			for j in game_tex:
 				j.set_dis(games[randi_range(0,games.size()-1)])
 			await get_tree().create_timer(0.015).timeout
-	
+	GameManager.selected_game = selected_games
 
 func star_game(num:int) -> void:
 	var game_texs:Array

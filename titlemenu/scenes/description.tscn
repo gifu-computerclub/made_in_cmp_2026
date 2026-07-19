@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://ccbcg86pw07r2" path="res://titlemenu/scripts/discription.gd" id="1_vmsco"]
 [ext_resource type="Texture2D" uid="uid://biu8apgs1ju3k" path="res://titlemenu/assets/texture/ui2-a.png" id="2_77hxr"]
-[ext_resource type="Resource" uid="uid://bbvm7rn6deq8" path="res://discription/test.tres" id="2_le4sa"]
 [ext_resource type="Texture2D" uid="uid://dasnid5lktvge" path="res://titlemenu/assets/texture/kousha.png" id="3_le4sa"]
 [ext_resource type="Texture2D" uid="uid://du20wrdd5rfch" path="res://titlemenu/assets/texture/ui1-b.png" id="3_vmsco"]
 [ext_resource type="Texture2D" uid="uid://dd0a48jbog6d1" path="res://titlemenu/assets/texture/ui3-b.png" id="4_0s4kk"]
@@ -18,7 +17,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vmsco")
-discription = ExtResource("2_le4sa")
 
 [node name="BackGround" type="TextureRect" parent="." unique_id=893647513]
 modulate = Color(1, 0.8743333, 0.42000002, 1)

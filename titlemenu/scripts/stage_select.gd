@@ -5,7 +5,7 @@ extends Control
 @onready var title_label: Label = %TitleLabel
 @onready var back_ground: TextureRect = %BackGround
 
-var game_datas:Array[Discription]
+var game_datas:Array[Description]
 var game_texs:Array[TextureRect]
 var cursor_offset:Vector2 = Vector2(-35,100)
 func _ready() -> void:
@@ -46,7 +46,7 @@ func _select_start() -> void:
 
 
 func _set_game() -> void:
-	game_datas = load_discription()
+	game_datas = load_description()
 	for i in game_datas:
 		var game_tex:TextureRect = preload("res://titlemenu/scenes/game_texture.tscn").instantiate()
 		games_grid.add_child(game_tex)
@@ -55,10 +55,10 @@ func _set_game() -> void:
 	
 
 
-func load_discription() -> Array[Discription]:
-	var result:Array[Discription] = []
+func load_description() -> Array[Description]:
+	var result:Array[Description] = []
 
-	var dir := DirAccess.open("res://discription")
+	var dir := DirAccess.open("res://description")
 	if dir == null:
 		return result
 
@@ -67,9 +67,9 @@ func load_discription() -> Array[Discription]:
 	var file_name := dir.get_next()
 	while file_name != "":
 		if !dir.current_is_dir() and file_name.ends_with(".tres"):
-			var res := load("res://discription/" + file_name)
+			var res := load("res://description/" + file_name)
 
-			if res is Discription:
+			if res is Description:
 				result.append(res)
 
 		file_name = dir.get_next()
