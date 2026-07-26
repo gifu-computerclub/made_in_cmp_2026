@@ -83,7 +83,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_wdix3")
+debug_change_mode = 2
 meter_grad = SubResource("Gradient_8dctt")
+long_start = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1394302418]
 layer = 3

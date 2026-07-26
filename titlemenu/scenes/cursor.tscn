@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d0d11pxuxvq5l"]
+
+[ext_resource type="Texture2D" uid="uid://y3eyafl3madd" path="res://titlemenu/assets/texture/corsor.png" id="1_1pkp8"]
+[ext_resource type="Script" uid="uid://b38jisbyrev2r" path="res://titlemenu/scripts/cursor.gd" id="2_guf77"]
+
+[node name="Cursor" type="TextureRect" unique_id=155493360]
+offset_left = 158.0
+offset_top = 434.0
+offset_right = 198.0
+offset_bottom = 474.0
+rotation = -1.5707964
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_1pkp8")
+script = ExtResource("2_guf77")
+shadow_color = Color(0, 1, 1, 1)

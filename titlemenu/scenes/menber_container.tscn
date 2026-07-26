@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ckj4nce81lnur"]
+
+[ext_resource type="Script" uid="uid://n81btvfbx7j" path="res://titlemenu/scripts/menber_container.gd" id="1_2a5cj"]
+
+[node name="MenberContainer" type="VBoxContainer" unique_id=467447657]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_2a5cj")
+
+[node name="Grade" type="Label" parent="." unique_id=1170365030]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "1年生"
+
+[node name="Menbers" type="Label" parent="." unique_id=1707675672]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 5
+text = "未参加(>_<\")"

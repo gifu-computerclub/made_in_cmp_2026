@@ -11,25 +11,58 @@ extends Control
 @onready var title_back_meter: TextureProgressBar = %TitleBackMeter
 @onready var title_back_label: Label = %TitleBackLabel
 
-@export var can_debug_mode:bool = true
+enum DebugChange{NONE,TOGGLE,USE_DEVELOPER_KEY}
+@export var debug_change_mode:DebugChange = DebugChange.TOGGLE
 @export var meter_grad:Gradient
 @export var long_start:bool = true
 var select_dis:Description
 var debug_mode:bool
-var new_select_mode:bool = false
+var rapid_game:bool = false
 var selected_game:Array[Description]
 var selected_value:int = 0
-var rest_helth:int = 0
+var helth:int = 0
+var rapid_game_over:bool = false
 var _hold_time := 1.0  # 長押し判定時間（秒）
-var _title_hold_time := 3.0
+var _title_hold_time := 2.0
 var _hold_timer := 0.0
 var _is_button_held := false
 var _toggled := false
 var _meter_value:float = 0
+signal debug_change(value:bool)
 func _process(delta: float) -> void:
-	_debug_toggle(delta)
+	match debug_change_mode:
+		DebugChange.USE_DEVELOPER_KEY:
+			if debug_mode != _check_debug_key():
+				_debug_mode_change()
+		DebugChange.TOGGLE:
+			_debug_toggle(delta)
+	debug_meter.value = _meter_value*100
+	fps_label.text = "FPS:%d"%Engine.get_frames_per_second()
 	_title_back_toggle(delta)
+#region ファイル取得
+func load_description() -> Array[Description]:
+	var result:Array[Description] = []
 
+	var dir := DirAccess.open("res://description")
+	if dir == null:
+		return result
+
+	dir.list_dir_begin()
+
+	var file_name := dir.get_next()
+	while file_name != "":
+		if !dir.current_is_dir() and file_name.ends_with(".tres"):
+			var res := load("res://description/" + file_name)
+
+			if res is Description:
+				result.append(res)
+
+		file_name = dir.get_next()
+
+	dir.list_dir_end()
+
+	return result
+#endregion
 #region ゲーム操作
 func game_over() -> void:
 	get_tree().paused = true
@@ -43,7 +76,11 @@ func game_over() -> void:
 	tween.tween_property(game_over_label, "rotation", 0.1, 0.1).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 	await tween.finished
 	await get_tree().create_timer(2.0).timeout
-	SceneManager.change_scene("res://titlemenu/scenes/title.tscn")
+	if rapid_game:
+		rapid_game_over = true
+		SceneManager.change_scene("res://titlemenu/scenes/staeg_select_new.tscn")
+	else:
+		SceneManager.change_scene("res://titlemenu/scenes/title.tscn")
 	await SceneManager.fade_complete
 	get_tree().paused = false
 	game_over_overlay.visible = false
@@ -75,24 +112,23 @@ func _on_back_button_pressed() -> void:
 #region デバックモード
 func _debug_toggle(delta:float) -> void:
 	var title:Node = get_tree().get_first_node_in_group("title")
-	debug_meter.value = _meter_value*100
-	fps_label.text = "FPS:%d"%Engine.get_frames_per_second()
-	if Input.is_action_pressed("x")and can_debug_mode and title:  # 入力アクション名を設定
+	if Input.is_action_pressed("x") and title:  # 入力アクション名を設定
 		_hold_timer += delta
 		if _toggled == false:
 			_meter_value = min(_hold_timer / _hold_time, 1.0)
 		if _hold_timer >= _hold_time and not _toggled:
-			debug_mode = !debug_mode
-			_meter_value = 0.0
-			print("Debug toggled:", debug_mode)
 			_toggled = true  # 1回だけトグル
+			_meter_value = 0.0
 			_debug_mode_change()
-	elif title and can_debug_mode:
+	elif title and debug_change_mode==DebugChange.TOGGLE:
 		_hold_timer = 0.0
 		_meter_value = 0.0
 		_toggled = false
 
 func _debug_mode_change() -> void:
+	debug_mode = !debug_mode
+	print("Debug toggled:", debug_mode)
+	debug_change.emit(debug_mode)
 	if debug_mode:
 		debug_mode_control.visible = true
 		animation_player.play("debug_mode")
@@ -100,7 +136,6 @@ func _debug_mode_change() -> void:
 		animation_player.play_backwards("debug_mode")
 		await animation_player.animation_finished
 		debug_mode_control.visible = false
-		
 func _title_back_toggle(delta:float)-> void:
 	var title:Node = get_tree().get_first_node_in_group("title")
 	title_back_meter.value = _meter_value*100
@@ -124,6 +159,7 @@ func _title_back_toggle(delta:float)-> void:
 			SceneManager.change_scene("res://titlemenu/scenes/title.tscn",{"color":Color("#FFFFFF"),"pattern":"squares"})
 			_meter_value = 0.0
 			title_back.visible = false
+			rapid_game = false
 			print("Debug toggled:", debug_mode)
 			_toggled = true  # 1回だけトグル
 	elif not title:
@@ -131,7 +167,16 @@ func _title_back_toggle(delta:float)-> void:
 		_meter_value = 0.0
 		_toggled = false
 		title_back.visible = false
+func _check_debug_key() -> bool:
+	for i in range(DirAccess.get_drive_count()):
+		var drive = DirAccess.get_drive_name(i) + "/"
 
+		if FileAccess.file_exists(drive + "debug_keys/made_in_cpc.key"):
+			var file = FileAccess.open(drive + "debug_keys/made_in_cpc.key", FileAccess.READ)
+			if file:
+				return file.get_as_text().strip_edges() == "4KBPykCEKQrpG"
+
+	return false
 func _get_gradation(value:float) -> Color:
 	return meter_grad.sample(value)
 #endregion

@@ -1,15 +1,16 @@
-[gd_resource type="Resource" script_class="Discription" format=3 uid="uid://csjqmimop5lr2"]
+[gd_resource type="Resource" script_class="Description" format=3 uid="uid://csjqmimop5lr2"]
 
-[ext_resource type="PackedScene" uid="uid://dk5voab6hy0tw" path="res://mini_game/rangea_game1/scene/test.tscn" id="1_l3c0v"]
-[ext_resource type="Script" uid="uid://bks4y6ivp0iyg" path="res://titlemenu/scripts/discription_resorce.gd" id="2_wr2r5"]
-[ext_resource type="Texture2D" uid="uid://bp5ci54nc34sd" path="res://titlemenu/assets/texture/shot/スクリーンショット 2025-06-18 231433.png" id="3_l3c0v"]
+[ext_resource type="PackedScene" uid="uid://dk5voab6hy0tw" path="res://mini_game/rangea_game1/scene/test.tscn" id="1_5buek"]
+[ext_resource type="Script" uid="uid://bks4y6ivp0iyg" path="res://titlemenu/scripts/discription_resorce.gd" id="2_i5w83"]
+[ext_resource type="Texture2D" uid="uid://bp5ci54nc34sd" path="res://titlemenu/assets/texture/shot/スクリーンショット 2025-06-18 231433.png" id="3_b16rp"]
 
 [resource]
-script = ExtResource("2_wr2r5")
+script = ExtResource("2_i5w83")
 game_name = "つけろ!!!!"
-game_scene = ExtResource("1_l3c0v")
-game_auther = "rangea300"
-thambnail = ExtResource("3_l3c0v")
+game_scene = ExtResource("1_5buek")
+game_auther = "rangea400"
+grade = 2
+thambnail = ExtResource("3_b16rp")
 oparation_instruction = "操作のないゲームは果たしてゲームなのか?"
 game_instruction = "テスト用ゲーム。
 これをゲームと呼ぶのはゲームに対する冒涜である。"

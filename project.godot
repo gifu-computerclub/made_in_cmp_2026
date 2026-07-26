@@ -13,7 +13,14 @@ config_version=5
 config/name="MadeInCpc"
 run/main_scene="uid://ds3utitjvc4jj"
 config/features=PackedStringArray("4.7", "Forward Plus")
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/stretch_mode=4
+boot_splash/image="uid://crl41uwihdatm"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=1000
+boot_splash+/scene_loader/use_as_main_scene=true
+boot_splash+/background/color=Color(0.97, 0.97, 0.97, 1)
+boot_splash+/logo/image="uid://crl41uwihdatm"
 
 [audio]
 
@@ -24,16 +31,17 @@ default_bus_layout="res://addons/audiomanager/default_bus_layout.tres"
 
 AudioManager="*uid://bgvuyv285gsbx"
 PhantomCameraManager="*uid://duq6jhf6unyis"
-SceneManager="*uid://j20v4cg7v8m1"
 GameManager="*uid://d18nvdiy1l0oy"
+SceneManager="*uid://j20v4cg7v8m1"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AudioManager/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/scene_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/AudioManager/plugin.cfg", "res://addons/custom_resource_previews/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/scene_manager/plugin.cfg")
 
 [file_customization]
 

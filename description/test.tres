@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Discription" format=3 uid="uid://bbvm7rn6deq8"]
+[gd_resource type="Resource" script_class="Description" format=3 uid="uid://bbvm7rn6deq8"]
 
 [ext_resource type="Script" uid="uid://bks4y6ivp0iyg" path="res://titlemenu/scripts/discription_resorce.gd" id="1_s38cj"]
 [ext_resource type="PackedScene" uid="uid://dk5voab6hy0tw" path="res://mini_game/rangea_game1/scene/test.tscn" id="1_wa4w1"]
@@ -9,6 +9,7 @@ script = ExtResource("1_s38cj")
 game_name = "追いかけろ!!!!"
 game_scene = ExtResource("1_wa4w1")
 game_auther = "rangea100"
+grade = 2
 thambnail = ExtResource("3_3fj5i")
 oparation_instruction = "操作のないゲームは果たしてゲームなのか?"
 game_instruction = "テスト用ゲーム。
