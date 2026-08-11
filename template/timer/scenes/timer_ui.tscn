@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dxcm4uo3csnrg" path="res://template/timer/assets/matebase.png" id="1_iibul"]
 [ext_resource type="Script" uid="uid://eb3a555tc3j2" path="res://template/timer/scenes/timer_ui.gd" id="1_o76oh"]
 [ext_resource type="Texture2D" uid="uid://cl6y84ept4y85" path="res://template/timer/assets/mate_meter.png" id="2_o76oh"]
+[ext_resource type="Texture2D" uid="uid://ys5h1e0dbod4" path="res://template/timer/assets/meta_over.png" id="3_ljgwp"]
 [ext_resource type="Texture2D" uid="uid://b7ngorkfoqcyc" path="res://template/timer/assets/clockbace.png" id="3_q02uk"]
 [ext_resource type="Texture2D" uid="uid://i2kwv11lsq8h" path="res://template/timer/assets/clockmeter.png" id="4_ljgwp"]
 [ext_resource type="Texture2D" uid="uid://wul1d67csa68" path="res://template/timer/assets/hari.png" id="5_j3df0"]
@@ -15,27 +16,33 @@ offset_right = 0.31999207
 offset_bottom = -0.3040161
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_o76oh")
 auto_start = true
 change_value_color = true
 
 [node name="Meter" type="TextureProgressBar" parent="." unique_id=1270163746]
 unique_name_in_owner = true
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 offset_left = 93.0
 offset_top = 61.0
 offset_right = 238.0
 offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
 step = 0.01
 value = 100.0
 texture_under = ExtResource("1_iibul")
+texture_over = ExtResource("3_ljgwp")
 texture_progress = ExtResource("2_o76oh")
-texture_progress_offset = Vector2(3, 4)
 tint_progress = Color(0, 1, 0, 1)
 
 [node name="Clock" type="TextureProgressBar" parent="." unique_id=936444907]
 unique_name_in_owner = true
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 offset_right = 101.0
 offset_bottom = 121.0
 step = 0.01
@@ -48,15 +55,11 @@ tint_progress = Color(0.37, 0.37, 0.37, 1)
 
 [node name="TextureRect" type="TextureRect" parent="Clock" unique_id=1466053469]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -38.0
-offset_top = -27.5
-offset_right = 36.0
-offset_bottom = 49.5
+anchors_preset = -1
+offset_left = 11.5
+offset_top = 34.0
+offset_right = 85.5
+offset_bottom = 111.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_j3df0")
@@ -64,15 +67,11 @@ texture = ExtResource("5_j3df0")
 [node name="TimeLabel" type="Label" parent="Clock" unique_id=1644620003]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = 1.5
-offset_right = 20.0
-offset_bottom = 18.5
+anchors_preset = -1
+offset_left = 30.5
+offset_top = 63.0
+offset_right = 70.5
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -85,6 +84,11 @@ one_shot = true
 
 [node name="Update" type="Timer" parent="." unique_id=532767982]
 wait_time = 0.05
+
+[node name="Control" type="Control" parent="." unique_id=2002475438]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
 [connection signal="timeout" from="Update" to="." method="_on_update_timeout"]

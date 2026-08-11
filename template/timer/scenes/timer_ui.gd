@@ -1,4 +1,5 @@
 @tool
+@icon("res://titlemenu/assets/texture/icons/timer.svg")
 class_name TimerUi
 extends Control
 
@@ -62,7 +63,7 @@ func _ready() -> void:
 			start()
 
 func _editor_changed() -> void:
-	if !Engine.is_editor_hint():
+	if !Engine.is_editor_hint() and not is_node_ready():
 		return
 	time_label.text = str(int(wait_time))
 	meter.tint_progress = start_color if gradation else meter_color

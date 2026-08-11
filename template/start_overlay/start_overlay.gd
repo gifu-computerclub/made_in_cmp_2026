@@ -1,4 +1,5 @@
 @tool
+@icon("res://titlemenu/assets/texture/icons/start_overray.svg")
 extends Control
 
 ##　タイトルを表示
@@ -84,6 +85,7 @@ func _paused() -> void:
 		#main.set_process(false)
 		#main.set_physics_process(false)
 func _set_viwe() -> void:
+	
 	title_label.text = title_name + "!!!!"
 	title_label.add_theme_color_override("font_color",title_color)
 	title_label.add_theme_color_override("font_outline_color",Color(0,0,0)if outline_color_black else Color(1,1,1))
@@ -97,7 +99,7 @@ func _set_viwe() -> void:
 		moved_label.add_theme_constant_override("outline_size",after_outline)
 		moved_label.size = Vector2(64*moved_label.text.length(),65)
 func _set_viwe_editor() -> void:
-	if Engine.is_editor_hint():
+	if Engine.is_editor_hint() and is_node_ready():
 		call_deferred("_set_viwe")
 
 func _test_view(value:bool) -> void:

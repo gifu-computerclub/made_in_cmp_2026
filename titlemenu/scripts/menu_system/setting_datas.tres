@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SettingsData" format=3 uid="uid://c2ed4eipvxgip"]
+
+[ext_resource type="Script" uid="uid://dvuwkh02jvd4v" path="res://titlemenu/scripts/menu_system/settings.gd" id="1_qkcp8"]
+
+[resource]
+script = ExtResource("1_qkcp8")
+bgm_vol = 0.3
+full_screan = false
+metadata/_custom_type_script = "uid://dvuwkh02jvd4v"

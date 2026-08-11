@@ -4,9 +4,10 @@ extends Control
 @onready var title_label: RichTextLabel = %TitleLabel
 @onready var main_player: AnimationPlayer = %MainPlayer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var setting_player: AnimationPlayer = %SettingPlayer
 @onready var grades: VBoxContainer = %Grades
 @onready var mode_player: AnimationPlayer = %ModePlayer
+@onready var settings: Control = %Settings
+@onready var quit: AnimetionButton = %Quit
 
 
 func _ready() -> void:
@@ -20,13 +21,10 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	return
-	if Input.is_action_just_pressed("a"):
-		title_label.visible = false
-		var tween:Tween = create_tween()
-		tween.tween_property(shutter,"scale",Vector2(1,0.1),1).set_ease(Tween.EASE_OUT)
-		await tween.finished
-		SceneManager.change_scene("res://titlemenu/scenes/stage_select.tscn",{"color":Color(1.0, 1.0, 1.0, 1.0)})
+	if GameManager.settings.exhibition_mode:
+		quit.disabled = true
+	else:
+		quit.disabled = false
 
 func _set_menbers() -> void:
 	var datas:Array[Description] = GameManager.load_description()
@@ -61,8 +59,7 @@ func _on_quit_pressed() -> void:
 
 func _on_settings_pressed() -> void:
 	animation_player.play("setting")
-	setting_player.play("start")
-
+	settings.start_ui()
 
 func _on_setting_back_pressed() -> void:
 	animation_player.play_backwards("setting")

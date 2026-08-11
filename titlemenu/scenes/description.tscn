@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dd0a48jbog6d1" path="res://titlemenu/assets/texture/ui3-b.png" id="4_0s4kk"]
 [ext_resource type="Texture2D" uid="uid://b4rcb4xcogfdx" path="res://titlemenu/assets/texture/ui3-a.png" id="5_le4sa"]
 [ext_resource type="Texture2D" uid="uid://y3eyafl3madd" path="res://titlemenu/assets/texture/corsor.png" id="8_0s4kk"]
-[ext_resource type="Texture2D" uid="uid://caiuukvnn4duf" path="res://mini_game/rangea_game1/assets/thamnale.png" id="8_le4sa"]
+[ext_resource type="Texture2D" uid="uid://caiuukvnn4duf" path="res://mini_games/rangea_game1/assets/thamnale.png" id="8_le4sa"]
 
 [node name="Discription" type="Control" unique_id=934782581]
 layout_mode = 3

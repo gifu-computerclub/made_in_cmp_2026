@@ -22,6 +22,7 @@ var selected_game:Array[Description]
 var selected_value:int = 0
 var helth:int = 0
 var rapid_game_over:bool = false
+var settings:SettingsData = preload("res://titlemenu/scripts/menu_system/setting_datas.tres")
 var _hold_time := 1.0  # 長押し判定時間（秒）
 var _title_hold_time := 2.0
 var _hold_timer := 0.0
@@ -160,6 +161,9 @@ func _title_back_toggle(delta:float)-> void:
 			_meter_value = 0.0
 			title_back.visible = false
 			rapid_game = false
+			rapid_game_over = false
+			selected_value = 0
+			selected_game = []
 			print("Debug toggled:", debug_mode)
 			_toggled = true  # 1回だけトグル
 	elif not title:

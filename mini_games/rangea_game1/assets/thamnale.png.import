@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://caiuukvnn4duf"
-path="res://.godot/imported/thamnale.png-8bee384037ad37b5dabab1eb18ef30ca.ctex"
+path="res://.godot/imported/thamnale.png-f674404cbd4f0a039e515e86d1667941.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mini_game/rangea_game1/assets/thamnale.png"
-dest_files=["res://.godot/imported/thamnale.png-8bee384037ad37b5dabab1eb18ef30ca.ctex"]
+source_file="res://mini_games/rangea_game1/assets/thamnale.png"
+dest_files=["res://.godot/imported/thamnale.png-f674404cbd4f0a039e515e86d1667941.ctex"]
 
 [params]
 

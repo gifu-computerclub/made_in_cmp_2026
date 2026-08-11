@@ -2,6 +2,26 @@
 
 [ext_resource type="StyleBox" uid="uid://b3koatjfa4anp" path="res://titlemenu/scenes/test.tres" id="1_rhy6h"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhy6h"]
+bg_color = Color(0.5344167, 0.08249999, 0.55, 1)
+skew = Vector2(0.1, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.282, 0, 0.36, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 20.0
+expand_margin_top = 10.0
+expand_margin_right = 20.0
+expand_margin_bottom = 10.0
+shadow_color = Color(0.31, 0, 0.29450008, 1)
+shadow_size = 3
+shadow_offset = Vector2(3, 3)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnurt"]
 bg_color = Color(0.27750003, 0.14999998, 1, 1)
 skew = Vector2(0.1, 0)
@@ -63,6 +83,7 @@ shadow_size = 3
 shadow_offset = Vector2(3, 3)
 
 [resource]
+Button/styles/disabled = SubResource("StyleBoxFlat_rhy6h")
 Button/styles/focus = SubResource("StyleBoxFlat_bnurt")
 Button/styles/hover = SubResource("StyleBoxFlat_kkia3")
 Button/styles/normal = ExtResource("1_rhy6h")

@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://c5rcskq31ueui"]
 
-[ext_resource type="PackedScene" uid="uid://cvw0d2clqdep0" path="res://template/start_overlay/start_overlay.tscn" id="1_qw8oe"]
+[ext_resource type="PackedScene" uid="uid://cvw0d2clqdep0" path="res://template/start_overlay/start_overlay.tscn" id="1_iep8q"]
 
 [node name="Test2" type="Node2D" unique_id=1706387567]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1261134541]
 
-[node name="StartOverlay" parent="CanvasLayer" unique_id=1826917538 instance=ExtResource("1_qw8oe")]
+[node name="StartOverlay" parent="CanvasLayer" unique_id=1826917538 instance=ExtResource("1_iep8q")]
 title_name = "てすとぉ"
 title_color = Color(0.9393333, 0.72, 1, 1)
 outline_color_black = true

@@ -1,5 +1,24 @@
 [gd_resource type="Theme" format=3 uid="uid://cok4ynmld8foe"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfi0n"]
+bg_color = Color(0.22, 0.22, 0.22, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.4, 0.4, 0.4, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 20.0
+expand_margin_top = 10.0
+expand_margin_right = 20.0
+expand_margin_bottom = 10.0
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(2, 2)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egcdg"]
 bg_color = Color(0, 1, 0.16666651, 1)
 border_width_left = 5
@@ -76,9 +95,49 @@ shadow_color = Color(0, 0, 0, 1)
 shadow_size = 1
 shadow_offset = Vector2(2, 2)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2etfb"]
+bg_color = Color(0.26, 0.26, 0.26, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5roq"]
+bg_color = Color(0, 0.060000088, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35mrg"]
+bg_color = Color(0, 0.060000088, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7msk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0x131"]
+bg_color = Color(0.07800002, 0.78, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0jxm"]
+bg_color = Color(0.26, 0.26, 0.26, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjqpk"]
+bg_color = Color(0.10899991, 0.00999999, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71tax"]
+bg_color = Color(0.10899991, 0.00999999, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owq2m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxdqa"]
+bg_color = Color(0.16666675, 1, 0, 1)
+
 [resource]
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/styles/disabled = SubResource("StyleBoxFlat_cfi0n")
 Button/styles/focus = SubResource("StyleBoxFlat_egcdg")
 Button/styles/hover = SubResource("StyleBoxFlat_jsk3t")
 Button/styles/normal = SubResource("StyleBoxFlat_d5wdn")
 Button/styles/pressed = SubResource("StyleBoxFlat_5b0h8")
+CheckButton/colors/font_pressed_color = Color(0.8833333, 1, 0, 1)
+CheckButton/styles/disabled = SubResource("StyleBoxFlat_2etfb")
+CheckButton/styles/focus = SubResource("StyleBoxFlat_x5roq")
+CheckButton/styles/hover = SubResource("StyleBoxFlat_35mrg")
+CheckButton/styles/normal = SubResource("StyleBoxFlat_w7msk")
+CheckButton/styles/pressed = SubResource("StyleBoxFlat_0x131")
+OptionButton/styles/disabled = SubResource("StyleBoxFlat_w0jxm")
+OptionButton/styles/focus = SubResource("StyleBoxFlat_rjqpk")
+OptionButton/styles/hover = SubResource("StyleBoxFlat_71tax")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_owq2m")
+OptionButton/styles/pressed = SubResource("StyleBoxFlat_vxdqa")

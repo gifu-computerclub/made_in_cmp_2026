@@ -26,6 +26,8 @@ var connect_signal:bool = false
 	set(value):
 		setting_data = value
 		notify_property_list_changed()
+		if value == null:
+			data_stringing == {}
 @export var data_stringing: Dictionary[Control,StringName]
 var data_name:Array[String]
 func _get_property_list():
@@ -75,7 +77,7 @@ func _get_setting_variable_enum() -> String:
 	
 func _notification(what):
 	if what == NOTIFICATION_CHILD_ORDER_CHANGED:
-		notify_property_list_changed()
+		call_deferred("_update_data_strings")
 #インスペクター再描画
 func _get(property):
 	if property.begins_with("data/"):
@@ -94,7 +96,23 @@ func _set(property, value):
 			data_stringing[ctrl] = value
 			return true
 	return false
+func _update_data_strings() -> void:
+	_sync_data_strings()
+	notify_property_list_changed()
+func _sync_data_strings() -> void:
+	var valid_buttons: Array[Control] = []
 
+	for button in get_items():
+		if button:
+			valid_buttons.append(button)
+
+	for button in data_stringing.keys():
+		if not is_instance_valid(button) or button not in valid_buttons:
+			data_stringing.erase(button)
+
+	for button in valid_buttons:
+		if not data_stringing.has(button):
+			data_stringing[button] = &""
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -135,7 +153,14 @@ func get_items() -> Array[Control]:
 	return items
 
 func configure_focus() -> void:
-	var items = get_items()
+	if !is_inside_tree():
+		return
+
+	var items := get_items()
+
+	for item in items:
+		if !item.is_inside_tree():
+			return
 	for i in items.size():
 		var item: Control = items[i]
 		item.focus_mode = Control.FOCUS_ALL
@@ -150,7 +175,6 @@ func configure_focus() -> void:
 				item.item_selected.connect(_on_option_selected.bind(item))
 			elif item is Button:
 				item.pressed.connect(_on_item_activated.bind(item))
-			#connect_signal = true
 		# 他にも LineEdit なら text_changed などをここで追加できる
 		# -------------------------------------------
 		if i == 0:
@@ -175,6 +199,7 @@ func configure_focus() -> void:
 		else:
 			item.focus_neighbor_bottom = items[i+1].get_path()
 			item.focus_next = items[i+1].get_path()
+	connect_signal = true
 
 
 # 現在フォーカスの取得

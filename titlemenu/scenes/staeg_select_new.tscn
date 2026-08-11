@@ -13,7 +13,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2j7lx")
-max_helth = 5
 helth_scene = ExtResource("4_q30k2")
 
 [node name="BackGround" type="TextureRect" parent="." unique_id=510849084]

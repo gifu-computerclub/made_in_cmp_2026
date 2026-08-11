@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dk5voab6hy0tw"]
 
-[ext_resource type="Script" uid="uid://3twc8eqkf28k" path="res://mini_game/rangea_game1/scene/test.gd" id="1_rucdw"]
+[ext_resource type="Script" uid="uid://3twc8eqkf28k" path="res://mini_games/rangea_game1/scene/test.gd" id="1_rucdw"]
 [ext_resource type="Texture2D" uid="uid://c55noqy6sj3t" path="res://icon.svg" id="2_gkj12"]
 [ext_resource type="PackedScene" uid="uid://cvw0d2clqdep0" path="res://template/start_overlay/start_overlay.tscn" id="3_gkj12"]
 [ext_resource type="PackedScene" uid="uid://cs800ln5kdmxv" path="res://template/timer/scenes/timer_ui.tscn" id="4_wsvf6"]
@@ -17,6 +17,32 @@ position = Vector2(318, 342)
 texture = ExtResource("2_gkj12")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1509794187]
+
+[node name="Ui" type="Control" parent="CanvasLayer" unique_id=535951148]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Ui" unique_id=441963442]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = -107.0
+offset_right = 360.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HboxContainer" type="HBoxContainer" parent="CanvasLayer/Ui/CenterContainer" unique_id=590579336]
+layout_mode = 2
+theme_override_constants/separation = 30
 
 [node name="TimerUi" parent="CanvasLayer" unique_id=1240003037 instance=ExtResource("4_wsvf6")]
 scale = Vector2(1.5, 1.5)

@@ -1,18 +1,25 @@
 class_name VisibilingCheckButton
 extends CheckButton
 
-@export var on_visible_controls:Array[Control]
-@export var off_visible_controls:Array[Control]
+## オンの時に表示されます。
+@export var on_visible_controls:Array[NodePath]
+
+## オフの時に表示されます。こちらが優先されます。
+@export var off_visible_controls:Array[NodePath]
 func _ready() -> void:
-	for i in on_visible_controls:
-		i.visible = button_pressed
-	for i in off_visible_controls:
-		i.visible = !button_pressed
+	_on_button_toggled(button_pressed)
 	toggled.connect(_on_button_toggled)
 
 
 func _on_button_toggled(toggled_on:bool) -> void:
-	for i in on_visible_controls:
-		i.visible = toggled_on
-	for i in off_visible_controls:
-		i.visible = !toggled_on
+	var root := get_parent().get_parent() # TabContainerなど
+	for path in on_visible_controls:
+		print(path)
+		var node := get_node_or_null(path)
+		if node is Control:
+			node.visible = toggled_on
+
+	for path in off_visible_controls:
+		var node := get_node_or_null(path)
+		if node is Control:
+			node.visible = !toggled_on
