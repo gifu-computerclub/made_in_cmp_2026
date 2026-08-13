@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Description" format=3 uid="uid://baq2473fqsvk2"]
+
+[ext_resource type="PackedScene" uid="uid://c5tj7jneh5k4c" path="res://mini_games/rangea_samplegame/scenes/main.tscn" id="1_2c12b"]
+[ext_resource type="Script" uid="uid://bks4y6ivp0iyg" path="res://titlemenu/scripts/discription_resorce.gd" id="1_aok58"]
+[ext_resource type="Texture2D" uid="uid://bk0fcvxmoasb7" path="res://mini_games/rangea_samplegame/assets/スクリーンショット 2026-08-12 231959.png" id="3_2c12b"]
+
+[resource]
+script = ExtResource("1_aok58")
+game_name = "かぞえろ!!"
+game_scene = ExtResource("1_2c12b")
+game_auther = "rangea100"
+grade = 2
+thambnail = ExtResource("3_2c12b")
+oparation_instruction = "A:決定"
+game_instruction = "かぞえてボタンを押す。
+以上!!"

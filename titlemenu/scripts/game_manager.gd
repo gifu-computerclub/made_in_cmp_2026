@@ -10,6 +10,7 @@ extends Control
 @onready var title_back: HBoxContainer = %TitleBack
 @onready var title_back_meter: TextureProgressBar = %TitleBackMeter
 @onready var title_back_label: Label = %TitleBackLabel
+@onready var clear_text: Label = %ClearText
 
 enum DebugChange{NONE,TOGGLE,USE_DEVELOPER_KEY}
 @export var debug_change_mode:DebugChange = DebugChange.TOGGLE
@@ -87,10 +88,11 @@ func game_over() -> void:
 	game_over_overlay.visible = false
 
 
-func game_clear() -> void:
+func game_clear(text:String = "") -> void:
 	get_tree().paused = true
 	game_clear_overlay.modulate.a = 0
 	game_clear_overlay.visible = true
+	clear_text.text = text
 	var tween:Tween = create_tween()
 	tween.tween_property(game_clear_overlay,"modulate:a",1.0,1)
 	await tween.finished

@@ -115,3 +115,5 @@ func stop() -> void:
 
 func _on_game_timer_timeout() -> void:
 	timeout.emit()
+func get_remiting_time() -> float:
+	return game_timer.time_left

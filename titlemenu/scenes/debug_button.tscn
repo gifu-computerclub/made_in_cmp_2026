@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c5575vjdti72m"]
+
+[ext_resource type="Script" uid="uid://d27e8ynrun8y3" path="res://titlemenu/scripts/debug_button.gd" id="1_e1ayk"]
+[ext_resource type="Texture2D" uid="uid://c06u00qudjydo" path="res://titlemenu/assets/texture/shot/jacket.png" id="1_pcuhq"]
+
+[node name="DebugButton" type="Button" unique_id=1341884731]
+custom_minimum_size = Vector2(0, 72)
+offset_right = 740.0
+offset_bottom = 72.0
+script = ExtResource("1_e1ayk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=541763450]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Thambnail" type="TextureRect" parent="HBoxContainer" unique_id=1185569314]
+custom_minimum_size = Vector2(128, 72)
+layout_mode = 2
+texture = ExtResource("1_pcuhq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="HBoxContainer" unique_id=1083248803]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "追いかけろ!!!!"
+
+[node name="Authe" type="Label" parent="HBoxContainer" unique_id=232951264]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "作者:3年生 <rangea100>"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

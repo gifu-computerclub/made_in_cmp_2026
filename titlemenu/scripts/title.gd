@@ -118,4 +118,12 @@ func _on_serial_game_pressed() -> void:
 	await tween.finished
 	SceneManager.change_scene("res://titlemenu/scenes/staeg_select_new.tscn",{"color":Color(1.0, 1.0, 1.0, 1.0)})
 
+func _on_debug_game_pressed() -> void:
+	mode_player.play_backwards("mode_select")
+	await mode_player.animation_finished
+	var tween:Tween = create_tween()
+	tween.tween_property(shutter,"scale",Vector2(1,0.1),1).set_ease(Tween.EASE_OUT)
+	await tween.finished
+	SceneManager.change_scene("res://titlemenu/scenes/debug_select.tscn",{"color":Color(1.0, 1.0, 1.0, 1.0)})
+
 #endregion

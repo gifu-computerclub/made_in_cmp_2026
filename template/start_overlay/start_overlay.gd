@@ -2,6 +2,9 @@
 @icon("res://titlemenu/assets/texture/icons/start_overray.svg")
 extends Control
 
+
+signal game_start()
+
 ##　タイトルを表示
 @export var title_name:String = "タイトル":
 	set(value):
@@ -109,6 +112,7 @@ func _test_view(value:bool) -> void:
 		moved_label.modulate.a = 1 if value else 0.5
 func start_countdown()-> void:
 	visible = true
+	GameManager.long_start = GameManager.settings.long_start
 	if GameManager.long_start:
 		_start_countdown_long()
 		return
@@ -128,6 +132,7 @@ func start_countdown()-> void:
 	else:
 		title_label.visible = false
 	get_tree().paused = false
+	game_start.emit()
 func _process(delta: float) -> void:
 	title_label.add_theme_font_size_override("font_size",tite_size)
 	title_label.add_theme_constant_override("outline_size",outline)
@@ -173,3 +178,4 @@ func _start_countdown_long() -> void:
 	else:
 		title_label.visible = false
 	get_tree().paused = false
+	game_start.emit()

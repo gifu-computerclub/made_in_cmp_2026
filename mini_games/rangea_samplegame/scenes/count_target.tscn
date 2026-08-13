@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bh8rw5ae7oof4"]
+
+[ext_resource type="Texture2D" uid="uid://c55noqy6sj3t" path="res://icon.svg" id="1_pb37o"]
+[ext_resource type="Script" uid="uid://bwc7fpsyetejv" path="res://mini_games/rangea_samplegame/scripts/count_target.gd" id="2_8n6yi"]
+
+[node name="CountTarget" type="Sprite2D" unique_id=984267517]
+scale = Vector2(0.3125, 0.3125)
+texture = ExtResource("1_pb37o")
+script = ExtResource("2_8n6yi")
+min_movement = Vector2(270, 110)
+max_movement = Vector2(885, 540)

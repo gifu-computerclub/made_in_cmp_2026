@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://d2id5wk83e7s0"]
+
+[ext_resource type="Texture2D" uid="uid://dpohdcnvgx2tf" path="res://titlemenu/assets/texture/kousen.png" id="1_gsav7"]
+[ext_resource type="Script" uid="uid://c0sfdph44jw7c" path="res://titlemenu/scripts/debug_select.gd" id="1_sr6p5"]
+
+[node name="DebugSelect" type="Control" unique_id=1724133099]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sr6p5")
+
+[node name="BackGround" type="TextureRect" parent="." unique_id=114999124]
+unique_name_in_owner = true
+modulate = Color(1, 0.84313726, 0.2784314, 1)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 780.0
+texture = ExtResource("1_gsav7")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2020628333]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -389.5
+offset_top = -228.0
+offset_right = 389.5
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer" unique_id=691906579]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DebugSelectsContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer" unique_id=1919242288]
+unique_name_in_owner = true
+layout_mode = 2

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caiuukvnn4duf"
-path="res://.godot/imported/thamnale.png-f674404cbd4f0a039e515e86d1667941.ctex"
+uid="uid://c8k8oyfb57bp1"
+path="res://.godot/imported/circle.png-568c64bc223aa668631a06fb0c7cfd7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mini_games/rangea_game1/assets/thamnale.png"
-dest_files=["res://.godot/imported/thamnale.png-f674404cbd4f0a039e515e86d1667941.ctex"]
+source_file="res://mini_games/rangea_samplegame/assets/circle.png"
+dest_files=["res://.godot/imported/circle.png-568c64bc223aa668631a06fb0c7cfd7a.ctex"]
 
 [params]
 

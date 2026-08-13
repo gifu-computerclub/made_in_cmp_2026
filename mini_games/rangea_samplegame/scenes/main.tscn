@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://c5tj7jneh5k4c"]
+
+[ext_resource type="Script" uid="uid://oqdqklrnaww3" path="res://mini_games/rangea_samplegame/scripts/main.gd" id="1_ii4bv"]
+[ext_resource type="PackedScene" uid="uid://cs800ln5kdmxv" path="res://template/timer/scenes/timer_ui.tscn" id="1_t035x"]
+[ext_resource type="PackedScene" uid="uid://cvw0d2clqdep0" path="res://template/start_overlay/start_overlay.tscn" id="2_pmq0x"]
+[ext_resource type="Texture2D" uid="uid://dlyujdjehuqo5" path="res://mini_games/rangea_samplegame/assets/ui_back.png" id="2_q7il3"]
+
+[node name="Main" type="Node2D" unique_id=597011207]
+script = ExtResource("1_ii4bv")
+button_number = 5
+accept = 7
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1685230930]
+offset_left = 245.0
+offset_top = 90.0
+offset_right = 905.0
+offset_bottom = 560.0
+color = Color(0.27999997, 0.592, 1, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1092578677]
+
+[node name="Ui" type="Control" parent="CanvasLayer" unique_id=396471811]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Ui" unique_id=1708916371]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_q7il3")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Ui" unique_id=457621742]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -318.0
+offset_top = -88.0
+offset_right = 318.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ButtonContainer" type="GridContainer" parent="CanvasLayer/Ui/CenterContainer" unique_id=142807247]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 5
+
+[node name="TimerUi" parent="CanvasLayer" unique_id=1240003037 instance=ExtResource("1_t035x")]
+unique_name_in_owner = true
+
+[node name="StartOverlay" parent="CanvasLayer" unique_id=1826917538 instance=ExtResource("2_pmq0x")]
+unique_name_in_owner = true
+title_name = "かぞえろ"
+after_position = Vector2(300, 10)
+
+[node name="CountTargets" type="Node2D" parent="." unique_id=1848545866]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="CanvasLayer/TimerUi" to="." method="game_over"]

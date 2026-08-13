@@ -1173,5 +1173,6 @@ libraries/ = SubResource("AnimationLibrary_bnurt")
 [connection signal="pressed" from="Credits/CreditBack" to="." method="_on_credit_back_pressed"]
 [connection signal="pressed" from="Members/MenbersBack" to="." method="_on_menbers_back_pressed"]
 [connection signal="pressed" from="ModeSelect/VBoxContainer/SingleGame" to="." method="_on_single_game_pressed"]
+[connection signal="pressed" from="ModeSelect/VBoxContainer/DebugGame" to="." method="_on_debug_game_pressed"]
 [connection signal="pressed" from="ModeSelect/VBoxContainer/SerialGame" to="." method="_on_serial_game_pressed"]
 [connection signal="pressed" from="ModeSelect/VBoxContainer/Back" to="." method="_on_back_pressed"]
