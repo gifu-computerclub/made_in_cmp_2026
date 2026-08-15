@@ -40,7 +40,7 @@ func ganerate_number() -> void:
 	print(numbers)
 
 func ganarate_buttons() -> void:
-	for num in numbers:
+	for num:int in numbers:
 		var button:Button = preload("res://mini_games/rangea_samplegame/scenes/number_button.tscn").instantiate()
 		button.number = num
 		button_container.add_child(button)

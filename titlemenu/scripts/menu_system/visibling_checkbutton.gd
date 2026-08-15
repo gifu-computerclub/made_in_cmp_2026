@@ -14,7 +14,6 @@ func _ready() -> void:
 func _on_button_toggled(toggled_on:bool) -> void:
 	var root := get_parent().get_parent() # TabContainerなど
 	for path in on_visible_controls:
-		print(path)
 		var node := get_node_or_null(path)
 		if node is Control:
 			node.visible = toggled_on

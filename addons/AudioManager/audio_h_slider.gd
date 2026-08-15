@@ -8,7 +8,7 @@ class_name AudioHSlider
 ##オーディオバスの名前を入力するとそのバスを操作します。
 @export var bass_name:StringName = &"Master"
 var _audio_value:float = 0.0
-
+var _dis_value:bool = false
 #func _get_property_list() -> Array[Dictionary]:
 	#var buss_names:Array[String] = _get_audio_bass_names()
 	#var datas:Array[Dictionary]
@@ -29,18 +29,18 @@ func _validate_property(property: Dictionary) -> void:
 		property.hint_string = enum_string
 func _ready() -> void:
 	if not Engine.is_editor_hint():
+		_on_slider_value_changed(_dis_value)
 		_on_slider_value_changed(value)
 		value_changed.connect(_on_slider_value_changed)
 
 func _on_slider_value_changed(value:float) -> void:
-	AudioManager.set_volume_ratio(bass_name,value)
-	print(bass_name,":",value)
+	AudioManager.set_volume_ratio(bass_name,value if not _dis_value else 0)
 	_audio_value = value
-
 ##trueにすると音量を一時的に0にして操作を無効にします。falseにすると音量を復元して操作を有効化します。
 func set_audio_disable(toggle:bool) -> void:
 	AudioManager.set_volume_ratio(bass_name,_audio_value if not toggle else 0)
-	editable = toggle
+	editable = not toggle
+	_dis_value = toggle
 
 
 func _get_audio_bass_names() -> Array[String]:

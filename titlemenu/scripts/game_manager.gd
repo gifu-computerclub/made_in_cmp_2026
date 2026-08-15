@@ -42,6 +42,7 @@ func _process(delta: float) -> void:
 	fps_label.text = "FPS:%d"%Engine.get_frames_per_second()
 	_title_back_toggle(delta)
 #region ファイル取得
+## ミニゲームファイルを取得。ミニゲームでは使わない
 func load_description() -> Array[Description]:
 	var result:Array[Description] = []
 
@@ -66,6 +67,8 @@ func load_description() -> Array[Description]:
 	return result
 #endregion
 #region ゲーム操作
+
+##ミニゲームで使用。ポーズを有効化した後ゲームオーバーを表示。その後自動でシーン遷移。
 func game_over() -> void:
 	get_tree().paused = true
 	game_over_overlay.visible = true
@@ -87,7 +90,8 @@ func game_over() -> void:
 	get_tree().paused = false
 	game_over_overlay.visible = false
 
-
+##ミニゲームで使用。ポーズを有効化した後ゲームクリアを表示。ボタンを押すと自動でシーン遷移。
+##textに文字を入れるとクリアの下に表示
 func game_clear(text:String = "") -> void:
 	get_tree().paused = true
 	game_clear_overlay.modulate.a = 0
@@ -106,7 +110,10 @@ func _start_button_blink() -> void:
 	button_tween.tween_property(back_button,"modulate:a",1.0,0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _on_back_button_pressed() -> void:
-	SceneManager.change_scene("res://titlemenu/scenes/title.tscn")
+	if rapid_game:
+		SceneManager.change_scene("res://titlemenu/scenes/staeg_select_new.tscn")
+	else:
+		SceneManager.change_scene("res://titlemenu/scenes/title.tscn")
 	await SceneManager.fade_complete
 	get_tree().paused = false
 	game_clear_overlay.visible = false

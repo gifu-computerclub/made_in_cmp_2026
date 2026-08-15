@@ -85,10 +85,5 @@ one_shot = true
 [node name="Update" type="Timer" parent="." unique_id=532767982]
 wait_time = 0.05
 
-[node name="Control" type="Control" parent="." unique_id=2002475438]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
 [connection signal="timeout" from="Update" to="." method="_on_update_timeout"]

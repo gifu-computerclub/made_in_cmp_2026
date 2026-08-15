@@ -8,14 +8,14 @@
 [node name="Main" type="Node2D" unique_id=597011207]
 script = ExtResource("1_ii4bv")
 button_number = 5
-accept = 7
+accept = 10
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1685230930]
 offset_left = 245.0
 offset_top = 90.0
 offset_right = 905.0
 offset_bottom = 560.0
-color = Color(0.27999997, 0.592, 1, 1)
+color = Color(0.71000004, 0.83566666, 1, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1092578677]
 
@@ -60,6 +60,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 title_name = "かぞえろ"
 after_position = Vector2(300, 10)
+test = true
 
 [node name="CountTargets" type="Node2D" parent="." unique_id=1848545866]
 unique_name_in_owner = true

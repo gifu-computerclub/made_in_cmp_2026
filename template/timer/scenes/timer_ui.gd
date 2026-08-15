@@ -3,41 +3,57 @@
 class_name TimerUi
 extends Control
 
+##タイマー終了時に発行されます。
+signal timeout
+
+var ratio_time:float
+
+##残り時間
 @export var wait_time:float = 20.0:
 	set(value):
 		wait_time = value
 		call_deferred("_editor_changed")
+##シーン開始時自動で開始します。
 @export  var auto_start:bool = false
+##数字が残り時間に応じて色が変化します
 @export var change_value_color:bool = false
+
+##メーターの色を変えます。[code]gradation[/code]が有効の時は機能しません。
 @export var meter_color:Color = Color("00ff00ff"):
 	set(value):
 		meter_color = value
 		call_deferred("_editor_changed")
 @export_group("Gradation")
+##メーターを残り時間に応じて色を変化させるようにします。
 @export_custom(PROPERTY_HINT_GROUP_ENABLE,"") var gradation:bool = true:
 	set(value):
 		gradation = value
 		call_deferred("_editor_changed")
 		notify_property_list_changed()
+##開始時の色です。
 @export var start_color:Color = Color("00ff00ff"):
 	set(value):
 		start_color = value
 		call_deferred("_editor_changed")
+##終了時の色です
 @export var end_color:Color = Color("ff0000ff")
+##始点と終点の代わりに細かく設定できるものを使用します。上記2つは反映されなくなります。
 @export var use_custom_gradation:bool = false:
 	set(value):
 		use_custom_gradation = value
 		call_deferred("_editor_changed")
 		notify_property_list_changed()
+##グラデーションを細かく設定できます。
 @export var custom_gradation:Gradient
+
+
 @onready var meter: TextureProgressBar = %Meter
 @onready var clock: TextureProgressBar = %Clock
 @onready var time_label: Label = %TimeLabel
 @onready var game_timer: Timer = $GameTimer
 @onready var update: Timer = $Update
 
-var ratio_time:float
-signal timeout
+
 func _validate_property(property: Dictionary) -> void:
 	if property.name == "meter_color":
 		if gradation:
@@ -105,15 +121,18 @@ func _get_gradation(value:float) -> Color:
 	if custom_gradation == null:
 		custom_gradation = preload("res://template/timer/scenes/defalt_gradient.tres").duplicate()
 	return custom_gradation.sample(t)
+
+##タイマーをスタートさせます。
 func start() -> void:
 	game_timer.start()
 	update.start()
-
+##タイマーをストップさせます。
 func stop() -> void:
 	game_timer.stop()
 	update.stop()
+##タイマーの現在の残り時間を取得します。
+func get_remiting_time() -> float:
+	return game_timer.time_left
 
 func _on_game_timer_timeout() -> void:
 	timeout.emit()
-func get_remiting_time() -> float:
-	return game_timer.time_left

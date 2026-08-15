@@ -2,7 +2,7 @@
 @icon("res://titlemenu/assets/texture/icons/start_overray.svg")
 extends Control
 
-
+##オーバーレイ終了時に発行
 signal game_start()
 
 ##　タイトルを表示
@@ -60,9 +60,9 @@ signal game_start()
 @onready var exp_label_1: Label = %ExpLabel1
 @onready var exp_label_2: Label = %ExpLabel2
 
-var tite_size:int = 64
-var outline:int = 20
-var main:Node
+var _tite_size:int = 64
+var _outline:int = 20
+var _main:Node
 
 func _ready() -> void:
 	_set_viwe()
@@ -126,16 +126,16 @@ func start_countdown()-> void:
 	if title_slide:
 		var tween = create_tween().set_parallel()
 		tween.tween_property(title_label,"position",after_position,0.1).set_ease(Tween.EASE_OUT)
-		tween.tween_property(self,"tite_size",after_size,0.1).set_ease(Tween.EASE_OUT)
-		tween.tween_property(self,"outline",after_outline,0.1).set_ease(Tween.EASE_OUT)
+		tween.tween_property(self,"_tite_size",after_size,0.1).set_ease(Tween.EASE_OUT)
+		tween.tween_property(self,"_outline",after_outline,0.1).set_ease(Tween.EASE_OUT)
 		await tween.finished
 	else:
 		title_label.visible = false
 	get_tree().paused = false
 	game_start.emit()
 func _process(delta: float) -> void:
-	title_label.add_theme_font_size_override("font_size",tite_size)
-	title_label.add_theme_constant_override("outline_size",outline)
+	title_label.add_theme_font_size_override("font_size",_tite_size)
+	title_label.add_theme_constant_override("outline_size",_outline)
 
 func _show_countdown(text: String,color: Color,delay:float = 0.5,speed:float = 0.5) -> void:
 	countdown_label.text = text
@@ -172,8 +172,8 @@ func _start_countdown_long() -> void:
 	if title_slide:
 		var tween2 = create_tween().set_parallel()
 		tween2.tween_property(title_label,"position",after_position,0.1).set_ease(Tween.EASE_OUT)
-		tween2.tween_property(self,"tite_size",after_size,0.1).set_ease(Tween.EASE_OUT)
-		tween2.tween_property(self,"outline",after_outline,0.1).set_ease(Tween.EASE_OUT)
+		tween2.tween_property(self,"_tite_size",after_size,0.1).set_ease(Tween.EASE_OUT)
+		tween2.tween_property(self,"_outline",after_outline,0.1).set_ease(Tween.EASE_OUT)
 		await tween2.finished
 	else:
 		title_label.visible = false

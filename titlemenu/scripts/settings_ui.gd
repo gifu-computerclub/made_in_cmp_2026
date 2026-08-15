@@ -4,6 +4,10 @@ extends Control
 @onready var debug_button: AnimetionButton = %DebugButton
 @onready var window_size: OptionButton = %WindowSize
 @onready var full_screne: CheckButton = %FullScrene
+@onready var master_slider: AudioHSlider = %MasterSlider
+@onready var bgm_slider: AudioHSlider = %BGMSlider
+@onready var se_slider: AudioHSlider = %SESlider
+@onready var enviroment_slider: AudioHSlider = %EnviromentSlider
 
 signal back_pressed
 var ui_on:bool = false
@@ -32,6 +36,14 @@ func _on_setting_back_pressed() -> void:
 
 func _on_tab_menu_actioned(item: Control, value: Variant) -> void:
 	match item.name:
+		"Master":
+			master_slider.set_audio_disable(not value)
+		"BGM":
+			bgm_slider.set_audio_disable(not value)
+		"SE":
+			se_slider.set_audio_disable(not value)
+		"Enviroment":
+			enviroment_slider.set_audio_disable(not value)
 		"WindowSize":
 			print("option:",value)
 			var viewport_wide = [1152,1280,1920]
@@ -59,3 +71,16 @@ func _input(event: InputEvent) -> void:
 func _on_debug_changed(value:bool) -> void:
 	tab_menu.set_tab_disable(2,not value)
 	debug_button.visible = value
+
+
+
+func _on_tab_menu_request_init(item: Control) -> void:
+	match item.name:
+		"MasterSlider":
+			item.set_audio_disable(not GameManager.settings.use_master)
+		"BGMSlider":
+			item.set_audio_disable(not GameManager.settings.use_bgm)
+		"SESlider":
+			item.set_audio_disable(not GameManager.settings.use_se)
+		"EnviromentSlider":
+			item.set_audio_disable(not GameManager.settings.use_enviroment)
