@@ -4,6 +4,7 @@ extends Node2D
 @export var max_number:int = 30
 @export_range(3,10,1) var button_number:int = 3
 @export var accept:int = 5
+@export var button_randam:bool = false
 
 var true_number:int
 var numbers:Array[int]
@@ -37,6 +38,8 @@ func ganerate_number() -> void:
 			select_number = randi_range(true_number-accept,true_number+accept)
 		numbers.append(select_number)
 	numbers.sort()
+	if button_randam:
+		numbers.shuffle()
 	print(numbers)
 
 func ganarate_buttons() -> void:

@@ -9,6 +9,7 @@
 script = ExtResource("1_ii4bv")
 button_number = 5
 accept = 10
+button_randam = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1685230930]
 offset_left = 245.0

@@ -79,7 +79,7 @@ func _notification(what):
 	if what == NOTIFICATION_CHILD_ORDER_CHANGED:
 		call_deferred("_update_data_strings")
 #インスペクター再描画
-func _get(property):
+func _get(property) -> Variant:
 	if property.begins_with("data/"):
 		var node_name :String= property.get_slice("/", 1)
 		var ctrl := get_node_or_null(node_name) as Control
@@ -88,7 +88,7 @@ func _get(property):
 		return &""
 	return null
 #インスペクターセット
-func _set(property, value):
+func _set(property, value) -> bool:
 	if property.begins_with("data/"):
 		var node_name :String= property.get_slice("/", 1)
 		var ctrl := get_node_or_null(node_name) as Control
