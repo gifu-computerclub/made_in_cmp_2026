@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_aok58")
-game_name = "かぞえろ!!"
+game_name = "かぞえろ"
 game_scene = ExtResource("1_2c12b")
 game_auther = "rangea100"
 grade = 2

@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 func set_dis() -> void:
 	if not Description:
 		return
-	game_name.text = description.game_name
+	game_name.text = description.game_name + "!!!!"
 	author.text = "作者:%s" % (description.game_auther if description.game_auther != "" else "匿名")
 	thambnail.texture = description.thambnail
 	oparation_instruction.text = description.oparation_instruction

@@ -5,7 +5,7 @@ var description:Description
 
 func get_game_name() -> String:
 	if description:
-		return description.game_name
+		return description.game_name + "!!!!"
 	return ""
 func set_dis(d:Description) -> void:
 	description = d

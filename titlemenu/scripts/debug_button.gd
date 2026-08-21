@@ -8,7 +8,7 @@ extends Button
 func set_des() -> void:
 	if description:
 		thambnail.texture = description.thambnail
-		title.text = description.game_name
+		title.text = description.game_name + "!!!!"
 		authe.text = "作者:%d年生 <%s>" % [description.grade + 1,description.game_auther]
 
 
