@@ -5,7 +5,7 @@ extends Control
 @onready var start: Button = %Start
 @onready var cursor: TextureRect = %Cursor
 @onready var time_label: Label = %TimeLabel
-@onready var thambnail: TextureRect = %Thambnail
+@onready var thumbnail: TextureRect = %Thumbnail
 @onready var oparation_instruction: Label = %OparationInstruction
 @onready var game_instruction: Label = %GameInstruction
 @onready var game_name: Label = %GameName
@@ -30,7 +30,8 @@ func set_dis() -> void:
 		return
 	game_name.text = description.game_name + "!!!!"
 	author.text = "作者:%s" % (description.game_auther if description.game_auther != "" else "匿名")
-	thambnail.texture = description.thambnail
+	if description.thumbnail:
+		thumbnail.texture = description.thumbnail
 	oparation_instruction.text = description.oparation_instruction
 	game_instruction.text = description.game_instruction
 

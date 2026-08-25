@@ -9,7 +9,10 @@ func get_game_name() -> String:
 	return ""
 func set_dis(d:Description) -> void:
 	description = d
-	texture = description.thambnail
+	if description.thumbnail:
+		texture = description.thumbnail
+	else:
+		texture = preload("res://titlemenu/assets/texture/noimage.png")
 
 func change_scene() -> void:
 	GameManager.select_dis = description

@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://db8nkojr4posi"]
 
 [ext_resource type="Script" uid="uid://cfh57l1hwyes8" path="res://titlemenu/scripts/game_texture.gd" id="1_1th26"]
+[ext_resource type="Texture2D" uid="uid://cfig7ipy8mpq7" path="res://titlemenu/assets/texture/noimage.png" id="1_v8q12"]
 
 [node name="GameTexture" type="TextureRect" unique_id=219178363]
 custom_minimum_size = Vector2(250, 139)
 offset_right = 40.0
 offset_bottom = 40.0
+texture = ExtResource("1_v8q12")
 expand_mode = 1
 stretch_mode = 4
 script = ExtResource("1_1th26")

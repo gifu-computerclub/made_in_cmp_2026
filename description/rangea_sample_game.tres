@@ -10,7 +10,7 @@ game_name = "かぞえろ"
 game_scene = ExtResource("1_2c12b")
 game_auther = "rangea100"
 grade = 2
-thambnail = ExtResource("3_2c12b")
+thumbnail = ExtResource("3_2c12b")
 oparation_instruction = "A:決定"
 game_instruction = "かぞえてボタンを押す。
 以上!!"

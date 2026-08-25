@@ -1,13 +1,14 @@
 extends Button
 
 @export var description:Description
-@onready var thambnail: TextureRect = $HBoxContainer/Thambnail
+@onready var thumbnail: TextureRect = $HBoxContainer/Thumbnail
 @onready var title: Label = $HBoxContainer/Title
 @onready var authe: Label = $HBoxContainer/Authe
 
 func set_des() -> void:
 	if description:
-		thambnail.texture = description.thambnail
+		if description.thumbnail:
+			thumbnail.texture = description.thumbnail
 		title.text = description.game_name + "!!!!"
 		authe.text = "作者:%d年生 <%s>" % [description.grade + 1,description.game_auther]
 

@@ -14,7 +14,7 @@ func _get_custom_preview_texture() -> Texture2D:
 ## 君の学年を教えてくれ
 @export_enum("1年生","2年生","3年生","4年生","5年生") var grade:int = 0
 ## サムネを追加!!
-@export var thambnail:Texture
+@export var thumbnail:Texture
 ## 操作方法をここに!!
 @export_multiline() var oparation_instruction:String
 ## ゲームの説明をここに!!

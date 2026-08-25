@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c5575vjdti72m"]
 
 [ext_resource type="Script" uid="uid://d27e8ynrun8y3" path="res://titlemenu/scripts/debug_button.gd" id="1_e1ayk"]
-[ext_resource type="Texture2D" uid="uid://c06u00qudjydo" path="res://titlemenu/assets/texture/shot/jacket.png" id="1_pcuhq"]
+[ext_resource type="Texture2D" uid="uid://cfig7ipy8mpq7" path="res://titlemenu/assets/texture/noimage.png" id="2_e1ayk"]
 
 [node name="DebugButton" type="Button" unique_id=1341884731]
 custom_minimum_size = Vector2(0, 72)
@@ -17,10 +17,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Thambnail" type="TextureRect" parent="HBoxContainer" unique_id=1185569314]
+[node name="Thumbnail" type="TextureRect" parent="HBoxContainer" unique_id=1185569314]
 custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
-texture = ExtResource("1_pcuhq")
+texture = ExtResource("2_e1ayk")
 expand_mode = 1
 stretch_mode = 5
 
