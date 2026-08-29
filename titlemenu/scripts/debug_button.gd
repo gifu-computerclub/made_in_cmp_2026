@@ -10,7 +10,7 @@ func set_des() -> void:
 		if description.thumbnail:
 			thumbnail.texture = description.thumbnail
 		title.text = description.game_name + "!!!!"
-		authe.text = "作者:%d年生 <%s>" % [description.grade + 1,description.game_auther]
+		authe.text = "作者:%d年生 <%s>" % [description.grade + 1,description.game_auther if description.game_auther != "" else "匿名"]
 
 
 

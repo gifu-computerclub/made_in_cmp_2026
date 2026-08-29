@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c5tj7jneh5k4c"]
+[gd_scene format=3]
 
 [ext_resource type="Script" uid="uid://oqdqklrnaww3" path="res://mini_games/rangea_samplegame/scripts/main.gd" id="1_ii4bv"]
 [ext_resource type="PackedScene" uid="uid://cs800ln5kdmxv" path="res://template/timer/scenes/timer_ui.tscn" id="1_t035x"]

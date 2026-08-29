@@ -106,7 +106,7 @@ func _set_viwe_editor() -> void:
 		call_deferred("_set_viwe")
 
 func _test_view(value:bool) -> void:
-	if Engine.is_editor_hint():
+	if Engine.is_editor_hint() and is_node_ready():
 		overlay.visible = !value
 		title_label.visible = !value
 		moved_label.modulate.a = 1 if value else 0.5
