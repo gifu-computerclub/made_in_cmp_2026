@@ -1,5 +1,6 @@
 @tool
 @icon("res://titlemenu/assets/texture/icons/start_overray.svg")
+class_name StartOverlay
 extends Control
 
 ##オーバーレイ終了時に発行
@@ -70,9 +71,6 @@ func _ready() -> void:
 		moved_label.visible = false
 		overlay.visible = true
 		title_label.visible = true
-		if use_paused:
-			await get_tree().process_frame
-			_paused()
 		if auto_start:
 			if not SceneManager.is_fade_in:
 				SceneManager.fade_in()
@@ -110,7 +108,12 @@ func _test_view(value:bool) -> void:
 		overlay.visible = !value
 		title_label.visible = !value
 		moved_label.modulate.a = 1 if value else 0.5
+
+## カウントダウン開始
 func start_countdown()-> void:
+	if use_paused:
+		await get_tree().process_frame
+		_paused()
 	visible = true
 	GameManager.long_start = GameManager.settings.long_start
 	if GameManager.long_start:
