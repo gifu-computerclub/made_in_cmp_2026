@@ -1,0 +1,643 @@
+[gd_scene format=3 uid="uid://bb4pno1ungbmj"]
+
+[ext_resource type="Script" uid="uid://61wnjbu1qmc7" path="res://mini_games/SORIO_Game1/scripts/main.gd" id="1_pmq0x"]
+[ext_resource type="PackedScene" uid="uid://cs800ln5kdmxv" path="res://template/timer/scenes/timer_ui.tscn" id="1_t035x"]
+[ext_resource type="Texture2D" uid="uid://c8kwjjwx6r73j" path="res://mini_games/SORIO_Game1/assets/janken_gu.png" id="2_68ejm"]
+[ext_resource type="PackedScene" uid="uid://cvw0d2clqdep0" path="res://template/start_overlay/start_overlay.tscn" id="2_pmq0x"]
+[ext_resource type="Texture2D" uid="uid://drsjgwvh0v4fp" path="res://mini_games/SORIO_Game1/assets/janken_choki.png" id="3_ei0g6"]
+[ext_resource type="Texture2D" uid="uid://0w3qp2bxutx5" path="res://mini_games/SORIO_Game1/assets/janken_pa.png" id="4_pdlj6"]
+
+[sub_resource type="Animation" id="Animation_68ejm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/YouLose/Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/YouLose/ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/YouLose/ColorRect2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/YouLose/ColorRect3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/YouLose/ColorRect4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/YouLose/ColorRect6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/YouLose/ColorRect5:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/YouLose/ColorRect9:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-422.00006, -414.00003)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/YouLose/ColorRect7:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-429.00006, -409.00003)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/YouLose/ColorRect8:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-800, -500)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer/YouLose/ColorRect15:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer/YouLose/ColorRect14:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CanvasLayer/YouLose/ColorRect13:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CanvasLayer/YouLose/ColorRect10:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CanvasLayer/YouLose/ColorRect11:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("CanvasLayer/YouLose/ColorRect12:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003)]
+}
+
+[sub_resource type="Animation" id="Animation_ei0g6"]
+resource_name = "you_lose"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/YouLose/Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6333333, 1.6666666, 2.4666667),
+"transitions": PackedFloat32Array(2, 1, 2, 1),
+"update": 0,
+"values": [Vector2(30, 30), Vector2(7, 7), Vector2(6.5, 6.5), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/YouLose/ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003), Vector2(1600, 100)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/YouLose/ColorRect2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003), Vector2(1600, 100)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/YouLose/ColorRect3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003), Vector2(1600, 100)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/YouLose/ColorRect4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.13333334, 0.6333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003), Vector2(1600, 100)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/YouLose/ColorRect6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.6333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003), Vector2(1600, 100)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/YouLose/ColorRect5:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.21, 0.6333333),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003), Vector2(1600, 100)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/YouLose/ColorRect9:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.36666667, 1.2333333, 1.94),
+"transitions": PackedFloat32Array(0.5, 1, 1),
+"update": 0,
+"values": [Vector2(-800, -600), Vector2(1600, 100), Vector2(1600, 99.99997)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/YouLose/ColorRect7:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.4, 1.3666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-650, -490), Vector2(1600, 100)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/YouLose/ColorRect8:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.6333333, 1.7333333),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Vector2(-800, -500), Vector2(1600, 100)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer/YouLose/ColorRect15:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.3333334, 1.8333334),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003), Vector2(1600, 100)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer/YouLose/ColorRect14:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(1.3, 2.1666667),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003), Vector2(1600, 100)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CanvasLayer/YouLose/ColorRect13:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(1.3666667, 2.2333333),
+"transitions": PackedFloat32Array(0.39229193, 1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003), Vector2(1600, 100)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CanvasLayer/YouLose/ColorRect10:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(1.6, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003), Vector2(1600, 100)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CanvasLayer/YouLose/ColorRect11:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(1.7666667, 2.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003), Vector2(1600, 100)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("CanvasLayer/YouLose/ColorRect12:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(1.6666666, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-226.00003, -354.00003), Vector2(1600, 100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pdlj6"]
+_data = {
+&"RESET": SubResource("Animation_68ejm"),
+&"you_lose": SubResource("Animation_ei0g6")
+}
+
+[node name="Main" type="Node2D" unique_id=597011207]
+script = ExtResource("1_pmq0x")
+textures = Array[Texture]([ExtResource("2_68ejm"), ExtResource("3_ei0g6"), ExtResource("4_pdlj6")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1092578677]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=484952225]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=857352010]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -394.5
+offset_top = 26.0
+offset_right = 394.5
+offset_bottom = 304.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control" unique_id=794733500]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -274.0
+offset_right = 110.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_68ejm")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=166145576]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 100.0
+offset_right = 450.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "あいこ！"
+
+[node name="TimerUi" parent="CanvasLayer" unique_id=1240003037 instance=ExtResource("1_t035x")]
+auto_start = false
+
+[node name="StartOverlay" parent="CanvasLayer" unique_id=1826917538 instance=ExtResource("2_pmq0x")]
+visible = false
+title_name = "じゃんけん"
+after_position = Vector2(630, 10)
+after_size = 50
+after_outline = 10
+
+[node name="YouLose" type="Control" parent="CanvasLayer" unique_id=1763893154]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/YouLose" unique_id=1012975104]
+z_index = 3
+layout_mode = 0
+offset_left = -226.00003
+offset_top = -354.00003
+offset_right = -126.00003
+offset_bottom = 645.99976
+rotation = 0.2617994
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/YouLose" unique_id=1331694900]
+z_index = 3
+layout_mode = 0
+offset_left = -226.00003
+offset_top = -354.00003
+offset_right = -126.00003
+offset_bottom = 645.9994
+rotation = 0.2617994
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/YouLose" unique_id=917205024]
+z_index = 3
+layout_mode = 0
+offset_left = -226.00003
+offset_top = -354.00003
+offset_right = -126.00003
+offset_bottom = 646.00024
+rotation = 0.2617994
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer/YouLose" unique_id=1285203123]
+z_index = 3
+layout_mode = 0
+offset_left = -226.00003
+offset_top = -354.00003
+offset_right = -76.00003
+offset_bottom = 645.99963
+rotation = 0.2617994
+
+[node name="ColorRect5" type="ColorRect" parent="CanvasLayer/YouLose" unique_id=34890760]
+z_index = 3
+layout_mode = 0
+offset_left = -226.00003
+offset_top = -354.00003
+offset_right = 74.00058
+offset_bottom = 646.00366
+rotation = 0.2617994
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="CanvasLayer/YouLose" unique_id=887225540]
+z_index = 3
+layout_mode = 0
+offset_left = -226.00003
+offset_top = -354.00003
+offset_right = -26.00003
+offset_bottom = 646.0039
+rotation = 0.2617994
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="CanvasLayer/YouLose" unique_id=1212386533]
+z_index = 3
+layout_mode = 0
+offset_left = -429.00006
+offset_top = -409.00003
+offset_right = 370.9975
+offset_bottom = 591.0011
+rotation = 0.2617994
+
+[node name="ColorRect8" type="ColorRect" parent="CanvasLayer/YouLose" unique_id=998268492]
+z_index = 3
+layout_mode = 0
+offset_left = -800.0
+offset_top = -500.0
+offset_bottom = 500.00757
+rotation = 0.2617994
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="CanvasLayer/YouLose" unique_id=190613773]
+z_index = 3
+layout_mode = 0
+offset_left = -422.00006
+offset_top = -414.00003
+offset_right = 377.99994
+offset_bottom = 586.0027
+rotation = 0.2617994
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="CanvasLayer/YouLose" unique_id=1654481554]
+z_index = 3
+layout_mode = 0
+offset_left = -226.00003
+offset_top = -354.00003
+offset_right = -126.00003
+offset_bottom = 646.0
+rotation = 0.2617994
+
+[node name="ColorRect11" type="ColorRect" parent="CanvasLayer/YouLose" unique_id=234057359]
+z_index = 3
+layout_mode = 0
+offset_left = -226.00003
+offset_top = -354.00003
+offset_right = -126.00003
+offset_bottom = 645.9995
+rotation = 0.2617994
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect12" type="ColorRect" parent="CanvasLayer/YouLose" unique_id=1662659668]
+z_index = 3
+layout_mode = 0
+offset_left = -226.00003
+offset_top = -354.00003
+offset_right = -126.00003
+offset_bottom = 646.00037
+rotation = 0.2617994
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect13" type="ColorRect" parent="CanvasLayer/YouLose" unique_id=1554539799]
+z_index = 3
+layout_mode = 0
+offset_left = -226.00003
+offset_top = -354.00003
+offset_right = -76.00003
+offset_bottom = 645.9984
+rotation = 0.2617994
+
+[node name="ColorRect14" type="ColorRect" parent="CanvasLayer/YouLose" unique_id=504461904]
+z_index = 3
+layout_mode = 0
+offset_left = -226.00003
+offset_top = -354.00003
+offset_right = 73.99936
+offset_bottom = 646.0033
+rotation = 0.2617994
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect15" type="ColorRect" parent="CanvasLayer/YouLose" unique_id=292242486]
+z_index = 3
+layout_mode = 0
+offset_left = -226.00003
+offset_top = -354.00003
+offset_right = -26.00003
+offset_bottom = 645.9978
+rotation = 0.2617994
+color = Color(0, 0, 1, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/YouLose" unique_id=156959241]
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.00012
+offset_top = -8.4999695
+offset_right = 63.999878
+offset_bottom = 8.5000305
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "YOU LOSE"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1804093319]
+libraries/ = SubResource("AnimationLibrary_pdlj6")
+
+[connection signal="timeout" from="CanvasLayer/TimerUi" to="." method="_on_timer_ui_timeout"]

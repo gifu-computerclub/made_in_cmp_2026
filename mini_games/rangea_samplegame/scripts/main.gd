@@ -2,7 +2,7 @@ extends Node2D
 
 @export var min_number:int = 15
 @export var max_number:int = 30
-@export_range(3,10,1) var button_number:int = 3
+@export_range(3,100,1) var button_number:int = 3
 @export var accept:int = 5
 @export var button_randam:bool = false
 
