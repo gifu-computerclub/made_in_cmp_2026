@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_qkcp8")
 bgm_vol = 0.3
+long_start = false
 full_screan = false
 metadata/_custom_type_script = "uid://dvuwkh02jvd4v"
