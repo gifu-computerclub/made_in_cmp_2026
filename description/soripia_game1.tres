@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Description" format=3 uid="uid://bpicfbha82fo3"]
+
+[ext_resource type="Script" uid="uid://bks4y6ivp0iyg" path="res://titlemenu/scripts/discription_resorce.gd" id="1_4lq46"]
+[ext_resource type="PackedScene" uid="uid://b84lbeyom3cuo" path="res://mini_games/soripia_game1/scenes/main.tscn" id="1_tsjn4"]
+
+[resource]
+script = ExtResource("1_4lq46")
+game_name = "kari"
+game_scene = ExtResource("1_tsjn4")
+game_auther = "soripia"
+grade = 2
