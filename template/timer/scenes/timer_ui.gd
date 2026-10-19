@@ -123,8 +123,9 @@ func _get_gradation(value:float) -> Color:
 	return custom_gradation.sample(t)
 
 ##タイマーをスタートさせます。
-func start() -> void:
-	game_timer.start()
+func start(value:float = -1) -> void:
+	game_timer.start(value)
+	_on_update_timeout()
 	update.start()
 ##タイマーをストップさせます。
 func stop() -> void:

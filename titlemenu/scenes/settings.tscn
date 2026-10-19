@@ -168,7 +168,7 @@ theme_override_constants/margin_bottom = 20
 [node name="TabMenu" type="TabContainer" parent="Panel/MarginContainer" unique_id=441790551]
 unique_name_in_owner = true
 layout_mode = 2
-current_tab = 0
+current_tab = 1
 tabs_visible = false
 script = ExtResource("2_7f7uc")
 left_key = &"l"
@@ -176,6 +176,7 @@ right_key = &"r"
 metadata/_custom_type_script = "uid://b25yypjb6qoya"
 
 [node name="オーディオ" type="ScrollContainer" parent="Panel/MarginContainer/TabMenu" unique_id=1130859457]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -278,7 +279,6 @@ bass_name = &"Enviroment"
 metadata/_custom_type_script = "uid://bhvqieefq4ggd"
 
 [node name="ゲーム" type="ScrollContainer" parent="Panel/MarginContainer/TabMenu" unique_id=1736272702]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -302,6 +302,7 @@ NodePath("CheckButton"): &"long_start",
 NodePath("FullScrene"): &"full_screan",
 NodePath("WindowSize"): &"window_size"
 }
+debug_print = null
 metadata/_custom_type_script = "uid://5xvwd0w1ogad"
 
 [node name="CheckButton" type="CheckButton" parent="Panel/MarginContainer/TabMenu/ゲーム/MarginContainer/Menu" unique_id=1329124681]

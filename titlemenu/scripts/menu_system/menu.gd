@@ -29,6 +29,9 @@ var connect_signal:bool = false
 		if value == null:
 			data_stringing == {}
 @export var data_stringing: Dictionary[Control,StringName]
+
+## 切り替え時にプリントします。
+@export var debug_print:bool = false
 var data_name:Array[String]
 func _get_property_list():
 	var list := []
@@ -264,13 +267,18 @@ func _on_menu_actioned(item:Control,value) -> void:
 	pass
 	if data_stringing.has(item):
 		setting_data.set(data_stringing[item],value)
-		#print(item.name+":="+ str(value))
+		if debug_print:print(item.name+":="+ str(value))
 
 func _on_request_inited(item:Control) -> void:
 	if data_stringing.has(item):
 		if item is CheckButton:
-			item.button_pressed = setting_data.get(data_stringing[item])
+			item.button_pressed = get_or_default(setting_data,data_stringing[item],false)
 		elif item is HSlider:
-			item.value = setting_data.get(data_stringing[item])
+			item.value = get_or_default(setting_data,data_stringing[item],0)
 		elif item is OptionButton:
-			item.selected = setting_data.get(data_stringing[item])
+			item.selected = get_or_default(setting_data,data_stringing[item],0)
+
+func get_or_default(resource: Resource, property: StringName, default_value: Variant) -> Variant:
+	if resource.get_property_list().any(func(p): return p.name == property):
+		return resource.get(property)
+	return default_value
