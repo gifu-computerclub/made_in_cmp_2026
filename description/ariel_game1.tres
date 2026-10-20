@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Description" format=3 uid="uid://bjb5qnkwpl01k"]
+
+[ext_resource type="Script" uid="uid://bks4y6ivp0iyg" path="res://titlemenu/scripts/discription_resorce.gd" id="1_p8pih"]
+[ext_resource type="PackedScene" uid="uid://dpoiwdl3ur4uc" path="res://mini_games/ariel_game1/scenes/main.tscn" id="1_xxapm"]
+
+[resource]
+script = ExtResource("1_p8pih")
+game_name = "パンチ"
+game_scene = ExtResource("1_xxapm")
+game_auther = "ありえる"
+grade = 2
+oparation_instruction = "L、R:移動
+A:ぶん殴る
+B:しゃがむ"
+game_instruction = "時間内に相手をぶん殴ってぶっ倒せ！
+移動、しゃがみで攻撃を避けろ！！
+ぶん殴れ！！
+ぶん殴れ！！！！！"

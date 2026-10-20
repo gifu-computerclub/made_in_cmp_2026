@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bxvia3h20886v"]
+
+[ext_resource type="PackedScene" uid="uid://60o3ksrysvss" path="res://mini_games/ariel_game1/scenes/character.tscn" id="1_nu4q5"]
+[ext_resource type="Script" uid="uid://biqqp35q31rb2" path="res://mini_games/ariel_game1/scripts/enemy.gd" id="2_no81y"]
+
+[node name="Enemy" unique_id=1937064191 instance=ExtResource("1_nu4q5")]
+script = ExtResource("2_no81y")
