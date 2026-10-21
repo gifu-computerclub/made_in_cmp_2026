@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cn71seujb5q3i"]
+
+[ext_resource type="Script" uid="uid://dipepgnt7nxtk" path="res://mini_games/SORIO_Game1/scripts/button.gd" id="1_0wtiv"]
+
+[node name="Button" type="Button" unique_id=691680838]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0wtiv")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Description" format=3 uid="uid://dvf1ajta80p70"]
+
+[ext_resource type="Script" uid="uid://bks4y6ivp0iyg" path="res://titlemenu/scripts/discription_resorce.gd" id="1_22bo7"]
+[ext_resource type="PackedScene" uid="uid://bb4pno1ungbmj" path="res://mini_games/SORIO_Game1/scenes/main.tscn" id="1_jx0hu"]
+
+[resource]
+script = ExtResource("1_22bo7")
+game_name = "俺の勝ち"
+game_scene = ExtResource("1_jx0hu")
+game_auther = "ちくパ大明神"
+grade = 2
+oparation_instruction = "出す手を選びましょう"
+game_instruction = "じゃんけんです"
