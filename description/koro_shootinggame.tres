@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Description" format=3 uid="uid://c1fraqjhx4oh6"]
+
+[ext_resource type="PackedScene" uid="uid://b6ge4b7nmhnld" path="res://mini_games/koro_shootinggame/scenes/main.tscn" id="1_dcrad"]
+[ext_resource type="Script" uid="uid://bks4y6ivp0iyg" path="res://titlemenu/scripts/discription_resorce.gd" id="1_oq0su"]
+[ext_resource type="Texture2D" uid="uid://mk10pdyd12pu" path="res://mini_games/koro_shootinggame/assets/made_in_cmp.png" id="3_00r0b"]
+
+[resource]
+script = ExtResource("1_oq0su")
+game_name = "よけろ"
+game_scene = ExtResource("1_dcrad")
+game_auther = "Koro"
+grade = 2
+thumbnail = ExtResource("3_00r0b")
+oparation_instruction = "左のスティック・・・移動"
+game_instruction = "赤い四角(プレイヤー)を動かして白い丸を避けよう！
+青い丸に触れると残り時間が少なくなるよ"

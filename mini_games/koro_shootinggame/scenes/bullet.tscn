@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cx6nvu0i38iog"]
+
+[ext_resource type="Script" uid="uid://cj8kuug0165v" path="res://mini_games/koro_shootinggame/scripts/bullet.gd" id="1_op7bo"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_qnsx1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t12ru"]
+radius = 7.0
+
+[node name="Area2D" type="Area2D" unique_id=1297942918]
+script = ExtResource("1_op7bo")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1801643130]
+position = Vector2(-4.7683716e-07, 2.3841858e-06)
+scale = Vector2(20.022678, 20.000004)
+mesh = SubResource("SphereMesh_qnsx1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1565727246]
+shape = SubResource("CircleShape2D_t12ru")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1096957053]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

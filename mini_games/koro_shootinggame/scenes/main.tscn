@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://b6ge4b7nmhnld"]
+
+[ext_resource type="Script" uid="uid://bymd43dxrln24" path="res://mini_games/koro_shootinggame/scripts/main.gd" id="1_pmq0x"]
+[ext_resource type="PackedScene" uid="uid://cs800ln5kdmxv" path="res://template/timer/scenes/timer_ui.tscn" id="1_t035x"]
+[ext_resource type="PackedScene" uid="uid://cvw0d2clqdep0" path="res://template/start_overlay/start_overlay.tscn" id="2_pmq0x"]
+[ext_resource type="Script" uid="uid://r2nj3ku5m7t4" path="res://mini_games/koro_shootinggame/scripts/player.gd" id="4_xkhgx"]
+[ext_resource type="Script" uid="uid://1lnqggwl6pfi" path="res://mini_games/koro_shootinggame/scripts/enemy.gd" id="5_x4b2s"]
+[ext_resource type="Script" uid="uid://dgmhbkp2ygovu" path="res://mini_games/koro_shootinggame/scripts/ItemMuzzle.gd" id="6_8ai6m"]
+[ext_resource type="Script" uid="uid://2lk1k4gtva27" path="res://mini_games/koro_shootinggame/scripts/enemy2.gd" id="6_ja80j"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_scf6m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scf6m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qnsx1"]
+
+[node name="Main" type="Node2D" unique_id=597011207]
+script = ExtResource("1_pmq0x")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1092578677]
+
+[node name="TimerUi" parent="CanvasLayer" unique_id=1240003037 instance=ExtResource("1_t035x")]
+unique_name_in_owner = true
+
+[node name="StartOverlay" parent="CanvasLayer" unique_id=1826917538 instance=ExtResource("2_pmq0x")]
+title_name = "よけろ"
+test = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=622268891 groups=["Player"]]
+script = ExtResource("4_xkhgx")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CharacterBody2D" unique_id=1331943249]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_scf6m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1181705516]
+shape = SubResource("RectangleShape2D_scf6m")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=233323956]
+position = Vector2(899, 40)
+script = ExtResource("5_x4b2s")
+
+[node name="ShootTimer" type="Timer" parent="Muzzle" unique_id=1814788393]
+wait_time = 1.5
+autostart = true
+
+[node name="Muzzle2" type="Marker2D" parent="." unique_id=1991332690]
+position = Vector2(300, 32)
+script = ExtResource("5_x4b2s")
+
+[node name="ShootTimer" type="Timer" parent="Muzzle2" unique_id=1587585540]
+wait_time = 1.5
+autostart = true
+
+[node name="Muzzle3" type="Marker2D" parent="." unique_id=1354996938]
+position = Vector2(512, 598)
+script = ExtResource("6_ja80j")
+
+[node name="ShootTimer" type="Timer" parent="Muzzle3" unique_id=1356882942]
+wait_time = 1.5
+autostart = true
+
+[node name="ItemMuzzle" type="Marker2D" parent="." unique_id=1807376935]
+position = Vector2(581, 33)
+script = ExtResource("6_8ai6m")
+
+[node name="ShootTimer" type="Timer" parent="ItemMuzzle" unique_id=56010386]
+wait_time = 0.403
+autostart = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1236922331]
+position = Vector2(299.00003, -7.0000005)
+scale = Vector2(77.750015, 53.5)
+mesh = SubResource("BoxMesh_qnsx1")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="." unique_id=1399793520]
+position = Vector2(898, -13)
+scale = Vector2(77.750015, 53.5)
+mesh = SubResource("BoxMesh_qnsx1")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="." unique_id=1399671830]
+position = Vector2(514.00006, 649)
+scale = Vector2(77.750015, 53.5)
+mesh = SubResource("BoxMesh_qnsx1")
+
+[connection signal="timeout" from="CanvasLayer/TimerUi" to="." method="_on_timer_ui_timeout"]
