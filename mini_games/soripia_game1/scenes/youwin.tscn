@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://r0objk7bubwe"]
+
+[ext_resource type="Texture2D" uid="uid://bigrfwv73kxwo" path="res://mini_games/soripia_game1/sozai/勝ち.png" id="1_acvl0"]
+
+[node name="youwin" type="Node2D" unique_id=1709186709]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1578529290]
+z_index = 10
+position = Vector2(300, 300)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_acvl0")

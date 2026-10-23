@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dhwqgeh6f0hfm"]
+
+[ext_resource type="Texture2D" uid="uid://c24stgj4bx55y" path="res://mini_games/soripia_game1/sozai/お手付き.png" id="1_5mkqs"]
+
+[node name="otetuki" type="Node2D" unique_id=1407247886]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=386934197]
+z_index = 10
+position = Vector2(300, 300)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_5mkqs")

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cu3rea2thmwi2"]
+
+[ext_resource type="Texture2D" uid="uid://bk045nglofqd" path="res://mini_games/soripia_game1/sozai/負け.png" id="1_fbly3"]
+
+[node name="youlose" type="Node2D" unique_id=1426140812]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1916267232]
+z_index = 10
+position = Vector2(300, 300)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_fbly3")

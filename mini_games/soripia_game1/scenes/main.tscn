@@ -3,15 +3,54 @@
 [ext_resource type="Script" uid="uid://c1jdr2dk68jcb" path="res://mini_games/soripia_game1/scripts/main.gd" id="1_pmq0x"]
 [ext_resource type="PackedScene" uid="uid://cs800ln5kdmxv" path="res://template/timer/scenes/timer_ui.tscn" id="1_t035x"]
 [ext_resource type="PackedScene" uid="uid://cvw0d2clqdep0" path="res://template/start_overlay/start_overlay.tscn" id="2_pmq0x"]
+[ext_resource type="PackedScene" uid="uid://cum7n2xf5pbpo" path="res://mini_games/soripia_game1/scenes/go.tscn" id="4_3ksyc"]
+[ext_resource type="AudioStream" uid="uid://dmrt54wod6tqp" path="res://mini_games/soripia_game1/sozai/My Song.wav" id="4_kiqjf"]
+[ext_resource type="PackedScene" uid="uid://dhwqgeh6f0hfm" path="res://mini_games/soripia_game1/scenes/otetuki.tscn" id="5_n4o6c"]
+[ext_resource type="PackedScene" uid="uid://r0objk7bubwe" path="res://mini_games/soripia_game1/scenes/youwin.tscn" id="6_hnioq"]
+[ext_resource type="PackedScene" uid="uid://cu3rea2thmwi2" path="res://mini_games/soripia_game1/scenes/youlose.tscn" id="7_5foi8"]
+[ext_resource type="Texture2D" uid="uid://4ske8tmbyp53" path="res://mini_games/soripia_game1/sozai/2609073.jpg" id="9_xj46q"]
 
 [node name="Main" type="Node2D" unique_id=597011207]
 script = ExtResource("1_pmq0x")
+win_time = 0.4
+
+[node name="2609073" type="Sprite2D" parent="." unique_id=1018721030]
+position = Vector2(578.6875, 324.125)
+scale = Vector2(0.27607784, 0.21765795)
+texture = ExtResource("9_xj46q")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1092578677]
 
 [node name="TimerUi" parent="CanvasLayer" unique_id=1240003037 instance=ExtResource("1_t035x")]
+visible = false
 
 [node name="StartOverlay" parent="CanvasLayer" unique_id=1826917538 instance=ExtResource("2_pmq0x")]
 visible = false
 
-[connection signal="timeout" from="CanvasLayer/TimerUi" to="." method="_on_timer_ui_timeout"]
+[node name="start" type="AudioStreamPlayer" parent="." unique_id=1039334853]
+stream = ExtResource("4_kiqjf")
+
+[node name="RandomTimer" type="Timer" parent="." unique_id=1275658502]
+one_shot = true
+
+[node name="judgeTimer" type="Timer" parent="." unique_id=1868061328]
+one_shot = true
+
+[node name="otetuki" parent="." unique_id=1251069237 instance=ExtResource("5_n4o6c")]
+position = Vector2(322, -114)
+
+[node name="youwin" parent="." unique_id=1169927259 instance=ExtResource("6_hnioq")]
+position = Vector2(295, -130)
+
+[node name="youlose" parent="." unique_id=493446451 instance=ExtResource("7_5foi8")]
+position = Vector2(308, -134)
+
+[node name="WaitTimer" type="Timer" parent="." unique_id=801800454]
+one_shot = true
+
+[node name="GO" parent="." unique_id=1751187774 instance=ExtResource("4_3ksyc")]
+position = Vector2(299, -120)
+
+[connection signal="finished" from="start" to="." method="_on_audio_stream_player_finished"]
+[connection signal="timeout" from="RandomTimer" to="." method="_on_random_timer_timeout"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]

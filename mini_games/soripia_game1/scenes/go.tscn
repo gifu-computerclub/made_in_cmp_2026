@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cum7n2xf5pbpo"]
+
+[ext_resource type="Script" uid="uid://bj8j5ifkwx8tp" path="res://mini_games/soripia_game1/scenes/go.gd" id="1_w00in"]
+[ext_resource type="Texture2D" uid="uid://j5cck5bs5e18" path="res://mini_games/soripia_game1/sozai/GO.png" id="2_1m7x7"]
+
+[node name="GO" type="Node2D" unique_id=1908193509]
+script = ExtResource("1_w00in")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1758372123]
+z_index = 10
+position = Vector2(300, 300)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_1m7x7")
