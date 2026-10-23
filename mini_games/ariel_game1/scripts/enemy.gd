@@ -234,4 +234,4 @@ func _on_health_changed() -> void:
 	if health <= 0:
 		set_process(false)
 		set_physics_process(false)
-		GameManager.game_clear(&"クリア！")
+		GameManager.game_clear()

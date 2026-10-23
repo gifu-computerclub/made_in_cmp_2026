@@ -3,5 +3,28 @@
 [ext_resource type="PackedScene" uid="uid://60o3ksrysvss" path="res://mini_games/ariel_game1/scenes/character.tscn" id="1_nu4q5"]
 [ext_resource type="Script" uid="uid://biqqp35q31rb2" path="res://mini_games/ariel_game1/scripts/enemy.gd" id="2_no81y"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocnay"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nu4q5"]
+material = SubResource("StandardMaterial3D_ocnay")
+
+[sub_resource type="SphereMesh" id="SphereMesh_nu4q5"]
+material = SubResource("StandardMaterial3D_ocnay")
+
 [node name="Enemy" unique_id=1937064191 instance=ExtResource("1_nu4q5")]
 script = ExtResource("2_no81y")
+target_path = NodePath("")
+move_interval = 0.6
+attack_interval = 1.5
+dodge_chance = 0.65
+dodge_cooldown = 1.0
+low_attack_chance = 0.3
+random_move_interval = 2.0
+random_move_chance = 0.35
+
+[node name="MeshInstance3D" parent="." index="1" unique_id=967090058]
+mesh = SubResource("CylinderMesh_nu4q5")
+
+[node name="MeshInstance3D" parent="PunchArea" parent_id_path=PackedInt32Array(211257849) index="0" unique_id=447034527]
+mesh = SubResource("SphereMesh_nu4q5")

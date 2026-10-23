@@ -514,10 +514,6 @@ target_path = NodePath("../Player")
 move_interval = 0.3
 attack_interval = 0.75
 dodge_chance = 1.0
-dodge_cooldown = 1.0
-low_attack_chance = 0.3
-random_move_interval = 2.0
-random_move_chance = 0.35
 
 [node name="HitEffect" type="CanvasLayer" parent="." unique_id=666762233]
 unique_name_in_owner = true
