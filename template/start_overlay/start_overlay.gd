@@ -119,7 +119,7 @@ func start_countdown()-> void:
 	if GameManager.long_start:
 		_start_countdown_long()
 		return
-	AudioManager.play_BGM("res://titlemenu/assets/audio/kosenwaribiki_game1.ogg",0,0,1,true)
+	AudioManager.play_BGM("res://titlemenu/assets/audio/Made by CMP!!1.ogg",0,0,1,true)
 	await _show_countdown("3",Color(0,1,0))
 	await _show_countdown("2",Color(1,0.5,0))
 	await _show_countdown("1",Color(1,0,0))
@@ -152,7 +152,7 @@ func _show_countdown(text: String,color: Color,delay:float = 0.5,speed:float = 0
 	await get_tree().create_timer(delay).timeout
 
 func _start_countdown_long() -> void:
-	AudioManager.play_BGM("res://titlemenu/assets/audio/kosenwaribiki_game1.ogg",0,0,1,true)
+	AudioManager.play_BGM("res://titlemenu/assets/audio/Made by CMP!!1.ogg",0,0,1,true)
 	title_label.position.x = 1155
 	exp_label_1.position.x = 1152
 	exp_label_2.position.x = 1152
