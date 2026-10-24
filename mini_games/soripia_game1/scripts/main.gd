@@ -10,6 +10,7 @@ var change_time: float
 @onready var basi: AudioStreamPlayer = $letgo
 @onready var win_sound: AudioStreamPlayer = $winner
 @onready var lose_sound: AudioStreamPlayer = $loser
+var can_push: int
 
 func _ready() -> void:
 	$GO.hide()
@@ -26,13 +27,14 @@ func _ready() -> void:
 	normal_volume = GameManager.settings.bgm_vol
 	var tween:Tween = create_tween()
 	tween.tween_method(_set_value,normal_volume,0.0,1.5)
+	can_push = 1
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("a"):
+	if Input.is_action_just_pressed("a") and can_push == 1:
 		judge_button()
 		$you_st.hide()
 		$you_fi.show()
-		
+		can_push = can_push + 1
 
 func _set_value(val:float) -> void:
 	AudioManager.set_volume_ratio(&"BGM",val)
@@ -47,6 +49,7 @@ func _on_random_timer_timeout() -> void:
 	start_judge_timer()
 	$GO.show()
 	basi.play()
+	$downTimer.start()
 
 func start_judge_timer() -> void:
 	judge_timer_start = true
@@ -106,3 +109,8 @@ func _on_wait_timer_timeout() -> void:
 func _on_judge_timer_timeout() -> void:
 	$ene_st.hide()
 	$ene_fi.show()
+
+
+func _on_down_timer_timeout() -> void:
+	if can_push == 1:
+		GameManager.game_over()

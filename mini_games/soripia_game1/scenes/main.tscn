@@ -106,7 +106,11 @@ stream = ExtResource("17_yl6uw")
 [node name="loser" type="AudioStreamPlayer" parent="." unique_id=1309867073]
 stream = ExtResource("17_cqunk")
 
+[node name="downTimer" type="Timer" parent="." unique_id=1869044723]
+wait_time = 5.0
+
 [connection signal="finished" from="start" to="." method="_on_audio_stream_player_finished"]
 [connection signal="timeout" from="RandomTimer" to="." method="_on_random_timer_timeout"]
 [connection signal="timeout" from="judgeTimer" to="." method="_on_judge_timer_timeout"]
 [connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
+[connection signal="timeout" from="downTimer" to="." method="_on_down_timer_timeout"]
