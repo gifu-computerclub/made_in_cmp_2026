@@ -37,10 +37,6 @@ func _process(delta: float) -> void:
 func _set_value(val:float) -> void:
 	AudioManager.set_volume_ratio(&"BGM",val)
 
-func _on_timer_ui_timeout() -> void:
-	GameManager.game_over()
-
-
 func _on_audio_stream_player_finished() -> void:
 	var random_wait_time := randf_range(1.0 , 5.0)
 	$RandomTimer.start(random_wait_time)
@@ -67,6 +63,8 @@ func judge_button() -> void:
 	
 	if change_time <= win_time:
 		judge = 1
+		finish_judgement()
+		return
 	else:
 		judge = 2
 		
@@ -99,6 +97,7 @@ func _on_wait_timer_timeout() -> void:
 	tween.tween_method(_set_value,0.0,normal_volume,1.5)
 	if judge == 1:
 		GameManager.game_clear("あなたの記録:　%.2f" %change_time)
+		return
 	else:
 		GameManager.game_over()
 	

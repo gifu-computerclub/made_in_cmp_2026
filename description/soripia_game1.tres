@@ -2,10 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bks4y6ivp0iyg" path="res://titlemenu/scripts/discription_resorce.gd" id="1_4lq46"]
 [ext_resource type="PackedScene" uid="uid://b84lbeyom3cuo" path="res://mini_games/soripia_game1/scenes/main.tscn" id="1_tsjn4"]
+[ext_resource type="Texture2D" uid="uid://dhwr6fyq044dm" path="res://mini_games/soripia_game1/sozai/スクリーンショット 2026-10-24 175127.png" id="3_ig6lg"]
 
 [resource]
 script = ExtResource("1_4lq46")
-game_name = "kari"
+game_name = "魅せ付けろ！ボディビル大会"
 game_scene = ExtResource("1_tsjn4")
 game_auther = "soripia"
 grade = 2
+thumbnail = ExtResource("3_ig6lg")
+oparation_instruction = "A:決定"
+game_instruction = "goが出たらAボタンをプッシュ！
+君の筋肉魅せ付けろ！"

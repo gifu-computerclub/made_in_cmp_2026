@@ -32,10 +32,11 @@ texture = ExtResource("9_xj46q")
 
 [node name="TimerUi" parent="CanvasLayer" unique_id=1240003037 instance=ExtResource("1_t035x")]
 visible = false
-wait_time = 18.0
+wait_time = 25.0
 
 [node name="StartOverlay" parent="CanvasLayer" unique_id=1826917538 instance=ExtResource("2_pmq0x")]
 visible = false
+title_name = "魅せ付けろ"
 
 [node name="start" type="AudioStreamPlayer" parent="." unique_id=1039334853]
 stream = ExtResource("4_kiqjf")
@@ -105,7 +106,6 @@ stream = ExtResource("17_yl6uw")
 [node name="loser" type="AudioStreamPlayer" parent="." unique_id=1309867073]
 stream = ExtResource("17_cqunk")
 
-[connection signal="timeout" from="CanvasLayer/TimerUi" to="." method="_on_timer_ui_timeout"]
 [connection signal="finished" from="start" to="." method="_on_audio_stream_player_finished"]
 [connection signal="timeout" from="RandomTimer" to="." method="_on_random_timer_timeout"]
 [connection signal="timeout" from="judgeTimer" to="." method="_on_judge_timer_timeout"]
