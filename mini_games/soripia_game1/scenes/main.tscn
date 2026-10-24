@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://b84lbeyom3cuo"]
+
+[ext_resource type="Script" uid="uid://c1jdr2dk68jcb" path="res://mini_games/soripia_game1/scripts/main.gd" id="1_pmq0x"]
+[ext_resource type="PackedScene" uid="uid://cs800ln5kdmxv" path="res://template/timer/scenes/timer_ui.tscn" id="1_t035x"]
+[ext_resource type="PackedScene" uid="uid://cvw0d2clqdep0" path="res://template/start_overlay/start_overlay.tscn" id="2_pmq0x"]
+[ext_resource type="PackedScene" uid="uid://cum7n2xf5pbpo" path="res://mini_games/soripia_game1/scenes/go.tscn" id="4_3ksyc"]
+[ext_resource type="AudioStream" uid="uid://dmrt54wod6tqp" path="res://mini_games/soripia_game1/sozai/My Song.wav" id="4_kiqjf"]
+[ext_resource type="PackedScene" uid="uid://dhwqgeh6f0hfm" path="res://mini_games/soripia_game1/scenes/otetuki.tscn" id="5_n4o6c"]
+[ext_resource type="PackedScene" uid="uid://r0objk7bubwe" path="res://mini_games/soripia_game1/scenes/youwin.tscn" id="6_hnioq"]
+[ext_resource type="PackedScene" uid="uid://cu3rea2thmwi2" path="res://mini_games/soripia_game1/scenes/youlose.tscn" id="7_5foi8"]
+[ext_resource type="Texture2D" uid="uid://4ske8tmbyp53" path="res://mini_games/soripia_game1/sozai/2609073.jpg" id="9_xj46q"]
+[ext_resource type="Texture2D" uid="uid://d186evomosx2w" path="res://mini_games/soripia_game1/sozai/画像1.png" id="10_xer46"]
+[ext_resource type="Texture2D" uid="uid://20lapsom22pw" path="res://mini_games/soripia_game1/sozai/画像4.png" id="11_mxi81"]
+[ext_resource type="Texture2D" uid="uid://rmyemadmbs7f" path="res://mini_games/soripia_game1/sozai/画像2.png" id="12_1f86h"]
+[ext_resource type="Texture2D" uid="uid://b5nxvlok7f5wt" path="res://mini_games/soripia_game1/sozai/画像5.png" id="13_0yyio"]
+[ext_resource type="Texture2D" uid="uid://da5qlvas03wkw" path="res://mini_games/soripia_game1/sozai/画像6.png" id="14_58xa0"]
+[ext_resource type="Texture2D" uid="uid://b6ifoknqeddfm" path="res://mini_games/soripia_game1/sozai/画像7.png" id="15_5bf4m"]
+[ext_resource type="AudioStream" uid="uid://daq1k1y878fcm" path="res://mini_games/soripia_game1/sozai/打撃2.mp3" id="16_5bf4m"]
+[ext_resource type="AudioStream" uid="uid://ba8s1eby7ajb0" path="res://mini_games/soripia_game1/sozai/universfield-crowd-disappointment-reaction-352718.mp3" id="17_cqunk"]
+[ext_resource type="AudioStream" uid="uid://dygi4n4lbgd7l" path="res://mini_games/soripia_game1/sozai/Cheer-Crowd02-2(Mid).mp3" id="17_yl6uw"]
+
+[node name="Main" type="Node2D" unique_id=597011207]
+script = ExtResource("1_pmq0x")
+win_time = 0.3
+
+[node name="2609073" type="Sprite2D" parent="." unique_id=1018721030]
+position = Vector2(578.6875, 324.125)
+scale = Vector2(0.27607784, 0.21765795)
+texture = ExtResource("9_xj46q")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1092578677]
+
+[node name="TimerUi" parent="CanvasLayer" unique_id=1240003037 instance=ExtResource("1_t035x")]
+visible = false
+wait_time = 25.0
+
+[node name="StartOverlay" parent="CanvasLayer" unique_id=1826917538 instance=ExtResource("2_pmq0x")]
+visible = false
+title_name = "魅せ付けろ"
+
+[node name="start" type="AudioStreamPlayer" parent="." unique_id=1039334853]
+stream = ExtResource("4_kiqjf")
+
+[node name="RandomTimer" type="Timer" parent="." unique_id=1275658502]
+one_shot = true
+
+[node name="judgeTimer" type="Timer" parent="." unique_id=1868061328]
+wait_time = 0.4
+one_shot = true
+
+[node name="otetuki" parent="." unique_id=1251069237 instance=ExtResource("5_n4o6c")]
+position = Vector2(322, -114)
+
+[node name="youwin" parent="." unique_id=1169927259 instance=ExtResource("6_hnioq")]
+position = Vector2(295, -130)
+
+[node name="youlose" parent="." unique_id=493446451 instance=ExtResource("7_5foi8")]
+position = Vector2(308, -134)
+
+[node name="WaitTimer" type="Timer" parent="." unique_id=801800454]
+wait_time = 2.0
+one_shot = true
+
+[node name="GO" parent="." unique_id=1751187774 instance=ExtResource("4_3ksyc")]
+position = Vector2(299, -120)
+
+[node name="you_st" type="Sprite2D" parent="." unique_id=660469293]
+position = Vector2(338, 501)
+texture = ExtResource("10_xer46")
+
+[node name="ene_st" type="Sprite2D" parent="." unique_id=879547988]
+position = Vector2(778.00006, 505.00003)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_mxi81")
+
+[node name="you_fi" type="Sprite2D" parent="." unique_id=1314596808]
+visible = false
+position = Vector2(350, 508)
+texture = ExtResource("12_1f86h")
+
+[node name="ene_fi" type="Sprite2D" parent="." unique_id=153816443]
+visible = false
+position = Vector2(784.00006, 503)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("13_0yyio")
+
+[node name="you_lo" type="Sprite2D" parent="." unique_id=1387514743]
+visible = false
+position = Vector2(350.99997, 509.00003)
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("14_58xa0")
+
+[node name="ene_lo" type="Sprite2D" parent="." unique_id=185202382]
+visible = false
+position = Vector2(788, 512)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("15_5bf4m")
+
+[node name="letgo" type="AudioStreamPlayer" parent="." unique_id=537375214]
+stream = ExtResource("16_5bf4m")
+volume_db = 10.0
+
+[node name="winner" type="AudioStreamPlayer" parent="." unique_id=200105729]
+stream = ExtResource("17_yl6uw")
+
+[node name="loser" type="AudioStreamPlayer" parent="." unique_id=1309867073]
+stream = ExtResource("17_cqunk")
+
+[node name="downTimer" type="Timer" parent="." unique_id=1869044723]
+wait_time = 5.0
+
+[connection signal="finished" from="start" to="." method="_on_audio_stream_player_finished"]
+[connection signal="timeout" from="RandomTimer" to="." method="_on_random_timer_timeout"]
+[connection signal="timeout" from="judgeTimer" to="." method="_on_judge_timer_timeout"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
+[connection signal="timeout" from="downTimer" to="." method="_on_down_timer_timeout"]
