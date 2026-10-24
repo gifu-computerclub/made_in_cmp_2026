@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://60o3ksrysvss"]
+
+[ext_resource type="Script" uid="uid://davhh8sqoh624" path="res://mini_games/ariel_game1/scripts/character.gd" id="1_kimcn"]
+[ext_resource type="AudioStream" uid="uid://3gcljgm5u7ws" path="res://mini_games/ariel_game1/assets/sounds/punch.wav" id="2_stx4v"]
+[ext_resource type="AudioStream" uid="uid://dcuyhct00uxyq" path="res://mini_games/ariel_game1/assets/sounds/boost.wav" id="3_3pn1v"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tq22b"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tq22b"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_erjkb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tq22b"]
+
+[sub_resource type="Animation" id="Animation_t18bu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PunchArea:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_stx4v"]
+resource_name = "punch"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PunchArea:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(2, 0.5, 0.5),
+"update": 0,
+"values": [Vector3(0, 1, 0), Vector3(0, 1, -4), Vector3(0, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"_punching"
+}, {
+"args": [false],
+"method": &"_punching"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3pn1v"]
+_data = {
+&"RESET": SubResource("Animation_t18bu"),
+&"punch": SubResource("Animation_stx4v")
+}
+
+[sub_resource type="Animation" id="Animation_3pn1v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_cpt01"]
+resource_name = "sneek"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(0.112656355, 1, 0.5, 0.112656355),
+"update": 0,
+"values": [1.0, 0.0, 0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0t7aa"]
+_data = {
+&"RESET": SubResource("Animation_3pn1v"),
+&"sneek": SubResource("Animation_cpt01")
+}
+
+[node name="Character" type="CharacterBody3D" unique_id=1937064191]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_kimcn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1473609429]
+shape = SubResource("CylinderShape3D_tq22b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=967090058]
+mesh = SubResource("CylinderMesh_tq22b")
+
+[node name="PunchArea" type="Area3D" parent="." unique_id=211257849]
+unique_name_in_owner = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PunchArea" unique_id=447034527]
+mesh = SubResource("SphereMesh_erjkb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PunchArea" unique_id=1524390349]
+shape = SubResource("SphereShape3D_tq22b")
+
+[node name="PunchAnim" type="AnimationPlayer" parent="." unique_id=1617245062]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_3pn1v")
+
+[node name="SneekAnim" type="AnimationPlayer" parent="." unique_id=1083761937]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_0t7aa")
+
+[node name="Timer" type="Timer" parent="." unique_id=1504219313]
+unique_name_in_owner = true
+wait_time = 1.25
+one_shot = true
+
+[node name="Punch" type="AudioStreamPlayer" parent="." unique_id=293097723]
+unique_name_in_owner = true
+stream = ExtResource("2_stx4v")
+bus = &"SE"
+
+[node name="Excelllent" type="AudioStreamPlayer" parent="." unique_id=1674247906]
+unique_name_in_owner = true
+stream = ExtResource("3_3pn1v")
+bus = &"SE"
+
+[connection signal="body_entered" from="PunchArea" to="." method="_on_punch_area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

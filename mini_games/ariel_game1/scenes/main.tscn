@@ -1,0 +1,624 @@
+[gd_scene format=3 uid="uid://dpoiwdl3ur4uc"]
+
+[ext_resource type="Script" uid="uid://f1nmikcxipqi" path="res://mini_games/ariel_game1/scripts/main.gd" id="1_pmq0x"]
+[ext_resource type="PackedScene" uid="uid://cs800ln5kdmxv" path="res://template/timer/scenes/timer_ui.tscn" id="1_t035x"]
+[ext_resource type="PackedScene" uid="uid://cvw0d2clqdep0" path="res://template/start_overlay/start_overlay.tscn" id="2_pmq0x"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_oh5jy"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_2iek5"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_2xcr8"]
+[ext_resource type="Script" uid="uid://prj5dqjkwutu" path="res://addons/shaker/src/Vector3/shaker_component3D.gd" id="6_ogxnk"]
+[ext_resource type="PackedScene" uid="uid://60o3ksrysvss" path="res://mini_games/ariel_game1/scenes/character.tscn" id="7_2xcr8"]
+[ext_resource type="Shader" uid="uid://cmmk1vyqduo4y" path="res://mini_games/ariel_game1/assets/shaders/mono.gdshader" id="7_urnau"]
+[ext_resource type="Script" uid="uid://bscnjodhkp0ks" path="res://addons/shaker/data/Vector3/BaseShakerType3D.gd" id="7_w7jaa"]
+[ext_resource type="Script" uid="uid://csnhit0k62npe" path="res://mini_games/ariel_game1/scripts/player.gd" id="8_2xcr8"]
+[ext_resource type="Script" uid="uid://ctladubgvte30" path="res://addons/shaker/data/Vector3/ShakerTypeRandom3D.gd" id="8_mvgkr"]
+[ext_resource type="Script" uid="uid://d8gy04uxxk3p" path="res://addons/shaker/data/Vector3/ShakerPreset3D.gd" id="9_728gr"]
+[ext_resource type="Script" uid="uid://dckr5a0qpqej0" path="res://mini_games/ariel_game1/scripts/hit_effect.gd" id="11_hc2fm"]
+[ext_resource type="Shader" uid="uid://o2o4arye8lck" path="res://mini_games/ariel_game1/assets/shaders/dopa.gdshader" id="12_plvk4"]
+[ext_resource type="PackedScene" uid="uid://bxvia3h20886v" path="res://mini_games/ariel_game1/scenes/enemy.tscn" id="14_mvgkr"]
+[ext_resource type="FontFile" uid="uid://r2x1dsvhbyw6" path="res://mini_games/ariel_game1/assets/Melete-Bold.otf" id="17_mvgkr"]
+[ext_resource type="LabelSettings" uid="uid://dc7c2t7l4nga2" path="res://mini_games/ariel_game1/assets/combo_fonts.tres" id="18_728gr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t3oxg"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_urnau"]
+sky_material = SubResource("ProceduralSkyMaterial_t3oxg")
+
+[sub_resource type="Environment" id="Environment_wh7jc"]
+background_mode = 1
+background_color = Color(0.14901961, 0.14901961, 0.14901961, 1)
+sky = SubResource("Sky_urnau")
+
+[sub_resource type="BoxMesh" id="BoxMesh_tq22b"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="Resource" id="Resource_hc2fm"]
+script = ExtResource("5_2iek5")
+duration = 0.5
+ease = 1
+
+[sub_resource type="Resource" id="Resource_0fdgq"]
+script = ExtResource("8_mvgkr")
+metadata/_custom_type_script = "uid://ctladubgvte30"
+
+[sub_resource type="Resource" id="Resource_erjkb"]
+script = ExtResource("9_728gr")
+PositionShake = Array[ExtResource("7_w7jaa")]([SubResource("Resource_0fdgq")])
+metadata/_custom_type_script = "uid://d8gy04uxxk3p"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tq22b"]
+shader = ExtResource("7_urnau")
+shader_parameter/intensity = 1.0
+shader_parameter/dithering = true
+shader_parameter/dithering_size = 10
+shader_parameter/resolution_scale = 2
+shader_parameter/threshold = 60.0
+shader_parameter/white = Color(1, 1, 1, 1)
+shader_parameter/black = Color(0.4117647, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_plvk4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraPivot/StartCam:priority")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainCam:priority")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_8qxaq"]
+resource_name = "start"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.19614604, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -18.849556, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraPivot/StartCam:priority")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainCam:priority")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2i0gh"]
+_data = {
+&"RESET": SubResource("Animation_plvk4"),
+&"start": SubResource("Animation_8qxaq")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_urnau"]
+shader = ExtResource("12_plvk4")
+shader_parameter/screen_size = Vector2(1152, 648)
+shader_parameter/hit_center = Vector2(0.5, 0.5)
+shader_parameter/effect_amount = 0.0
+shader_parameter/wave_progress = 0.0
+shader_parameter/effect_time = 0.0
+shader_parameter/chromatic_strength = 0.012
+shader_parameter/glitch_strength = 0.018
+shader_parameter/wave_strength = 0.035
+shader_parameter/pixel_strength = 0.65
+shader_parameter/flash_strength = 0.75
+shader_parameter/scanline_strength = 0.1
+shader_parameter/flash_color = Color(1, 0.9490196, 0, 1)
+
+[sub_resource type="Animation" id="Animation_ce8bv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Label:label_settings:font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [50]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Label:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Label:label_settings:font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.38431373, 0, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mvgkr"]
+resource_name = "excellent"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["EXCELLENT"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Label:label_settings:font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [200, 90]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Label:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.099999994, 0.15, 0.2, 0.275, 0.35, 0.4, 0.5, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Label:label_settings:font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_728gr"]
+resource_name = "hyper"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HYPER"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Label:label_settings:font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [200, 75]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Label:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.099999994, 0.15, 0.2, 0.275, 0.35, 0.4, 0.5, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Label:label_settings:font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0.5176471, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0d6ya"]
+resource_name = "super"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SUPER"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Label:label_settings:font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [200, 50]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Label:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.099999994, 0.15, 0.2, 0.275, 0.35, 0.4, 0.5, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Label:label_settings:font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.5058824, 0, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r1ijf"]
+_data = {
+&"RESET": SubResource("Animation_ce8bv"),
+&"excellent": SubResource("Animation_mvgkr"),
+&"hyper": SubResource("Animation_728gr"),
+&"super": SubResource("Animation_0d6ya")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvgkr"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_728gr"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce8bv"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[node name="Main" type="Node3D" unique_id=1683329000 groups=["ArielGame1Main"]]
+script = ExtResource("1_pmq0x")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=891023045]
+environment = SubResource("Environment_wh7jc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=997820968]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1092578677]
+
+[node name="TimerUi" parent="CanvasLayer" unique_id=1240003037 instance=ExtResource("1_t035x")]
+unique_name_in_owner = true
+wait_time = 30.0
+auto_start = false
+
+[node name="StartOverlay" parent="CanvasLayer" unique_id=1826917538 instance=ExtResource("2_pmq0x")]
+unique_name_in_owner = true
+title_name = "ぶん殴れ"
+title_color = Color(1, 0, 0, 1)
+after_position = Vector2(735, 25)
+after_size = 35
+use_paused = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1421847465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_tq22b")
+
+[node name="MainCam" type="Node3D" parent="." unique_id=735054114]
+transform = Transform3D(1, 0, 0, 0, 0.9063077, 0.42261824, 0, -0.4226183, 0.9063076, 2.4744077e-07, 3.5000002, 3.9999974)
+script = ExtResource("4_oh5jy")
+tween_resource = SubResource("Resource_hc2fm")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Shaker" type="Node3D" parent="MainCam" unique_id=1092742309]
+unique_name_in_owner = true
+script = ExtResource("6_ogxnk")
+intensity = 0.25
+duration = 0.25
+fade_in = 1e-05
+fade_out = 0.9012506
+shakerPreset = SubResource("Resource_erjkb")
+metadata/_custom_type_script = "uid://prj5dqjkwutu"
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1372534100]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="StartCam" type="Node3D" parent="CameraPivot" unique_id=1579851454]
+unique_name_in_owner = true
+transform = Transform3D(0.99999905, -0.00047163377, 0.0012958032, 0, 0.9396926, 0.34202012, -0.001378965, -0.3420198, 0.9396917, 0, 0, 5)
+script = ExtResource("4_oh5jy")
+priority = 3
+tween_resource = SubResource("Resource_hc2fm")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Camera" type="Camera3D" parent="." unique_id=1149661191]
+unique_name_in_owner = true
+transform = Transform3D(0.99999905, -0.00047163377, 0.0012958032, 0, 0.9396926, 0.34202012, -0.001378965, -0.3420198, 0.9396917, 0, 2, 5)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera" unique_id=839922441]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("6_2xcr8")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="Mono" type="SubViewportContainer" parent="Camera" unique_id=46818759]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_tq22b")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="Camera/Mono" unique_id=1897621343]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="MonoCam" type="Camera3D" parent="Camera/Mono/SubViewport" unique_id=785520241]
+unique_name_in_owner = true
+transform = Transform3D(0.99999905, -0.0004716338, 0.0012958033, 0, 0.9396926, 0.34202018, -0.001378965, -0.34201983, 0.9396917, 0, 2, 5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=234493433]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_2i0gh")
+autoplay = &"start"
+
+[node name="Player" parent="." unique_id=1937064191 instance=ExtResource("7_2xcr8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+script = ExtResource("8_2xcr8")
+
+[node name="Enemy" parent="." unique_id=552099579 instance=ExtResource("14_mvgkr")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, -2)
+target_path = NodePath("../Player")
+move_interval = 0.3
+attack_interval = 0.75
+dodge_chance = 1.0
+
+[node name="HitEffect" type="CanvasLayer" parent="." unique_id=666762233]
+unique_name_in_owner = true
+script = ExtResource("11_hc2fm")
+
+[node name="ColorRect" type="ColorRect" parent="HitEffect" unique_id=57833728]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_urnau")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1465862949]
+layer = 2
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=1761778783]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer2/Control" unique_id=2068512179]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.5
+offset_top = -25.0
+offset_right = 179.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("17_mvgkr")
+label_settings = ExtResource("18_728gr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HitAnim" type="AnimationPlayer" parent="CanvasLayer2" unique_id=1088474534]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_r1ijf")
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="." unique_id=253021895]
+
+[node name="Control" type="Control" parent="CanvasLayer3" unique_id=926818525]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlayerHP" type="ProgressBar" parent="CanvasLayer3/Control" unique_id=56818461]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -148.0
+offset_right = 250.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_mvgkr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_728gr")
+max_value = 10.0
+step = 1.0
+value = 10.0
+show_percentage = false
+
+[node name="EnemyHP" type="ProgressBar" parent="CanvasLayer3/Control" unique_id=162153418]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -598.0
+offset_right = 250.0
+offset_bottom = -548.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_mvgkr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ce8bv")
+max_value = 10.0
+step = 1.0
+value = 10.0
+show_percentage = false
+
+[connection signal="timeout" from="CanvasLayer/TimerUi" to="." method="_on_timer_ui_timeout"]
