@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/Made by CMP!!1.ogg-b1b6fda4b863cf0aaf7524d76f
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=22.588
+bpm=170.0
 beat_count=0
 bar_beats=4
