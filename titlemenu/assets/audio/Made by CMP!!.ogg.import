@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bu5mrbmjkjs44"
+path="res://.godot/imported/Made by CMP!!.ogg-fa3233d0f1971e7bb428240f28e559d8.oggvorbisstr"
+
+[deps]
+
+source_file="res://titlemenu/assets/audio/Made by CMP!!.ogg"
+dest_files=["res://.godot/imported/Made by CMP!!.ogg-fa3233d0f1971e7bb428240f28e559d8.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=22.588
+bpm=170.0
+beat_count=0
+bar_beats=4

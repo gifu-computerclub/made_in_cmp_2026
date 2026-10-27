@@ -69,6 +69,7 @@ func win():
 	GameManager.game_clear()
 
 func lose():
+	await get_tree().create_timer(0.5).timeout
 	you_lose.show()
 	animation_player.play("you_lose")
 	await animation_player.animation_finished

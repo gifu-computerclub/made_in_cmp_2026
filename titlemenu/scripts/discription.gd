@@ -12,8 +12,15 @@ extends Control
 @onready var timer: Timer = $Timer
 @onready var author: Label = %Author
 
-var timer_time:float = 11.0
+var timer_time:float = 21.0
+var bgm_path:String = "res://titlemenu/assets/audio/説明！.ogg"
+var bgm_path2:String = "res://titlemenu/assets/audio/discription.ogg"
 func _ready() -> void:
+	var bgm:String
+	if randf() < 0.01:
+		bgm = bgm_path2
+	else:
+		bgm = bgm_path
 	timer.wait_time = timer_time
 	timer.start()
 	if GameManager.select_dis:
@@ -21,7 +28,7 @@ func _ready() -> void:
 	cursor.global_position = start.global_position + Vector2(-40,0)
 	start.grab_focus()
 	set_dis()
-	AudioManager.play_BGM("res://titlemenu/assets/audio/Logic&Contradiction.ogg",0,0,1,true)
+	AudioManager.play_BGM(bgm,0,0,1,true)
 func _process(delta: float) -> void:
 	time_label.text = str(int(round(timer.time_left)))
 

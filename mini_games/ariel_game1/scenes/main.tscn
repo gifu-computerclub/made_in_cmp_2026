@@ -439,7 +439,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 mesh = SubResource("BoxMesh_tq22b")
 
 [node name="MainCam" type="Node3D" parent="." unique_id=735054114]
-transform = Transform3D(1, 0, 0, 0, 0.9063077, 0.42261824, 0, -0.4226183, 0.9063076, 2.4744077e-07, 3.5000002, 3.9999974)
+transform = Transform3D(1, 0, 0, 0, 0.9063077, 0.42261824, 0, -0.4226183, 0.9063076, 2.5518239e-07, 3.5000005, 3.9999983)
 script = ExtResource("4_oh5jy")
 tween_resource = SubResource("Resource_hc2fm")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
