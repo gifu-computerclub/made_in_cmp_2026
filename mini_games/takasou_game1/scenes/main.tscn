@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://ue4kk8yc4msk"]
+
+[ext_resource type="Script" uid="uid://b4ojr2yyilqyi" path="res://mini_games/takasou_game1/scripts/main.gd" id="1_pmq0x"]
+[ext_resource type="PackedScene" uid="uid://cvw0d2clqdep0" path="res://template/start_overlay/start_overlay.tscn" id="2_pmq0x"]
+[ext_resource type="Script" uid="uid://bq23erw54c7oy" path="res://mini_games/takasou_game1/scripts/start_overlay.gd" id="4_2yi5o"]
+[ext_resource type="Texture2D" uid="uid://bu6lay02awbt5" path="res://mini_games/takasou_game1/assets/80_2.png" id="4_4ku3b"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_wvur5"]
+size = Vector2(4, 648)
+
+[node name="Main" type="Node2D" unique_id=597011207]
+script = ExtResource("1_pmq0x")
+
+[node name="BackGround" type="TextureRect" parent="." unique_id=1280972130]
+offset_right = 1152.0
+offset_bottom = 810.0
+scale = Vector2(1, 0.8)
+texture = ExtResource("4_4ku3b")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1092578677]
+
+[node name="StartOverlay" parent="CanvasLayer" unique_id=1826917538 instance=ExtResource("2_pmq0x")]
+script = ExtResource("4_2yi5o")
+title_name = "音律ヘブン"
+after_position = Vector2(2000, -100)
+
+[node name="TurnShow" type="RichTextLabel" parent="." unique_id=238636004]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 450.0
+offset_bottom = 200.0
+bbcode_enabled = true
+
+[node name="MusicBar" type="MeshInstance2D" parent="." unique_id=488183973]
+position = Vector2(0, 324)
+mesh = SubResource("QuadMesh_wvur5")
+
+[node name="HeartContainer" type="HBoxContainer" parent="." unique_id=1706767475]
+offset_left = 700.0
+offset_right = 1100.0
+offset_bottom = 100.0
+
+[connection signal="music_started" from="CanvasLayer/StartOverlay" to="." method="_on_start_overlay_music_started"]

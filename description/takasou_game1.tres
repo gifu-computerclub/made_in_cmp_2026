@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Description" format=3 uid="uid://cju2piskbb2tb"]
+
+[ext_resource type="Script" uid="uid://bks4y6ivp0iyg" path="res://titlemenu/scripts/discription_resorce.gd" id="1_nu6xr"]
+[ext_resource type="PackedScene" uid="uid://ue4kk8yc4msk" path="res://mini_games/takasou_game1/scenes/main.tscn" id="1_yajc8"]
+[ext_resource type="Texture2D" uid="uid://f6wpk66cwi1i" path="res://mini_games/takasou_game1/assets/スクリーンショット 2026-10-28 014502.png" id="3_gxilu"]
+
+[resource]
+script = ExtResource("1_nu6xr")
+game_name = "音律ヘブン"
+game_scene = ExtResource("1_yajc8")
+game_auther = "たかそう部長ULTIMATE"
+grade = 2
+thumbnail = ExtResource("3_gxilu")
+oparation_instruction = "いずれかのキーをタイミングよく押す"
+game_instruction = "音ゲーだよ。
+一小節分の見本の音が流れたあと、同じリズムで叩こう。
+12ターン中3ターン失敗するとゲームオーバー。"

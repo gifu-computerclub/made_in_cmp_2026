@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://u8anrunkoxau"]
+
+[ext_resource type="Script" uid="uid://6hr1w28gstwp" path="res://mini_games/takasou_game1/scenes/rhythm_square.gd" id="1_2ggg1"]
+[ext_resource type="Texture2D" uid="uid://dseg0ikrad88v" path="res://mini_games/takasou_game1/assets/音符ちゃん.png" id="2_qoj3w"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_wvur5"]
+size = Vector2(10, 120)
+
+[sub_resource type="QuadMesh" id="QuadMesh_5luoe"]
+size = Vector2(10, 120)
+
+[sub_resource type="QuadMesh" id="QuadMesh_2ggg1"]
+size = Vector2(40, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_qoj3w"]
+size = Vector2(40, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_p8nii"]
+size = Vector2(40, 100)
+
+[sub_resource type="QuadMesh" id="QuadMesh_7iexd"]
+size = Vector2(6, 100)
+
+[node name="RhythmSquare" type="Node2D" unique_id=1065613789]
+script = ExtResource("1_2ggg1")
+
+[node name="Frame" type="Node2D" parent="." unique_id=749404656]
+
+[node name="LeftMesh" type="MeshInstance2D" parent="Frame" unique_id=1582608952]
+position = Vector2(-25, 0)
+mesh = SubResource("QuadMesh_wvur5")
+
+[node name="RightMesh" type="MeshInstance2D" parent="Frame" unique_id=529106865]
+position = Vector2(25, 0)
+mesh = SubResource("QuadMesh_5luoe")
+
+[node name="UpperMesh" type="MeshInstance2D" parent="Frame" unique_id=1550157340]
+position = Vector2(0, -55)
+mesh = SubResource("QuadMesh_2ggg1")
+
+[node name="DownerMesh" type="MeshInstance2D" parent="Frame" unique_id=1259045116]
+position = Vector2(0, 55)
+mesh = SubResource("QuadMesh_qoj3w")
+
+[node name="RhythmShow" type="MeshInstance2D" parent="." unique_id=227444741]
+modulate = Color(1, 1, 0, 1)
+mesh = SubResource("QuadMesh_p8nii")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="RhythmShow" unique_id=1024313967]
+modulate = Color(1, 0, 0, 1)
+mesh = SubResource("QuadMesh_7iexd")
+
+[node name="Onpu" type="Sprite2D" parent="." unique_id=274594819]
+position = Vector2(0, 140)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("2_qoj3w")
