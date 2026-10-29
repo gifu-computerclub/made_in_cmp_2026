@@ -27,7 +27,7 @@ var beat:int = 0
 var music_frame:int = 0
 var miss_turn:Array[int] = []
 var offset:int = 1
-var heart = 3
+var heart = 6
 var hearts:Array[Heart] = []
 
 func _ready() -> void:
@@ -45,6 +45,10 @@ func _ready() -> void:
 		rhythm_frame.rhythm_show.hide()
 		rhythm_frame.miss.connect(turn_miss)
 
+func _process(delta: float) -> void:
+	if AudioManager.get_bgm_position() >= 3.185 and AudioManager.get_bgm_position() <=3.215:
+		print("補正")
+		music_frame = 191
 func _physics_process(delta: float) -> void:
 	music_frame += 1
 	if music_frame == UNIT_MEASURE*(4+2*turn):
@@ -84,3 +88,8 @@ func turn_miss():
 		if miss_turn.size() >= heart:
 			await get_tree().create_timer(0.1).timeout
 			GameManager.game_over()
+
+
+func _on_start_overlay_game_start() -> void:
+	print(AudioManager.get_bgm_position())
+	print(music_frame)

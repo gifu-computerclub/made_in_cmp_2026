@@ -63,7 +63,10 @@ func play_BGM(path:String = "", endfade_time:float = 0.0, startfade_time:float =
 		label.text = audio_display_preffix + str(bgm.stream.resource_path.get_file().get_basename()) + audio_display_suffix
 		animation_player.play(&"BGM_display")
 
-
+func get_bgm_position() -> float:
+	if bgm.playing:
+		return bgm.get_playback_position()
+	return 0
 ## 現在流れているBGMの再生位置を保存。
 func save_BGM_position() -> void:
 	if bgm.playing:

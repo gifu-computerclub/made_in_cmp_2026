@@ -4,7 +4,6 @@ extends StartOverlay
 signal music_started()
 func start_countdown()-> void:
 	if use_paused:
-		await get_tree().process_frame
 		_paused()
 	visible = true
 	GameManager.long_start = GameManager.settings.long_start

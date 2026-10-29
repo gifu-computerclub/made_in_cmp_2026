@@ -8,6 +8,7 @@ extends Control
 @onready var mode_player: AnimationPlayer = %ModePlayer
 @onready var settings: Control = %Settings
 @onready var quit: AnimetionButton = %Quit
+@onready var start: AnimetionButton = %Start
 
 
 func _ready() -> void:
@@ -17,6 +18,8 @@ func _ready() -> void:
 	main_player.play("start")
 	GameManager.debug_change.connect(_on_debug_changed)
 	_on_debug_changed(GameManager.debug_mode)
+	await main_player.animation_finished
+	start.grab_focus()
 	pass
 
 
@@ -51,6 +54,11 @@ func _set_menbers() -> void:
 func _on_start_pressed() -> void:
 	animation_player.play("mode_select")
 	mode_player.play("mode_select")
+	await mode_player.animation_finished
+	if GameManager.debug_mode:
+		%DebugGame.grab_focus()
+	else:
+		%SingleGame.grab_focus()
 
 
 func _on_quit_pressed() -> void:
@@ -64,29 +72,40 @@ func _on_settings_pressed() -> void:
 func _on_setting_back_pressed() -> void:
 	animation_player.play_backwards("setting")
 	main_player.play("start")
+	await main_player.animation_finished
+	start.grab_focus()
 
 
 func _on_credit_back_pressed() -> void:
 	animation_player.play_backwards("credits")
 	main_player.play("start")
+	await main_player.animation_finished
+	start.grab_focus()
 
 
 func _on_credits_pressed() -> void:
 	animation_player.play("credits")
+	await animation_player.animation_finished
+	%CreditBack.grab_focus()
 
 
 func _on_menbers_back_pressed() -> void:
 	animation_player.play_backwards("menbers")
 	main_player.play("start")
+	await main_player.animation_finished
+	start.grab_focus()
 
 
 func _on_menbers_pressed() -> void:
 	animation_player.play("menbers")
+	%MenbersBack.grab_focus()
 
 
 func _on_back_pressed() -> void:
 	animation_player.play_backwards("mode_select")
 	main_player.play("start")
+	await main_player.animation_finished
+	start.grab_focus()
 
 
 func _on_single_game_pressed() -> void:
@@ -100,15 +119,26 @@ func _on_single_game_pressed() -> void:
 func _on_debug_changed(value:bool) -> void:
 	print(value)
 	if value:
+		var sets:bool = false
+		if %SingleGame.has_focus():
+			sets = true
 		mode_player.play("debug")
 		await mode_player.animation_finished
 		%SingleGame.visible = false
 		%DebugGame.visible = true
+		if sets:
+			%DebugGame.grab_focus()
 	else:
+		var sets:bool = false
+		if %DebugGame.has_focus():
+			sets = true
+			
 		mode_player.play_backwards("debug")
 		await mode_player.animation_finished
 		%SingleGame.visible = true
 		%DebugGame.visible = false
+		if sets:
+			%SingleGame.grab_focus()
 
 func _on_serial_game_pressed() -> void:
 	mode_player.play_backwards("mode_select")

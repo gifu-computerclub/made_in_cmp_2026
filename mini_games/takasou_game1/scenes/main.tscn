@@ -22,6 +22,7 @@ texture = ExtResource("4_4ku3b")
 [node name="StartOverlay" parent="CanvasLayer" unique_id=1826917538 instance=ExtResource("2_pmq0x")]
 script = ExtResource("4_2yi5o")
 title_name = "音律ヘブン"
+title_slide = false
 after_position = Vector2(2000, -100)
 
 [node name="TurnShow" type="RichTextLabel" parent="." unique_id=238636004]
@@ -36,8 +37,10 @@ position = Vector2(0, 324)
 mesh = SubResource("QuadMesh_wvur5")
 
 [node name="HeartContainer" type="HBoxContainer" parent="." unique_id=1706767475]
-offset_left = 700.0
-offset_right = 1100.0
+offset_left = 280.0
+offset_right = 1151.0
 offset_bottom = 100.0
+alignment = 2
 
+[connection signal="game_start" from="CanvasLayer/StartOverlay" to="." method="_on_start_overlay_game_start"]
 [connection signal="music_started" from="CanvasLayer/StartOverlay" to="." method="_on_start_overlay_music_started"]

@@ -44,25 +44,17 @@ func _process(delta: float) -> void:
 #region ファイル取得
 ## ミニゲームファイルを取得。ミニゲームでは使わない
 func load_description() -> Array[Description]:
-	var result:Array[Description] = []
+	var result: Array[Description] = []
 
-	var dir := DirAccess.open("res://description")
-	if dir == null:
-		return result
+	var files := ResourceLoader.list_directory("res://description")
 
-	dir.list_dir_begin()
-
-	var file_name := dir.get_next()
-	while file_name != "":
-		if !dir.current_is_dir() and file_name.ends_with(".tres"):
-			var res := load("res://description/" + file_name)
+	for file_name in files:
+		if file_name.ends_with(".tres"):
+			var path := "res://description/" + file_name
+			var res := load(path)
 
 			if res is Description:
 				result.append(res)
-
-		file_name = dir.get_next()
-
-	dir.list_dir_end()
 
 	return result
 #endregion
