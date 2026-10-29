@@ -4,26 +4,13 @@
 [ext_resource type="Script" uid="uid://b1cgg2r7senw3" path="res://titlemenu/scripts/animetion_button.gd" id="1_q3ijy"]
 [ext_resource type="Script" uid="uid://b25yypjb6qoya" path="res://titlemenu/scripts/menu_system/menu_tab.gd" id="2_7f7uc"]
 [ext_resource type="Theme" uid="uid://djl3swdpcobug" path="res://titlemenu/assets/texture/thema/debug_button.tres" id="2_jvyfx"]
+[ext_resource type="StyleBox" uid="uid://brf1d38fha541" path="res://titlemenu/assets/texture/thema/panel.tres" id="2_x5roq"]
 [ext_resource type="Script" uid="uid://5xvwd0w1ogad" path="res://titlemenu/scripts/menu_system/menu.gd" id="3_owq2m"]
 [ext_resource type="Resource" uid="uid://c2ed4eipvxgip" path="res://titlemenu/scripts/menu_system/setting_datas.tres" id="4_w7msk"]
 [ext_resource type="Script" uid="uid://c3hlf2m0ijg41" path="res://titlemenu/scripts/menu_system/visibling_checkbutton.gd" id="5_x5roq"]
 [ext_resource type="Script" uid="uid://bhvqieefq4ggd" path="res://addons/AudioManager/audio_h_slider.gd" id="6_owq2m"]
 [ext_resource type="Script" uid="uid://doy4fckcwqqya" path="res://titlemenu/scripts/menu_system/menu_change_h.gd" id="7_w7msk"]
 [ext_resource type="Texture2D" uid="uid://y3eyafl3madd" path="res://titlemenu/assets/texture/corsor.png" id="8_vu75j"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_diwe4"]
-bg_color = Color(0.23, 0.23, 0.23, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_color = Color(0, 0, 0, 1)
-shadow_size = 2
-shadow_offset = Vector2(2, 2)
 
 [sub_resource type="Animation" id="Animation_5b0h8"]
 length = 0.001
@@ -151,7 +138,7 @@ offset_right = 244.0
 offset_bottom = 204.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_diwe4")
+theme_override_styles/panel = ExtResource("2_x5roq")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1484743229]
 layout_mode = 1
@@ -302,7 +289,6 @@ NodePath("CheckButton"): &"long_start",
 NodePath("FullScrene"): &"full_screan",
 NodePath("WindowSize"): &"window_size"
 }
-debug_print = null
 metadata/_custom_type_script = "uid://5xvwd0w1ogad"
 
 [node name="CheckButton" type="CheckButton" parent="Panel/MarginContainer/TabMenu/ゲーム/MarginContainer/Menu" unique_id=1329124681]
@@ -434,11 +420,18 @@ offset_left = 95.0
 offset_top = 462.0
 offset_right = 233.0
 offset_bottom = 505.0
+focus_neighbor_left = NodePath(" ")
+focus_neighbor_top = NodePath(" ")
+focus_neighbor_bottom = NodePath(" ")
+focus_next = NodePath(" ")
+focus_previous = NodePath(" ")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 32
 text = "Back"
 script = ExtResource("1_q3ijy")
+tip_text = "戻る"
+tip_pos = Vector2(-15, 50)
 metadata/_custom_type_script = "uid://b1cgg2r7senw3"
 
 [node name="SettingPlayer" type="AnimationPlayer" parent="." unique_id=1957982940]
@@ -450,6 +443,16 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("8_vu75j")
+
+[node name="Label" type="Label" parent="." unique_id=201626830]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 395.0
+offset_right = 258.0
+offset_bottom = 428.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "Bでもどる"
 
 [connection signal="actioned" from="Panel/MarginContainer/TabMenu" to="." method="_on_tab_menu_actioned"]
 [connection signal="request_init" from="Panel/MarginContainer/TabMenu/オーディオ/MarginContainer/Menu" to="." method="_on_tab_menu_request_init"]

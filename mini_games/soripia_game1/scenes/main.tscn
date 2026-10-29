@@ -35,8 +35,10 @@ visible = false
 wait_time = 25.0
 
 [node name="StartOverlay" parent="CanvasLayer" unique_id=1826917538 instance=ExtResource("2_pmq0x")]
-visible = false
 title_name = "魅せ付けろ"
+after_position = Vector2(700, 50)
+after_size = 32
+after_outline = 10
 
 [node name="start" type="AudioStreamPlayer" parent="." unique_id=1039334853]
 stream = ExtResource("4_kiqjf")
@@ -109,6 +111,7 @@ stream = ExtResource("17_cqunk")
 [node name="downTimer" type="Timer" parent="." unique_id=1869044723]
 wait_time = 5.0
 
+[connection signal="game_start" from="CanvasLayer/StartOverlay" to="." method="_on_start_overlay_game_start"]
 [connection signal="finished" from="start" to="." method="_on_audio_stream_player_finished"]
 [connection signal="timeout" from="RandomTimer" to="." method="_on_random_timer_timeout"]
 [connection signal="timeout" from="judgeTimer" to="." method="_on_judge_timer_timeout"]

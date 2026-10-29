@@ -23,10 +23,6 @@ func _ready() -> void:
 	$ene_fi.hide()
 	$you_lo.hide()
 	$ene_lo.hide()
-	start_sound.play()
-	normal_volume = GameManager.settings.bgm_vol
-	var tween:Tween = create_tween()
-	tween.tween_method(_set_value,normal_volume,0.0,1.5)
 	can_push = 1
 
 func _process(delta: float) -> void:
@@ -114,3 +110,10 @@ func _on_judge_timer_timeout() -> void:
 func _on_down_timer_timeout() -> void:
 	if can_push == 1:
 		GameManager.game_over()
+
+
+func _on_start_overlay_game_start() -> void:
+	start_sound.play()
+	normal_volume = GameManager.settings.bgm_vol
+	var tween:Tween = create_tween()
+	tween.tween_method(_set_value,normal_volume,0.0,1.5)

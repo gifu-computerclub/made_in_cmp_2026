@@ -1,19 +1,28 @@
 extends Button
 class_name AnimetionButton
 var tween:Tween
-
+@export var use_tip:bool = true
+@export_multiline() var tip_text:String
+@export var tip_pos:Vector2
+var tooltip:ToolTip
 func _ready() -> void:
 	offset_transform_enabled = true
 	mouse_entered.connect(_hover)
 	mouse_exited.connect(_unhover)
 	focus_entered.connect(_hover)
 	focus_exited.connect(_unhover)
+	if use_tip:
+		tooltip = preload("res://titlemenu/scenes/tooltip.tscn").instantiate()
+		add_child(tooltip)
+		tooltip.set_tooltip(tip_text,tip_pos)
 	
 
 func _hover() -> void:
 	if disabled:return
 	if tween and tween.is_running():
 		tween.kill()
+	if use_tip:
+		tooltip.open()
 	tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	tween.parallel().tween_property(self,"offset_transform_scale:y",1.2,0.20)
 	tween.parallel().tween_property(self,"offset_transform_scale:y",1.2,0.35)
@@ -25,6 +34,8 @@ func _unhover() -> void:
 	if disabled:return
 	if tween and tween.is_running():
 		tween.kill()
+	if use_tip:
+		tooltip.close()
 	tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	tween.parallel().tween_property(self,"offset_transform_scale:y",1.0,0.20)
 	tween.parallel().tween_property(self,"offset_transform_scale:y",1.0,0.35)

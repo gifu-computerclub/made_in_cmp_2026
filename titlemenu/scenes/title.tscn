@@ -772,6 +772,8 @@ theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 48
 text = "Start"
 script = ExtResource("3_jsk3t")
+tip_text = "さあ、ゲームを始めよう!"
+tip_pos = Vector2(350, 0)
 metadata/_custom_type_script = "uid://b1cgg2r7senw3"
 
 [node name="Quit" type="Button" parent="Main/VBoxContainer" unique_id=1474971726]
@@ -787,6 +789,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_kiihg")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_bnurt")
 text = "Quit"
 script = ExtResource("3_jsk3t")
+tip_text = "ゲームを終了
+展示モードでは使用できません"
+tip_pos = Vector2(350, 0)
 metadata/_custom_type_script = "uid://b1cgg2r7senw3"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Main" unique_id=72627725]
@@ -808,6 +813,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 7
 text = "SETTINGS"
 script = ExtResource("3_jsk3t")
+tip_text = "設定を変更します。"
+tip_pos = Vector2(160, -15)
 metadata/_custom_type_script = "uid://b1cgg2r7senw3"
 
 [node name="Menbers" type="Button" parent="Main/VBoxContainer2" unique_id=898307592]
@@ -820,6 +827,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 7
 text = "MENBERS"
 script = ExtResource("3_jsk3t")
+tip_text = "ミニゲーム制作に参加したメンバーたち"
+tip_pos = Vector2(160, -15)
 metadata/_custom_type_script = "uid://b1cgg2r7senw3"
 
 [node name="Credits" type="Button" parent="Main/VBoxContainer2" unique_id=750409445]
@@ -833,6 +842,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 7
 text = "CREDITS"
 script = ExtResource("3_jsk3t")
+tip_text = "制作に使用したクレジット"
+tip_pos = Vector2(160, -15)
 metadata/_custom_type_script = "uid://b1cgg2r7senw3"
 
 [node name="MainPlayer" type="AnimationPlayer" parent="Main" unique_id=1432198390]
@@ -930,7 +941,25 @@ size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.08, 0.08, 0.08, 1)
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
-text = "協力に感謝します。"
+text = "メイドインコン部:
+音楽:会計
+フォント:メロナーノ
+使用エンジン:Godot
+セレクト背景:岐阜高専
+
+ちくパ大明神:
+イラスト:いらすとや
+
+soripia:
+イラスト：いらすとや
+
+ありえる:
+フォント:Meleto(ドットコロン)
+
+[rainbow]たかそう部長ULTIMATE：[/rainbow]
+背景:K.seiji
+
+"
 
 [node name="CreditBack" type="Button" parent="Credits" unique_id=1984023971]
 unique_name_in_owner = true
@@ -939,11 +968,19 @@ offset_left = 32.0
 offset_top = 519.0
 offset_right = 170.0
 offset_bottom = 562.0
+focus_neighbor_left = NodePath(" ")
+focus_neighbor_top = NodePath(" ")
+focus_neighbor_right = NodePath(" ")
+focus_neighbor_bottom = NodePath(" ")
+focus_next = NodePath(" ")
+focus_previous = NodePath(" ")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 32
 text = "Back"
 script = ExtResource("3_jsk3t")
+tip_text = "タイトルに戻る"
+tip_pos = Vector2(-15, 50)
 metadata/_custom_type_script = "uid://b1cgg2r7senw3"
 
 [node name="Members" type="Control" parent="." unique_id=1553180500]
@@ -1058,11 +1095,19 @@ offset_left = 32.0
 offset_top = 519.0
 offset_right = 170.0
 offset_bottom = 562.0
+focus_neighbor_left = NodePath(" ")
+focus_neighbor_top = NodePath(" ")
+focus_neighbor_right = NodePath(" ")
+focus_neighbor_bottom = NodePath(" ")
+focus_next = NodePath(" ")
+focus_previous = NodePath(" ")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 32
 text = "Back"
 script = ExtResource("3_jsk3t")
+tip_text = "タイトルに戻る"
+tip_pos = Vector2(-15, 50)
 metadata/_custom_type_script = "uid://b1cgg2r7senw3"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Members" unique_id=213331004]
@@ -1137,6 +1182,8 @@ theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 48
 text = "シングルゲーム"
 script = ExtResource("3_jsk3t")
+tip_text = "ランダムに一つ選択しプレイする"
+tip_pos = Vector2(425, 0)
 metadata/_custom_type_script = "uid://b1cgg2r7senw3"
 
 [node name="DebugGame" type="Button" parent="ModeSelect/VBoxContainer" unique_id=2137034877]
@@ -1145,12 +1192,15 @@ visible = false
 layout_mode = 2
 offset_transform_enabled = true
 focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
 theme = ExtResource("5_0h8r8")
 theme_override_colors/font_color = Color(1, 0.9333334, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 48
 text = "デバックゲーム"
 script = ExtResource("3_jsk3t")
+tip_text = "自由に選択しプレイする"
+tip_pos = Vector2(425, 0)
 metadata/_custom_type_script = "uid://b1cgg2r7senw3"
 
 [node name="SerialGame" type="Button" parent="ModeSelect/VBoxContainer" unique_id=518999402]
@@ -1160,8 +1210,10 @@ focus_neighbor_left = NodePath(".")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 48
-text = "ラピットゲーム"
+text = "ラピッドゲーム"
 script = ExtResource("3_jsk3t")
+tip_text = "決められたライフで連続プレイ"
+tip_pos = Vector2(425, 0)
 metadata/_custom_type_script = "uid://b1cgg2r7senw3"
 
 [node name="Back" type="Button" parent="ModeSelect/VBoxContainer" unique_id=184193426]
@@ -1174,6 +1226,8 @@ theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 48
 text = "戻る"
 script = ExtResource("3_jsk3t")
+tip_text = "タイトルに戻る"
+tip_pos = Vector2(425, 0)
 metadata/_custom_type_script = "uid://b1cgg2r7senw3"
 
 [node name="ModePlayer" type="AnimationPlayer" parent="ModeSelect" unique_id=1460885962]

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bia6pdx8271hi"]
+
+[ext_resource type="Script" uid="uid://cxlfsl72yw65h" path="res://titlemenu/scenes/tooltip.gd" id="1_o78q4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcx4o"]
+bg_color = Color(0.23, 0.23, 0.23, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[node name="ToolTip" type="PanelContainer" unique_id=119942381]
+offset_right = 123.0
+offset_bottom = 46.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_hcx4o")
+script = ExtResource("1_o78q4")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=754082802]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" unique_id=498623914]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "決められたライフで
+最高のゲームを"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1

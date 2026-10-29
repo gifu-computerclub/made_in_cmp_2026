@@ -86,7 +86,6 @@ func _paused() -> void:
 		#main.set_process(false)
 		#main.set_physics_process(false)
 func _set_viwe() -> void:
-	
 	title_label.text = title_name + "!!!!"
 	title_label.add_theme_color_override("font_color",title_color)
 	title_label.add_theme_color_override("font_outline_color",Color(0,0,0)if outline_color_black else Color(1,1,1))
@@ -153,7 +152,7 @@ func _show_countdown(text: String,color: Color,delay:float = 0.5,speed:float = 0
 
 func _start_countdown_long() -> void:
 	AudioManager.play_BGM("res://titlemenu/assets/audio/Made by CMP!!.ogg",0,0,1,true)
-	title_label.position.x = 1155
+	title_label.position.x = 1200
 	exp_label_1.position.x = 1152
 	exp_label_2.position.x = 1152
 	exp_label_1.visible = true

@@ -25,6 +25,13 @@ func _ready() -> void:
 		_init_helth(GameManager.helth)
 		AudioManager.play_BGM("res://titlemenu/assets/audio/gameselect.ogg",0.5,0,1,true)
 		_init_game(GameManager.selected_game)
+		var game_texs:Array
+		for i in game_box.get_children():
+			game_texs.append(i)
+		await get_tree().process_frame
+		var cursor_pos:Vector2 = game_texs[GameManager.selected_value].global_position + (game_texs[GameManager.selected_value].get_rect().size / Vector2(2,1)) + cursor_offset
+		print(cursor_pos)
+		cursor.global_position = cursor_pos
 		await SceneManager.transition_finished
 		if GameManager.rapid_game_over:
 			GameManager.rapid_game_over = false
@@ -32,7 +39,11 @@ func _ready() -> void:
 		GameManager.selected_value += 1
 		if GameManager.selected_value >= game_count:
 			GameManager.rapid_game = 0
-			SceneManager.change_scene("res://titlemenu/scenes/title.tscn")
+			if rest_helth ==0:
+				GameManager.game_over()
+			else:
+				GameManager.game_clear("残りライフ:%d"%rest_helth)
+			#SceneManager.change_scene("res://titlemenu/scenes/title.tscn")
 		else:
 			star_game(GameManager.selected_value)
 	else:
@@ -132,6 +143,8 @@ func star_game(num:int) -> void:
 	_start_shadow()
 	var tween:Tween = create_tween()
 	var cursor_position = game_texs[num].global_position + (game_texs[num].get_rect().size / Vector2(2,1)) + cursor_offset
+	print(game_texs[num].global_position)
+	print(cursor_position)
 	tween.tween_property(cursor,"global_position",cursor_position,1)
 	await tween.finished
 	shadow = false
